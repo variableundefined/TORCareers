@@ -21,8 +21,6 @@ namespace TORMercenaryCareerOverhaul
                 return;
             }
 
-            // Root mutations run before keystone ones and CommanderKeystone replaces Radius with x2,
-            // so halve the Leadership share for Commander to keep the effect radius at base x2 + 0.05/pt.
             root.Initialize(career, MercenaryCards.RootDescription, null, true, ChoiceType.Keystone,
                 new List<CareerChoiceObject.MutationObject>
                 {

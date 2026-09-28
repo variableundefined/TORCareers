@@ -34,7 +34,6 @@ namespace TORCouncilGuard
             Feature("Council Guard templates", TemplateInjector.Inject);
         }
 
-        // TOR_Core builds TORCareers/TORCareerChoices in its BeginGameStart, which runs before ours.
         public override void BeginGameStart(Game game)
         {
             base.BeginGameStart(game);

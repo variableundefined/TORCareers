@@ -60,7 +60,6 @@ namespace TORImperialEngineer
                 mission.AddMissionBehavior(new MunitionMissionLogic());
         }
 
-        // TOR builds its career registries in its own BeginGameStart, which runs before ours.
         private void RegisterCareer(Game game)
         {
             if (_careerRegisteredFor == game) return;

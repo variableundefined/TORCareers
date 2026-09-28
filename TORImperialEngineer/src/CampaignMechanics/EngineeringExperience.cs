@@ -15,7 +15,6 @@ namespace TORImperialEngineer.CampaignMechanics
     {
         private const int XpPerVictimLevel = 10;
 
-        // Mirrors the gate TOR puts in front of its own kill-charge grant.
         internal static void OnKill(Agent affector, Agent affected, KillingBlow blow)
         {
             try
