@@ -14,8 +14,11 @@ namespace TORImperialEngineer.Abilities
     internal static class ScatterShot
     {
         private const int Pellets = 6;
+        private const int RepeaterPellets = 5;
         private const int GunneryPellets = 9;
+        private const int GunneryRepeaterPellets = 7;
         private const float PelletDamageFactor = 0.5f;
+        private const float RepeaterPelletDamageFactor = 0.4f;
         private const string MusketBallId = "tor_neutral_weapon_ammo_musket_ball";
         private const float Spread = 0.05f;
         private const float PackItInFactor = 1.5f;
@@ -37,13 +40,17 @@ namespace TORImperialEngineer.Abilities
                     Mission.Current.RemoveMissileAsClient(fired.Index);
             }
 
-            var pellets = Hero.MainHero.HasCareerChoice(G.Gunnery + "Keystone") ? GunneryPellets : Pellets;
+            var repeater = weapon.MaxAmmo > 1;
+            var pellets = Hero.MainHero.HasCareerChoice(G.Gunnery + "Keystone")
+                ? (repeater ? GunneryRepeaterPellets : GunneryPellets)
+                : (repeater ? RepeaterPellets : Pellets);
             if (shooter.Character is CharacterObject character && character.GetPerkValue(TORPerks.GunPowder.PackItIn))
                 pellets = (int)(pellets * PackItInFactor);
 
             var pellet = new MissionWeapon(ball, null, null);
             var ballDamage = MissileDamage.Ammo(pellet);
-            var bonus = MissileDamage.Bonus(MissileDamage.Gun(weapon) + ballDamage, PelletDamageFactor, ballDamage);
+            var factor = repeater ? RepeaterPelletDamageFactor : PelletDamageFactor;
+            var bonus = MissileDamage.Bonus(MissileDamage.Gun(weapon) + ballDamage, factor, ballDamage);
 
             var speed = velocity.Length;
             for (var i = 0; i < pellets; i++)

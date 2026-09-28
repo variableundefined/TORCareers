@@ -24,7 +24,7 @@
   <string id="imperial_engineer_HeavyShot_label_str" text="Heavy Shot" />
   <string id="imperial_engineer_HeavyShot_tooltip_str" text="Load Heavy Shot: +100% 'Physical' damage and ignores 50% of armour. 3% misfire chance." />
   <string id="imperial_engineer_ScatterShot_label_str" text="Scatter Shot" />
-  <string id="imperial_engineer_ScatterShot_tooltip_str" text="Load Scatter Shot: fires 6 musket balls in a spread, each dealing half damage. Affected by 'Pack It In'. 5% misfire chance." />
+  <string id="imperial_engineer_ScatterShot_tooltip_str" text="Load Scatter Shot: fires 6 musket balls in a spread (5 on repeaters), each dealing 50% damage (40% on repeaters). Affected by 'Pack It In'. 5% misfire chance." />
   <string id="imperial_engineer_ExplosiveShot_label_str" text="Explosive Shot" />
   <string id="imperial_engineer_ExplosiveShot_tooltip_str" text="Load Explosive Shot: explodes where it lands for up to 60% of the shot's damage as 'Fire' in 3m (40% on repeaters, none on blunderbusses). 8% misfire chance." />
   <string id="imperial_engineer_misfire_flash" text="Misfire - Flash in the Pan" />
@@ -75,7 +75,7 @@
   <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive2" text="{=str_ie_gun2}+10% 'Physical' damage for 'Gunpowder' troops." />
   <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive3" text="{=str_ie_gun3}+10% accuracy for 'Gunpowder' troops." />
   <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive4" text="{=str_ie_gun4}+6 ammunition per ammunition pouch for 'Gunpowder' troops in your party." />
-  <string id="tor_careerchoice_description.ImperialGunnerySchoolKeystone" text="{=str_ie_gunks}Scatter Shot fires 9 pellets. Munition shots give gunners in 10m +30% reload for 10s." />
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolKeystone" text="{=str_ie_gunks}Scatter: 9 pellets (7 repeater). Munition shots give gunners in 10m +30% reload for 10s." />
 
   <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive1" text="{=str_ie_can1}+20% personal reload speed." />
   <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive2" text="{=str_ie_can2}+25% party carrying capacity." />

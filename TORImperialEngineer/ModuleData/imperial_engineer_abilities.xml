@@ -106,7 +106,7 @@
                      MaxDistance="0"
                      CrosshairType="Self"
                      SpellTier="2"
-                     TooltipDescription="{=imperial_engineer_ScatterShot_tooltip_str}Load Scatter Shot: fires 6 musket balls in a spread, each dealing half damage. Affected by 'Pack It In'. 5% misfire chance.">
+                     TooltipDescription="{=imperial_engineer_ScatterShot_tooltip_str}Load Scatter Shot: fires 6 musket balls in a spread (5 on repeaters), each dealing 50% damage (40% on repeaters). Affected by 'Pack It In'. 5% misfire chance.">
         <LightColorRGB x="255" y="160" z="60" w="-1">
             <AsVec2><x>255</x><y>160</y><z>60</z></AsVec2>
         </LightColorRGB>
