@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using HarmonyLib;
 using TaleWorlds.ModuleManager;
 using TOR_Core.AbilitySystem;
 using TOR_Core.BattleMechanics.StatusEffect;
@@ -65,7 +64,7 @@ namespace TORImperialEngineer.Bootstrap
             var parsed = Load<ItemTrait>("imperial_engineer_itemtraits.xml", "ItemTraits");
             if (parsed == null) return;
 
-            var traits = Reflection.ItemTraits();
+            var traits = ItemTraitManager.Instance.GetItemTraits();
             foreach (var trait in parsed)
                 if (!traits.Any(x => x.ItemTraitStringId == trait.ItemTraitStringId))
                     traits.Add(trait);
@@ -80,34 +79,6 @@ namespace TORImperialEngineer.Bootstrap
             foreach (var template in parsed)
                 if (!templates.ContainsKey(template.StringID))
                     templates.Add(template.StringID, template);
-        }
-
-        [HarmonyPatch(typeof(ItemTraitManager), nameof(ItemTraitManager.LoadItemTraits))]
-        internal static class ItemTraitsBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectItemTraits();
-        }
-
-        [HarmonyPatch(typeof(AbilityFactory), nameof(AbilityFactory.LoadTemplates))]
-        internal static class AbilitiesBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectAbilities();
-        }
-
-        [HarmonyPatch(typeof(StatusEffectManager), nameof(StatusEffectManager.LoadStatusEffects))]
-        internal static class StatusEffectsBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectStatusEffects();
-        }
-
-        [HarmonyPatch(typeof(TriggeredEffectManager), nameof(TriggeredEffectManager.LoadTemplates))]
-        internal static class TriggeredEffectsBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectTriggeredEffects();
         }
     }
 }

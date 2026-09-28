@@ -1,38 +1,32 @@
-using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.MountAndBlade;
-using TOR_Core.BattleMechanics.DamageSystem;
-using TOR_Core.CharacterDevelopment.CareerSystem;
 using TOR_Core.Extensions;
-using TOR_Core.Extensions.ExtendedInfoSystem;
 using TORImperialEngineer.Career;
 using G = TORImperialEngineer.Career.ImperialEngineerChoiceGroups;
 
 namespace TORImperialEngineer.CampaignMechanics
 {
-    [HarmonyPatch(typeof(CareerHelper), nameof(CareerHelper.AddCareerPassivesForDamageValues))]
     internal static class ExtraResistances
     {
-        private const float GunpowderTroopFire = 0.10f;
-        private const float PersonalFire = 0.20f;
+        private const string PersonalFireEffect = "ie_personal_fire_resistance";
+        private const string GunpowderTroopFireEffect = "ie_troop_fire_resistance";
+        private const float BattleLong = 99999f;
 
-        [HarmonyPostfix]
-        private static void Postfix(Agent victim, PropertyMask mask, float[] __result)
+        internal static void Apply(Agent agent)
         {
-            if (mask != PropertyMask.Defense || __result == null || victim == null) return;
-            if (!ImperialEngineerCareer.IsPlayer) return;
+            if (agent == null || !agent.IsHuman || !ImperialEngineerCareer.IsPlayer) return;
 
             var hero = Hero.MainHero;
 
-            if (victim.IsMainAgent)
+            if (agent.IsMainAgent)
             {
                 if (hero.HasCareerChoice(G.Leonardo + "Passive2"))
-                    __result[(int)DamageType.Fire] += PersonalFire;
+                    agent.ApplyStatusEffect(PersonalFireEffect, agent, BattleLong);
                 return;
             }
 
-            if (hero.HasCareerChoice(G.Cannons + "Passive4") && Firearms.IsGunpowderTroop(victim))
-                __result[(int)DamageType.Fire] += GunpowderTroopFire;
+            if (hero.HasCareerChoice(G.Cannons + "Passive4") && agent.BelongsToMainParty() && Firearms.IsGunpowderTroop(agent))
+                agent.ApplyStatusEffect(GunpowderTroopFireEffect, agent, BattleLong);
         }
     }
 }

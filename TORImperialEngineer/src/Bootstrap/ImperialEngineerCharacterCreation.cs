@@ -5,12 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
 using HarmonyLib;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.ModuleManager;
 using TOR_Core.CampaignMechanics.CharacterCreation;
-using TOR_Core.Extensions;
-using TORImperialEngineer.Career;
 
 namespace TORImperialEngineer.Bootstrap
 {
@@ -20,7 +17,6 @@ namespace TORImperialEngineer.Bootstrap
         private const string FileName = "imperial_engineer_cc_options.xml";
 
         private static AccessTools.FieldRef<TORCharacterCreationContentHandler, List<CharacterCreationOption>> _options;
-        private static AccessTools.FieldRef<TORCharacterCreationContentHandler, string> _selected;
 
         private static List<CharacterCreationOption> _loaded;
 
@@ -28,18 +24,12 @@ namespace TORImperialEngineer.Bootstrap
         {
             _options = AccessTools.FieldRefAccess<TORCharacterCreationContentHandler,
                 List<CharacterCreationOption>>("_options");
-            _selected = AccessTools.FieldRefAccess<TORCharacterCreationContentHandler,
-                string>("_selectedProfessionId");
-            if (_options == null || _selected == null)
+            if (_options == null)
                 throw new MissingFieldException("TORCharacterCreationContentHandler fields not found.");
 
             _loaded = LoadOptions();
             if (_loaded == null || _loaded.Count == 0)
                 throw new InvalidOperationException(FileName + " produced no options.");
-
-            harmony.Patch(
-                Required(typeof(TORCharacterCreationContentHandler), "ApplyProfessionBonuses", Type.EmptyTypes),
-                prefix: Method(nameof(AssignCareer)));
 
             harmony.Patch(
                 Required(typeof(TORCharacterCreationContentHandler), "InitializeContent",
@@ -70,27 +60,6 @@ namespace TORImperialEngineer.Bootstrap
             {
                 if (options.Any(x => x?.Id == option.Id)) continue;
                 options.Add(option);
-            }
-        }
-
-        private static void AssignCareer(TORCharacterCreationContentHandler __instance)
-        {
-            try
-            {
-                if (_selected(__instance) != OptionId) return;
-
-                var career = ImperialEngineerCareer.Career;
-                if (career == null)
-                {
-                    Log.Error("Imperial Engineer career was never registered; this start will default to Mercenary.");
-                    return;
-                }
-
-                Hero.MainHero.AddCareer(career);
-            }
-            catch (Exception e)
-            {
-                Log.Error("Could not assign the Imperial Engineer career: " + e.Message);
             }
         }
 

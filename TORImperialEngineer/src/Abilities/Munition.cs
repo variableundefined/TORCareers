@@ -7,6 +7,8 @@ using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TOR_Core.BattleMechanics.StatusEffect;
+using TOR_Core.BattleMechanics.TriggeredEffect;
+using TriggeredEffectInstance = TOR_Core.BattleMechanics.TriggeredEffect.TriggeredEffect;
 using TOR_Core.CharacterDevelopment;
 using TOR_Core.Extensions;
 using TOR_Core.Items;
@@ -170,14 +172,16 @@ namespace TORImperialEngineer.Abilities
         {
             try
             {
-                var effect = Reflection.CreateTriggeredEffect(MisfireEffect);
-                if (effect == null)
+                var template = TriggeredEffectManager.GetTemplatesWithIds(new List<string> { MisfireEffect }).FirstOrDefault();
+                if (template == null)
                 {
                     Log.Warn("Triggered effect " + MisfireEffect + " is missing; misfire skipped.");
                     return;
                 }
+
+                var effect = new TriggeredEffectInstance(template);
                 if (Hero.MainHero.HasCareerChoice(SteadyHandsChoice))
-                    SteadyMisfire(effect, shooter);
+                    SteadyMisfire(effect, template, shooter);
                 else
                     effect.Trigger(shooter.Position, Vec3.Up, shooter);
             }
@@ -187,17 +191,15 @@ namespace TORImperialEngineer.Abilities
             }
         }
 
-        private static void SteadyMisfire(TOR_Core.BattleMechanics.TriggeredEffect.TriggeredEffect effect, Agent shooter)
+        private static void SteadyMisfire(TriggeredEffectInstance effect, TriggeredEffectTemplate template, Agent shooter)
         {
             var position = shooter.Position;
-            Reflection.TriggeredEffectTemplates().TryGetValue(MisfireEffect, out var template);
-            var radius = template?.Radius ?? 2.5f;
 
-            var others = Mission.Current.GetNearbyAgents(position.AsVec2, radius, new MBList<Agent>());
+            var others = Mission.Current.GetNearbyAgents(position.AsVec2, template.Radius, new MBList<Agent>());
             others.Remove(shooter);
             effect.Trigger(position, Vec3.Up, shooter, null, others);
 
-            if (template == null || template.DamageAmount <= 0) return;
+            if (template.DamageAmount <= 0) return;
 
             var damage = template.DamageAmount;
             try

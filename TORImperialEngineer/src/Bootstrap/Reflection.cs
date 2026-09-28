@@ -11,15 +11,11 @@ using TOR_Core.CharacterDevelopment;
 using TOR_Core.CharacterDevelopment.CareerSystem;
 using TOR_Core.CampaignMechanics.Choices;
 using TOR_Core.Items;
-using TriggeredEffectInstance = TOR_Core.BattleMechanics.TriggeredEffect.TriggeredEffect;
 
 namespace TORImperialEngineer.Bootstrap
 {
     internal static class Reflection
     {
-        private static readonly MethodInfo CreateTriggeredEffectMethod =
-            AccessTools.Method(typeof(TriggeredEffectManager), "CreateNew");
-
         private static T Field<T>(object instance, Type owner, string name) where T : class
         {
             var f = AccessTools.Field(owner, name);
@@ -61,12 +57,6 @@ namespace TORImperialEngineer.Bootstrap
                 ?? throw new InvalidOperationException("TriggeredEffectManager._dictionary was null.");
         }
 
-        internal static List<ItemTrait> ItemTraits()
-        {
-            return Field<List<ItemTrait>>(ItemTraitManager.Instance, typeof(ItemTraitManager), "_itemTraits")
-                ?? throw new InvalidOperationException("ItemTraitManager._itemTraits was null.");
-        }
-
         private static readonly FieldInfo WeaponTraitsField =
             AccessTools.Field(typeof(ItemTraitAgentComponent), "_dynamicTraits");
 
@@ -79,13 +69,6 @@ namespace TORImperialEngineer.Bootstrap
                 return false;
             component.OnWieldedItemChanged();
             return true;
-        }
-
-        internal static TriggeredEffectInstance CreateTriggeredEffect(string id)
-        {
-            if (CreateTriggeredEffectMethod == null)
-                throw new MissingMethodException("TriggeredEffectManager.CreateNew not found.");
-            return CreateTriggeredEffectMethod.Invoke(null, new object[] { id }) as TriggeredEffectInstance;
         }
     }
 }

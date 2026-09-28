@@ -2,10 +2,15 @@ using System;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
+using TOR_Core.CharacterDevelopment;
 using TORImperialEngineer.Abilities;
 using TORImperialEngineer.Bootstrap;
 using TORImperialEngineer.CampaignMechanics;
+using TORImperialEngineer.Career;
+using TORImperialEngineer.Combat;
 
 namespace TORImperialEngineer
 {
@@ -13,6 +18,7 @@ namespace TORImperialEngineer
     {
         private const string HarmonyId = "TORImperialEngineer";
         private Harmony _harmony;
+        private Game _careerRegisteredFor;
 
         protected override void OnSubModuleLoad()
         {
@@ -30,18 +36,47 @@ namespace TORImperialEngineer
             Feature("Imperial Engineer templates", TemplateInjector.Inject);
         }
 
-        protected override void OnGameStart(TaleWorlds.Core.Game game, TaleWorlds.Core.IGameStarter gameStarterObject)
+        public override void BeginGameStart(Game game)
+        {
+            base.BeginGameStart(game);
+            if (game.GameType is Campaign)
+                Feature("Imperial Engineer career", () => RegisterCareer(game));
+        }
+
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-            if (game.GameType is TaleWorlds.CampaignSystem.Campaign && gameStarterObject is TaleWorlds.CampaignSystem.CampaignGameStarter starter)
+            if (game.GameType is Campaign && gameStarterObject is CampaignGameStarter starter)
+            {
+                starter.AddModel(new ImperialEngineerAgentStatCalculateModel());
                 starter.AddBehavior(new ImperialEngineerCampaignBehavior());
+            }
         }
 
         public override void OnMissionBehaviorInitialize(Mission mission)
         {
             base.OnMissionBehaviorInitialize(mission);
-            if (TaleWorlds.CampaignSystem.Campaign.Current != null)
+            if (Campaign.Current != null)
                 mission.AddMissionBehavior(new MunitionMissionLogic());
+        }
+
+        // TOR builds its career registries in its own BeginGameStart, which runs before ours.
+        private void RegisterCareer(Game game)
+        {
+            if (_careerRegisteredFor == game) return;
+
+            var choiceSets = TORCareerChoices.Instance
+                ?? throw new InvalidOperationException("TORCareerChoices.Instance is null.");
+
+            var career = ImperialEngineerCareer.Create();
+            ImperialEngineerChoiceGroups.Register(career);
+            var choices = new ImperialEngineerCareerChoices(career);
+
+            Reflection.AllCareers().Add(career);
+            Reflection.AllCareerChoices(choiceSets).Add(choices);
+
+            _careerRegisteredFor = game;
+            Log.Write("Career registered for this campaign. Careers: " + Reflection.AllCareers().Count + ", choice sets: " + Reflection.AllCareerChoices(choiceSets).Count + ".");
         }
 
         private static void Feature(string name, Action patch)

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
-using HarmonyLib;
 using TaleWorlds.ModuleManager;
 using TOR_Core.AbilitySystem;
 using TOR_Core.BattleMechanics.StatusEffect;
@@ -29,6 +28,7 @@ namespace TORCouncilGuard.Bootstrap
             }
         }
 
+        // TOR_Core loads its own templates in its OnSubModuleLoad, which runs before ours.
         internal static void Inject()
         {
             InjectAbilities();
@@ -67,27 +67,6 @@ namespace TORCouncilGuard.Bootstrap
             foreach (var trait in parsed)
                 if (!traits.Any(x => x.ItemTraitStringId == trait.ItemTraitStringId))
                     traits.Add(trait);
-        }
-
-        [HarmonyPatch(typeof(ItemTraitManager), nameof(ItemTraitManager.LoadItemTraits))]
-        internal static class ItemTraitsBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectItemTraits();
-        }
-
-        [HarmonyPatch(typeof(AbilityFactory), nameof(AbilityFactory.LoadTemplates))]
-        internal static class AbilitiesBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectAbilities();
-        }
-
-        [HarmonyPatch(typeof(StatusEffectManager), nameof(StatusEffectManager.LoadStatusEffects))]
-        internal static class StatusEffectsBackstop
-        {
-            [HarmonyPostfix]
-            private static void Postfix() => InjectStatusEffects();
         }
     }
 }

@@ -63,21 +63,15 @@ namespace TORImperialEngineer.Abilities
             return text;
         }
 
-        [HarmonyPatch(typeof(Ability), nameof(Ability.ActivateAbility))]
-        internal static class SelectOnCast
+        private static void OnSelectorCast(Ability ability, Agent caster)
         {
-            [HarmonyPostfix]
-            private static void Postfix(Ability __instance, Agent casterAgent)
+            try
             {
-                try
-                {
-                    if (casterAgent == null || !IsSelector(__instance.Template)) return;
-                    Select(__instance.Template, casterAgent);
-                }
-                catch (Exception e)
-                {
-                    Log.Warn("Ammo selection failed: " + e.Message);
-                }
+                Select(ability.Template, caster);
+            }
+            catch (Exception e)
+            {
+                Log.Warn("Ammo selection failed: " + e.Message);
             }
         }
 
@@ -128,6 +122,7 @@ namespace TORImperialEngineer.Abilities
 
                         ability.OnCastStart += (Ability.OnCastStartHandler)Delegate.CreateDelegate(typeof(Ability.OnCastStartHandler), __instance, OnCastStart);
                         ability.OnCastComplete += (Ability.OnCastCompleteHandler)Delegate.CreateDelegate(typeof(Ability.OnCastCompleteHandler), __instance, OnCastComplete);
+                        ability.OnCastComplete += cast => OnSelectorCast(cast, agent);
                         abilities.Add(ability);
                     }
 

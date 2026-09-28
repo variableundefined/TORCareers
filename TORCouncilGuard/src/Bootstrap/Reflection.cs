@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using TOR_Core.Items;
 using TOR_Core.AbilitySystem;
@@ -49,22 +48,10 @@ namespace TORCouncilGuard.Bootstrap
                 ?? throw new InvalidOperationException("StatusEffectManager._idToStatusEffect was null.");
         }
 
-        internal static ConstructorInfo CareerChoicesConstructor()
-        {
-            return AccessTools.Constructor(typeof(TORCareerChoices), Type.EmptyTypes)
-                ?? throw new MissingMethodException("TORCareerChoices parameterless constructor not found.");
-        }
-
-        internal static MethodInfo LoadAbilityTemplates()
-        {
-            return AccessTools.Method(typeof(AbilityFactory), nameof(AbilityFactory.LoadTemplates))
-                ?? throw new MissingMethodException("AbilityFactory.LoadTemplates not found.");
-        }
-    
         internal static List<ItemTrait> ItemTraits()
         {
             return (List<ItemTrait>)AccessTools.Field(typeof(ItemTraitManager), "_itemTraits")
                 .GetValue(ItemTraitManager.Instance);
         }
-}
+    }
 }

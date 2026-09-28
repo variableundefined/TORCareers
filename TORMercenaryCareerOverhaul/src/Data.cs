@@ -83,11 +83,6 @@ namespace TORMercenaryCareerOverhaul
             return radius + LeadershipRadius(hero.CharacterObject);
         }
 
-        internal static bool IsLetThemHaveIt(AbilityTemplate template)
-        {
-            return template?.StringID != null && template.StringID.StartsWith(AbilityId);
-        }
-
         private static TriggeredEffectTemplate Effect(string id)
         {
             return TriggeredEffectManager.GetTemplatesWithIds(new List<string> { id })?.FirstOrDefault();

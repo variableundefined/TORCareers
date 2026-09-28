@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using TOR_Core.CampaignMechanics.CharacterCreation;
-using TORMercenaryCareerOverhaul.CampaignMechanics;
 
 namespace TORMercenaryCareerOverhaul.Patches
 {
@@ -31,14 +30,10 @@ namespace TORMercenaryCareerOverhaul.Patches
                       ?? throw new MissingMethodException(handler.Name, "HasSpecializationOptions");
             var get = AccessTools.Method(handler, "GetSpecializationOptions")
                       ?? throw new MissingMethodException(handler.Name, "GetSpecializationOptions");
-            var set = AccessTools.Method(handler, "SetSelectedSpecializationOptionId")
-                      ?? throw new MissingMethodException(handler.Name, "SetSelectedSpecializationOptionId");
 
             var ensure = new HarmonyMethod(AccessTools.Method(typeof(MercenaryOrigins), nameof(Ensure)));
             harmony.Patch(has, prefix: ensure);
             harmony.Patch(get, prefix: ensure);
-            harmony.Patch(set, postfix: new HarmonyMethod(AccessTools.Method(typeof(MercenaryOrigins), nameof(Record))));
-
         }
 
         private static void Ensure(object __instance)
@@ -90,21 +85,6 @@ namespace TORMercenaryCareerOverhaul.Patches
                     }
                 }
 
-            }
-            catch (Exception ex)
-            {
-                Log.Write("MercenaryContactOrigins: " + ex.Message);
-            }
-        }
-
-        private static void Record(string optionId)
-        {
-            try
-            {
-                var company = Contacts.ByOptionId(optionId);
-                if (company == null) return;
-
-                MercenaryContacts.Sign(company.Id);
             }
             catch (Exception ex)
             {

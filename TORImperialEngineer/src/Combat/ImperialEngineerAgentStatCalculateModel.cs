@@ -1,4 +1,3 @@
-using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
@@ -10,16 +9,39 @@ using G = TORImperialEngineer.Career.ImperialEngineerChoiceGroups;
 
 namespace TORImperialEngineer.Combat
 {
-    [HarmonyPatch(typeof(TORAgentStatCalculateModel), nameof(TORAgentStatCalculateModel.InitializeMissionEquipment))]
-    internal static class AmmoPatches
+    internal class ImperialEngineerAgentStatCalculateModel : TORAgentStatCalculateModel
     {
+        private const float PersonalMissileSpeed = 1.15f;
+        private const float TroopInaccuracy = 0.90f;
         private const int PersonalPouchBonus = 6;
         private const int PersonalGrenadeBonus = 3;
         private const int TroopPouchBonus = 6;
 
-        [HarmonyPostfix]
-        private static void Postfix(Agent agent)
+        public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)
         {
+            base.UpdateAgentStats(agent, agentDrivenProperties);
+
+            if (agent == null || !agent.IsMainAgent || agentDrivenProperties == null) return;
+            if (!ImperialEngineerCareer.IsPlayer || !Hero.MainHero.HasCareerChoice(G.Customized + "Passive3")) return;
+
+            agentDrivenProperties.MissileSpeedMultiplier *= PersonalMissileSpeed;
+        }
+
+        public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)
+        {
+            var result = base.GetWeaponInaccuracy(agent, weapon, weaponSkill);
+
+            if (agent == null || agent.IsMainAgent || weapon == null || !weapon.IsGunPowderWeapon()) return result;
+            if (!ImperialEngineerCareer.IsPlayer || !Hero.MainHero.HasCareerChoice(G.Gunnery + "Passive3")) return result;
+            if (!agent.BelongsToMainParty() || !Firearms.IsGunpowderTroop(agent)) return result;
+
+            return result * TroopInaccuracy;
+        }
+
+        public override void InitializeMissionEquipment(Agent agent)
+        {
+            base.InitializeMissionEquipment(agent);
+
             if (agent == null || !agent.IsHuman || agent.Origin is SummonedAgentOrigin) return;
             if (Mission.Current == null || Mission.Current.IsArenaMission()) return;
             if (!ImperialEngineerCareer.IsPlayer) return;

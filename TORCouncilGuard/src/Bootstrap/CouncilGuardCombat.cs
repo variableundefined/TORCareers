@@ -11,31 +11,11 @@ using TOR_Core.BattleMechanics.DamageSystem;
 using TOR_Core.BattleMechanics.StatusEffect;
 using TOR_Core.CharacterDevelopment.CareerSystem;
 using TOR_Core.Extensions;
-using TOR_Core.Extensions.ExtendedInfoSystem;
 using TORCouncilGuard.Abilities;
 using TORCouncilGuard.Career;
 
 namespace TORCouncilGuard.Bootstrap
 {
-    [HarmonyPatch(typeof(CareerHelper), nameof(CareerHelper.AddCareerPassivesForDamageValues))]
-    internal static class BladesMagicalResistance
-    {
-        private const string Choice = "BladesOfElthinArvanPassive4";
-        private const float Resistance = 0.30f;
-
-        [HarmonyPostfix]
-        private static void Postfix(Agent victim, PropertyMask mask, float[] __result)
-        {
-            if (__result == null || mask != PropertyMask.Defense) return;
-            if (victim == null || !victim.IsMainAgent) return;
-
-            var hero = Hero.MainHero;
-            if (hero == null || !hero.HasCareerChoice(Choice)) return;
-
-            __result[(int)DamageType.Magical] += Resistance;
-        }
-    }
-
     [HarmonyPatch(typeof(CareerAbility), nameof(CareerAbility.IsDisabled))]
     internal static class JudgementOfAsuryanRestrictions
     {
@@ -61,20 +41,29 @@ namespace TORCouncilGuard.Bootstrap
         }
     }
 
-    [HarmonyPatch(typeof(CareerAbility), MethodType.Constructor, new[] { typeof(AbilityTemplate), typeof(Agent) })]
-    internal static class ToriourKeystoneStartCharged
+    internal class CouncilGuardMainAgentLogic : MissionLogic
     {
-        [HarmonyPostfix]
-        private static void Postfix(CareerAbility __instance, Agent agent)
+        private const string MagicalResistanceChoice = "BladesOfElthinArvanPassive4";
+        private const string MagicalResistanceEffect = "cg_blades_magical_resistance";
+        private const float PermanentDuration = 99999f;
+
+        // TOR builds the StatusEffectComponent and CareerAbility in OnAgentCreated, so both exist by now.
+        public override void OnAgentBuild(Agent agent, Banner banner)
         {
             var hero = Hero.MainHero;
-            if (agent == null || agent.GetHero() != hero) return;
-            var career = CouncilGuardCareer.Career;
-            if (hero == null || career == null || !hero.HasCareer(career)) return;
-            if (!hero.HasCareerChoice("ToriourKeystone")) return;
+            if (agent == null || hero == null || agent.GetHero() != hero) return;
 
-            __instance.AddCharge(career.MaxCharge);
-            __instance.SetCoolDown(0);
+            if (hero.HasCareerChoice(MagicalResistanceChoice))
+                agent.ApplyStatusEffect(MagicalResistanceEffect, agent, PermanentDuration, false);
+
+            var career = CouncilGuardCareer.Career;
+            if (career == null || !hero.HasCareer(career) || !hero.HasCareerChoice("ToriourKeystone")) return;
+
+            var ability = agent.GetComponent<AbilityComponent>()?.CareerAbility;
+            if (ability == null) return;
+
+            ability.AddCharge(career.MaxCharge);
+            ability.SetCoolDown(0);
         }
     }
 
@@ -155,15 +144,20 @@ namespace TORCouncilGuard.Bootstrap
         }
     }
 
-    internal class JudgementOfAsuryanKillLogic : MissionLogic
+    internal class CouncilGuardKillLogic : MissionLogic
     {
         private const int CooldownPerKill = 2;
 
         public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
         {
             if (affectorAgent == null || !affectorAgent.IsMainAgent) return;
+            if (affectedAgent == null || !affectedAgent.IsEnemyOf(affectorAgent)) return;
+
+            if (CareerHelper.IsValidCareerMissionInteractionBetweenAgents(affectorAgent, affectedAgent))
+                CouncilGuardFaith.OnKill(affectorAgent, affectedAgent);
+
             if (agentState != AgentState.Killed && agentState != AgentState.Unconscious) return;
-            if (affectedAgent == null || !affectedAgent.IsHuman || !affectedAgent.IsEnemyOf(affectorAgent)) return;
+            if (!affectedAgent.IsHuman) return;
 
             var hero = Hero.MainHero;
             if (hero == null || !hero.HasCareerChoice("GuardOfTheSenateKeystone")) return;

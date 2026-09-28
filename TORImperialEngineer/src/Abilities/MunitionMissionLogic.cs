@@ -12,6 +12,7 @@ using TOR_Core.CharacterDevelopment.CareerSystem;
 using TOR_Core.Extensions;
 using TOR_Core.Items;
 using TORImperialEngineer.Bootstrap;
+using TORImperialEngineer.CampaignMechanics;
 using TORImperialEngineer.Career;
 using G = TORImperialEngineer.Career.ImperialEngineerChoiceGroups;
 
@@ -96,8 +97,17 @@ namespace TORImperialEngineer.Abilities
 
         public override void OnAgentBuild(Agent agent, Banner banner)
         {
-            if (agent != null && agent.IsMainAgent && ImperialEngineerCareer.IsPlayer)
+            if (agent == null || !ImperialEngineerCareer.IsPlayer) return;
+
+            BattleStartCharge.Apply(agent);
+            ExtraResistances.Apply(agent);
+            if (agent.IsMainAgent)
                 _awaitingPermanentEffects = agent;
+        }
+
+        public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+        {
+            EngineeringExperience.OnKill(affectorAgent, affectedAgent, blow);
         }
 
         public override void OnMissionTick(float dt)

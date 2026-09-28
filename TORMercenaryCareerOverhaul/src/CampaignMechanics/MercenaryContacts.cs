@@ -10,6 +10,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
+using TOR_Core.CampaignMechanics.CharacterCreation;
 using TOR_Core.CharacterDevelopment;
 using TOR_Core.Extensions;
 
@@ -17,8 +18,6 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
 {
     internal class MercenaryContacts : CampaignBehaviorBase
     {
-        internal static string PendingFromCreation;
-
         private const int VeteranTier = 2;
         private const int CommanderTier = 3;
         private const float ContractPremium = 3f;
@@ -41,24 +40,11 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
             return Contacts.ById(_instance._signed[0]);
         }
 
-        internal static bool Sign(string companyId)
-        {
-            if (string.IsNullOrEmpty(companyId)) return false;
-            if (_instance == null)
-            {
-                PendingFromCreation = companyId;
-                return false;
-            }
-            if (_instance._signed.Contains(companyId)) return false;
-
-            _instance._signed.Add(companyId);
-            return true;
-        }
-
         public override void RegisterEvents()
         {
             _instance = this;
             CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
+            CampaignEvents.OnCharacterCreationIsOverEvent.AddNonSerializedListener(this, OnCharacterCreationIsOver);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -72,25 +58,31 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
 
         private void OnSessionLaunched(CampaignGameStarter starter)
         {
-            FlushPending();
-
             starter.AddGameMenuOption("town_backstreet", "tor_merc_hire",
                 "{=tor_merc_hire}Recruit {TOR_MERC_COUNT} {TOR_MERC_NAME} ({TOR_MERC_TOTAL}{GOLD_ICON})",
                 CanHire, Hire, false, 2);
         }
 
-        private void FlushPending()
+        private void OnCharacterCreationIsOver()
         {
-            if (string.IsNullOrEmpty(PendingFromCreation)) return;
+            try
+            {
+                var handler = TORCharacterCreationContentHandler.Instance;
+                if (handler == null) return;
 
-            var pending = PendingFromCreation;
-            PendingFromCreation = null;
-            Sign(pending);
+                var company = Contacts.ByOptionId(handler.GetSelectedSpecializationOptionId());
+                if (company == null || _signed.Contains(company.Id)) return;
+
+                _signed.Add(company.Id);
+            }
+            catch (Exception ex)
+            {
+                Log.Write("MercenaryContacts: " + ex.Message);
+            }
         }
 
         private bool CanHire(MenuCallbackArgs args)
         {
-            FlushPending();
             args.optionLeaveType = GameMenuOption.LeaveType.Recruit;
             if (!IsMercenary() || _signed.Count == 0) return false;
 

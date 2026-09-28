@@ -1,6 +1,11 @@
+using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+using TOR_Core.CampaignMechanics.CharacterCreation;
 using TOR_Core.Extensions;
+using TORImperialEngineer.Bootstrap;
 using TORImperialEngineer.Career;
 using G = TORImperialEngineer.Career.ImperialEngineerChoiceGroups;
 
@@ -12,11 +17,42 @@ namespace TORImperialEngineer.CampaignMechanics
 
         public override void RegisterEvents()
         {
+            CampaignEvents.OnCharacterCreationIsOverEvent.AddNonSerializedListener(this, OnCharacterCreationIsOver);
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
         }
 
         public override void SyncData(IDataStore dataStore)
         {
+        }
+
+        // Swap career on start
+        private static void OnCharacterCreationIsOver()
+        {
+            try
+            {
+                var handler = TORCharacterCreationContentHandler.Instance;
+                if (handler == null || handler.GetSelectedProfessionId() != ImperialEngineerCharacterCreation.OptionId) return;
+
+                var career = ImperialEngineerCareer.Career;
+                if (career == null)
+                {
+                    Log.Error("Imperial Engineer career was never registered; this start will default to Mercenary.");
+                    return;
+                }
+
+                Hero.MainHero.AddCareer(career);
+
+                MobileParty.MainParty.Position = Hero.MainHero.Culture.StartingPoint;
+                if (GameStateManager.Current.ActiveState is MapState mapState)
+                {
+                    mapState.Handler.ResetCamera(true, true);
+                    mapState.Handler.TeleportCameraToMainParty();
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error("Could not assign the Imperial Engineer career: " + e.Message);
+            }
         }
 
         private static void OnDailyTick()
