@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemTraits>
+  <ItemTrait ItemTraitStringId="cg_flame_explosion" ItemTraitName="Judgement of Asuryan" IsCraftable="false" ImbuedEffectChance="0.20" IconName="favor_icon_100">
+    <ValidItemType>Melee</ValidItemType>
+    <ItemTraitDescription>"20% chance on hit to conjure a fire explosion"</ItemTraitDescription>
+    <OnWeaponHitScript WeaponScriptName="TOR_Core.Items.WeaponHitScripts.WeaponTriggerEffectScript">
+      <WeaponScriptArguments>
+        <WeaponScriptArgument>aqshy_firebreath_enchant</WeaponScriptArgument>
+        <WeaponScriptArgument>true</WeaponScriptArgument>
+      </WeaponScriptArguments>
+    </OnWeaponHitScript>
+  </ItemTrait>
+</ItemTraits>

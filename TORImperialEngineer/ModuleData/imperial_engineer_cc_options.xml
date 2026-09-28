@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfCharacterCreationOption xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CharacterCreationOption Id="option_3_empire_imperial_engineer" Culture="empire" StageNumber="3" EquipmentSetId="tor_cc_imperial_engineer_3">
+		<SkillsToIncrease>
+			<string>Gunpowder</string>
+			<string>Engineering</string>
+			<string>Tactics</string>
+			<string>Athletics</string>
+		</SkillsToIncrease>
+		<AttributeToIncrease>Intelligence</AttributeToIncrease>
+		<OptionText>{=tor_cc_option_3_empire_imperial_engineer_label_str}Initiate Engineer</OptionText>
+		<PositiveEffectText>{=tor_cc_option_3_empire_imperial_engineer_effect_str}Imperial Engineer Career</PositiveEffectText>
+		<OptionFlavourText>{=tor_cc_option_3_empire_imperial_engineer_text_str}Your aptitude for Engineering saw you advance rapidly within the Imperial School of Engineers, where you mingled with alchemists, engineers and rogue engineers alike. You decided to take one of your prototypes and test it against the Empire's foes to gain some field experience. Unfortunately, a mix-up meant you set out with someone else's surplus rifle instead.</OptionFlavourText>
+	</CharacterCreationOption>
+</ArrayOfCharacterCreationOption>

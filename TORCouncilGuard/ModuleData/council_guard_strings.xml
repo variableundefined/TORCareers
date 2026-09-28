@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <string id="tor_career_title.CouncilGuard" text="{=str_tor_career_title_CouncilGuard}Council Guard" />
+  <string id="tor_career_description.CouncilGuard" text="{=str_tor_career_description_CouncilGuard}When the forests of Laurelorn are threatened by Beastmen, Greenskins, or intruding humans alike, the Council Guard march out from Tor Lithanel to war, hewing down their foes with unmatched elven skill and flame-blessed weapons. Only the most trustworthy and skilled of the Toriour are admitted into its ranks, with few exceptions." />
+
+  <string id="tor_career_rank1_name.CouncilGuard" text="{=str_tor_career_rank1_name_CouncilGuard}Captain" />
+  <string id="tor_career_rank2_name.CouncilGuard" text="{=str_tor_career_rank2_name_CouncilGuard}Senator" />
+  <string id="tor_career_rank3_name.CouncilGuard" text="{=str_tor_career_rank3_name_CouncilGuard}Queen's Champion" />
+
+  <string id="tor_careerunlock_level_1.CouncilGuard" text="{=str_tor_careerunlock_level_1_councilguard}" />
+  <string id="tor_careerunlock_level_2.CouncilGuard" text="{=str_tor_careerunlock_level_2_councilguard}Required clan renown: 2" />
+  <string id="tor_careerunlock_level_3.CouncilGuard" text="{=str_tor_careerunlock_level_3_councilguard}Required clan renown: 4" />
+
+  <string id="council_guard_judgement_of_asuryan_label_str" text="Judgement of Asuryan" />
+  <string id="council_guard_judgement_of_asuryan_tooltip_str" text="Ignite your weapon with the flame of Asuryan, gaining 'Fire' damage and swing speed." />
+
+  <string id="tor_career_choicegroup_name.Toriour" text="{=str_cg_group_toriour}Toriour" />
+  <string id="tor_career_choicegroup_name.GuardianOfTorLithanel" text="{=str_cg_group_guardian}Guardian of Tor Lithanel" />
+  <string id="tor_career_choicegroup_name.ProtectorOfTheSilverTower" text="{=str_cg_group_silvertower}Protector of the Silver Tower" />
+  <string id="tor_career_choicegroup_name.ForgeOfRainbowFalls" text="{=str_cg_group_forge}Forge of Rainbow Falls" />
+  <string id="tor_career_choicegroup_name.GuardOfTheSenate" text="{=str_cg_group_senate}Guard of the Senate" />
+  <string id="tor_career_choicegroup_name.TempleOfAsuryan" text="{=str_cg_group_temple}Temple of Asuryan" />
+  <string id="tor_career_choicegroup_name.BladesOfElthinArvan" text="{=str_cg_group_blades}Blades of Elthin Arvan" />
+
+  <string id="tor_careerchoice_description.CouncilGuardRoot" text="{=str_cg_root}The Asur might have abandoned your kin, but the flame of Asuryan still burns bright in your temple! Ignite your weapon with the flame of Asuryan, gaining +30% 'Fire' damage on your melee strikes and +10% swing speed for 20s. For every level in your highest melee weapon skill, increase its damage by 0.1%. (Ability charges by dealing melee damage.)" />
+
+  <string id="tor_careerchoice_description.ToriourPassive1" text="{=str_cg_tor1}-25% wages for 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.ToriourPassive2" text="{=str_cg_tor2}-30% 'Favor' cost for 'Cityborn' troop upgrades." />
+  <string id="tor_careerchoice_description.ToriourPassive3" text="{=str_cg_tor3}+5 'Favor' daily, +1 per 50 Charm." />
+  <string id="tor_careerchoice_description.ToriourPassive4" text="{=str_cg_tor4}+50% renown from battles." />
+  <string id="tor_careerchoice_description.ToriourKeystone" text="{=str_cg_torks}Judgement of Asuryan charges twice as fast, and starts charged in battle." />
+
+  <string id="tor_careerchoice_description.GuardianOfTorLithanelPassive1" text="{=str_cg_gua1}+20 personal Hitpoints." />
+  <string id="tor_careerchoice_description.GuardianOfTorLithanelPassive2" text="{=str_cg_gua2}+10% personal 'Physical' melee damage." />
+  <string id="tor_careerchoice_description.GuardianOfTorLithanelPassive3" text="{=str_cg_gua3}+10% personal weapon swing speed." />
+  <string id="tor_careerchoice_description.GuardianOfTorLithanelPassive4" text="{=str_cg_gua4}Gain Faith skill per melee kill, scaled by the victim's level." />
+  <string id="tor_careerchoice_description.GuardianOfTorLithanelKeystone" text="{=str_cg_guaks}Judgement of Asuryan grants 'Cleave'." />
+
+  <string id="tor_careerchoice_description.ProtectorOfTheSilverTowerPassive1" text="{=str_cg_sil1}+10% 'Ward Save' for all 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.ProtectorOfTheSilverTowerPassive2" text="{=str_cg_sil2}Wounded troops heal faster." />
+  <string id="tor_careerchoice_description.ProtectorOfTheSilverTowerPassive3" text="{=str_cg_sil3}+10% swing speed for all 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.ProtectorOfTheSilverTowerPassive4" text="{=str_cg_sil4}+20 Polearm and Two-Handed skill for all 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.ProtectorOfTheSilverTowerKeystone" text="{=str_cg_silks}Judgement of Asuryan also scales with Leadership, and applies to 'Cityborn' within 5m." />
+
+  <string id="tor_careerchoice_description.ForgeOfRainbowFallsPassive1" text="{=str_cg_for1}+20% personal 'Armour Penetration' for melee attacks." />
+  <string id="tor_careerchoice_description.ForgeOfRainbowFallsPassive2" text="{=str_cg_for2}+10% personal 'Fire' melee damage." />
+  <string id="tor_careerchoice_description.ForgeOfRainbowFallsPassive3" text="{=str_cg_for3}+25% 'Fire Resistance' for 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.ForgeOfRainbowFallsPassive4" text="{=str_cg_for4}-25% cost for 'Enchantments'." />
+  <string id="tor_careerchoice_description.ForgeOfRainbowFallsKeystone" text="{=str_cg_forks}Judgement of Asuryan also scales with Faith, and sets foes you strike burning." />
+
+  <string id="tor_careerchoice_description.GuardOfTheSenatePassive1" text="{=str_cg_sen1}+35 personal Hitpoints." />
+  <string id="tor_careerchoice_description.GuardOfTheSenatePassive2" text="{=str_cg_sen2}Hits below 15 damage no longer stagger you." />
+  <string id="tor_careerchoice_description.GuardOfTheSenatePassive3" text="{=str_cg_sen3}+10% personal movement speed." />
+  <string id="tor_careerchoice_description.GuardOfTheSenatePassive4" text="{=str_cg_sen4}+1 party move speed on campaign map." />
+  <string id="tor_careerchoice_description.GuardOfTheSenateKeystone" text="{=str_cg_senks}Judgement of Asuryan also scales with Charm. Kills made during it reduce its cooldown by 2s." />
+
+  <string id="tor_careerchoice_description.TempleOfAsuryanPassive1" text="{=str_cg_tem1}+10% 'Fire' damage for all 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.TempleOfAsuryanPassive2" text="{=str_cg_tem2}Your 'Cityborn' bonuses also apply to 'Asur' troops." />
+  <string id="tor_careerchoice_description.TempleOfAsuryanPassive3" text="{=str_cg_tem3}Kills done by 'Cityborn' troops cause 15% morale damage to enemies." />
+  <string id="tor_careerchoice_description.TempleOfAsuryanPassive4" text="{=str_cg_tem4}+10% 'Physical' damage for all 'Cityborn' troops." />
+  <string id="tor_careerchoice_description.TempleOfAsuryanKeystone" text="{=str_cg_temks}Judgement of Asuryan doubles in radius, and has a 20% chance on hit to conjure a fire explosion." />
+
+  <string id="tor_careerchoice_description.BladesOfElthinArvanPassive1" text="{=str_cg_bla1}+15% personal weapon swing speed." />
+  <string id="tor_careerchoice_description.BladesOfElthinArvanPassive2" text="{=str_cg_bla2}-25% weight of equipped gear." />
+  <string id="tor_careerchoice_description.BladesOfElthinArvanPassive3" text="{=str_cg_bla3}+15% personal 'Physical' melee damage." />
+  <string id="tor_careerchoice_description.BladesOfElthinArvanPassive4" text="{=str_cg_bla4}+30% personal 'Fire Resistance' and 'Spell Resistance'." />
+  <string id="tor_careerchoice_description.BladesOfElthinArvanKeystone" text="{=str_cg_blaks}Killing a burning enemy in melee inflicts a fire DoT effect on enemies within 3m." />
+
+  <string id="tor_hirelingactivity0.CouncilGuard" text="{=str_tor_hirelingactivity0_CouncilGuard}Practice the same thrust a thousand times" />
+  <string id="tor_hirelingactivity1.CouncilGuard" text="{=str_tor_hirelingactivity1_CouncilGuard}Run around the army camp in circles" />
+  <string id="tor_hirelingactivity2.CouncilGuard" text="{=str_tor_hirelingactivity2_CouncilGuard}Meditate to balance your Yenlui" />
+  <string id="tor_hirelingactivity3.CouncilGuard" text="{=str_tor_hirelingactivity3_CouncilGuard}Socialize with the nobles and leaders of the army" />
+  <string id="tor_hirelingactivity4.CouncilGuard" text="{=str_tor_hirelingactivity4_CouncilGuard}Give speeches to encourage the soldiers" />
+</strings>

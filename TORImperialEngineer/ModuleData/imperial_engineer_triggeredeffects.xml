@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggeredEffectTemplates>
+    <TriggeredEffectTemplate StringID="ie_misfire"
+                             BurstParticleEffectPrefab="psys_grenade_explosion_1"
+                             SoundEffectId="fireball_explosion"
+                             SoundEffectLength="2.5"
+                             DamageType="Fire"
+                             DamageAmount="20"
+                             Radius="2.5"
+                             HasShockWave="true" 
+                             TargetType="All"
+                             DamageVariance="0.2"
+                             ScriptNameToTrigger="none" />
+
+    <TriggeredEffectTemplate StringID="ie_explosive_shot"
+                             BurstParticleEffectPrefab="psys_fireball_explosion_1"
+                             SoundEffectId="fireball_explosion"
+                             SoundEffectLength="2.5"
+                             DamageType="Fire"
+                             DamageAmount="0"
+                             Radius="3"
+                             HasShockWave="false"
+                             TargetType="All"
+                             DamageVariance="0.1"
+                             ScriptNameToTrigger="none" />
+</TriggeredEffectTemplates>

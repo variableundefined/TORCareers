@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfCharacterCreationOption xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CharacterCreationOption Id="option_3_eo_council_guard" Culture="eonir" StageNumber="3" EquipmentSetId="tor_cc_eo_council_guard_2">
+		<SkillsToIncrease>
+			<string>Polearm</string>
+			<string>TwoHanded</string>
+			<string>Leadership</string>
+			<string>Charm</string>
+		</SkillsToIncrease>
+		<AttributeToIncrease>Vigor</AttributeToIncrease>
+		<OptionText>{=tor_cc_option_3_eo_council_guard_label_str}Guard Captain</OptionText>
+		<PositiveEffectText>{=tor_cc_option_3_eo_council_guard_effect_str}Council Guard Career</PositiveEffectText>
+		<OptionFlavourText>{=tor_cc_option_3_eo_council_guard_text_str}Your years of service have earned you the rank of Guard Captain, and the right to raise a company of your own. Wherever the Council's nobles and envoys go, your company will go with them.</OptionFlavourText>
+	</CharacterCreationOption>
+</ArrayOfCharacterCreationOption>

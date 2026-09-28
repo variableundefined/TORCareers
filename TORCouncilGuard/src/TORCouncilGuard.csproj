@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>TORCouncilGuard</AssemblyName>
+    <RootNamespace>TORCouncilGuard</RootNamespace>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="SandBox" HintPath="$(SandBoxBinDir)SandBox.dll" Private="false" />
+  </ItemGroup>
+
+</Project>

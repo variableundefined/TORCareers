@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StatusEffects>
+	<StatusEffectTemplate
+		id="cg_asuryan_burn"
+		particle_id="torch_fire_sparks"
+		particle_intensity="Medium"
+		base_effect_value="4"
+		type="DamageOverTime"
+		damage_type="Fire">
+	</StatusEffectTemplate>
+	<StatusEffectTemplate
+		id="cg_judgement_swing_speed"
+		particle_id=""
+		do_not_attach_to_agent_skeleton="true"
+		base_effect_value="0.10"
+		applies_for_attack_type="All"
+		type="AttackSpeedManipulation"
+		damage_type="Physical">
+	</StatusEffectTemplate>
+</StatusEffects>

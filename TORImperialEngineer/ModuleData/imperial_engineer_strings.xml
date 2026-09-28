@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <string id="tor_career_title.ImperialEngineer" text="{=str_tor_career_title_ImperialEngineer}Imperial Engineer" />
+  <string id="tor_career_description.ImperialEngineer" text="{=str_tor_career_description_ImperialEngineer}Engineers are learned and prestigious men of the Empire whose inventions ease the lives of many. More often than not, however, they turn their attention to the ceaseless wars that plague the Empire, where their innovative but unreliable creations turn the tide against humanity's many foes. Though it is neither as profitable nor as safe as maintaining the machines of the mines, there is plenty of work, joy and danger for anyone who seeks to push the boundaries of human science." />
+
+  <string id="tor_career_rank1_name.ImperialEngineer" text="{=str_tor_career_rank1_name_ImperialEngineer}Apprentice Engineer" />
+  <string id="tor_career_rank2_name.ImperialEngineer" text="{=str_tor_career_rank2_name_ImperialEngineer}Associate Engineer" />
+  <string id="tor_career_rank3_name.ImperialEngineer" text="{=str_tor_career_rank3_name_ImperialEngineer}Master Engineer" />
+
+  <string id="tor_careerunlock_level_1.ImperialEngineer" text="{=str_tor_careerunlock_level_1_imperialengineer}" />
+  <string id="tor_careerunlock_level_2.ImperialEngineer" text="{=str_tor_careerunlock_level_2_imperialengineer}Required clan renown: 2" />
+  <string id="tor_careerunlock_level_3.ImperialEngineer" text="{=str_tor_careerunlock_level_3_imperialengineer}Required clan renown: 4" />
+
+  <string id="tor_hirelingactivity0.ImperialEngineer" text="{=str_tor_hirelingactivity0_ImperialEngineer}Test-fire prototypes at the firing range" />
+  <string id="tor_hirelingactivity1.ImperialEngineer" text="{=str_tor_hirelingactivity1_ImperialEngineer}Maintain the army's cannons" />
+  <string id="tor_hirelingactivity2.ImperialEngineer" text="{=str_tor_hirelingactivity2_ImperialEngineer}Drill the troops in volley fire" />
+  <string id="tor_hirelingactivity3.ImperialEngineer" text="{=str_tor_hirelingactivity3_ImperialEngineer}Patch up your powder burns" />
+  <string id="tor_hirelingactivity4.ImperialEngineer" text="{=str_tor_hirelingactivity4_ImperialEngineer}Haggle with the powder merchants" />
+
+  <string id="imperial_engineer_experimental_munition_label_str" text="Experimental Munition" />
+  <string id="imperial_engineer_experimental_munition_tooltip_str" text="PLACEHOLDER TEXT" />
+  <string id="imperial_engineer_ammo_loaded" text="{AMMO} loaded - {SHOTS} shots left" />
+  <string id="imperial_engineer_ammo_next" text="Next load will be {AMMO}" />
+  <string id="imperial_engineer_HeavyShot_label_str" text="Heavy Shot" />
+  <string id="imperial_engineer_HeavyShot_tooltip_str" text="Load Heavy Shot: +100% 'Physical' damage and ignores 50% of armour. 3% misfire chance." />
+  <string id="imperial_engineer_ScatterShot_label_str" text="Scatter Shot" />
+  <string id="imperial_engineer_ScatterShot_tooltip_str" text="Load Scatter Shot: fires 6 musket balls in a spread, each dealing half damage. Affected by 'Pack It In'. 5% misfire chance." />
+  <string id="imperial_engineer_ExplosiveShot_label_str" text="Explosive Shot" />
+  <string id="imperial_engineer_ExplosiveShot_tooltip_str" text="Load Explosive Shot: explodes where it lands for up to 60% of the shot's damage as 'Fire' in 3m (40% on repeaters, none on blunderbusses). 8% misfire chance." />
+  <string id="imperial_engineer_misfire_flash" text="Misfire - Flash in the Pan" />
+  <string id="imperial_engineer_ammo_type" text="(Ammunition)" />
+  <string id="imperial_engineer_misfire_hangfire" text="Misfire - Hangfire" />
+  <string id="imperial_engineer_misfire_fouled" text="Misfire - Fouled" />
+  <string id="imperial_engineer_misfire_burst" text="Misfire - Burst Barrel" />
+  <string id="imperial_engineer_misfire_chain" text="Misfire - Chain Fire" />
+  <string id="imperial_engineer_iron_company_upgrade_text" text="Enlist into the Iron Company{newline}Turns them into an Iron Company Guard. Costs {EXCHANGE_COST} {PRESTIGE_ICON} and {GOLD_COST} gold." />
+  <string id="imperial_engineer_iron_company_town_text" text="Must be in an Empire town" />
+  <string id="imperial_engineer_iron_company_tier_text" text="Tier of troops is too low" />
+  <string id="imperial_engineer_iron_company_knight_text" text="Knights cannot be converted" />
+  <string id="imperial_engineer_iron_company_culture_text" text="Bretonnian and non-human troops cannot be converted" />
+  <string id="imperial_engineer_iron_company_wounded_text" text="Not enough healthy troops available" />
+  <string id="imperial_engineer_iron_company_prestige_text" text="Requires at least {EXCHANGE_COST} {PRESTIGE_ICON}" />
+  <string id="imperial_engineer_iron_company_gold_text" text="Requires at least {GOLD_COST} gold" />
+  <string id="imperial_engineer_requires_firearm" text="Ability can only be used with a gun not loaded with grenades" />
+
+  <string id="tor_career_choicegroup_name.ImperialLogistics" text="{=str_ie_group_logistics}Imperial Logistics" />
+  <string id="tor_career_choicegroup_name.CustomizedWeapons" text="{=str_ie_group_customized}Customized Weapons" />
+  <string id="tor_career_choicegroup_name.ImperialSchoolOfEngineers" text="{=str_ie_group_school}Imperial School of Engineers" />
+  <string id="tor_career_choicegroup_name.ImperialGunnerySchool" text="{=str_ie_group_gunnery}Imperial Gunnery School" />
+  <string id="tor_career_choicegroup_name.CannonsOfTheEmpire" text="{=str_ie_group_cannons}Cannons of the Empire" />
+  <string id="tor_career_choicegroup_name.LeonardosLegacy" text="{=str_ie_group_leonardo}Leonardo's Legacy" />
+  <string id="tor_career_choicegroup_name.WhirlingCavalcadeOfDeath" text="{=str_ie_group_cavalcade}Whirling Cavalcade of Death" />
+
+  <string id="tor_careerchoice_description.ImperialEngineerRoot" text="{=str_ie_root}Load experimental munitions into your gun. Gain 3 shots, plus 1 additional shot per 50 points in 'Gunpowder'. Choose the ammunition type from the ability wheel. Does not affect grenades. Shots can misfire: Heavy 3%, Scatter 5%, Explosive 8%. (Ability charges by dealing melee or ranged damage.)" />
+
+  <string id="tor_careerchoice_description.ImperialLogisticsPassive1" text="{=str_ie_log1}+5 ammunition per ammunition pouch you have equipped." />
+  <string id="tor_careerchoice_description.ImperialLogisticsPassive2" text="{=str_ie_log2}-25% wages for 'Ranged' troops, including Outriders." />
+  <string id="tor_careerchoice_description.ImperialLogisticsPassive3" text="{=str_ie_log3}-25% 'Prestige' cost for 'Ranged' and 'Engineer' troop upgrades." />
+  <string id="tor_careerchoice_description.ImperialLogisticsPassive4" text="{=str_ie_log4}+1 party movement speed on the campaign map." />
+  <string id="tor_careerchoice_description.ImperialLogisticsKeystone" text="{=str_ie_logks}Experimental Munition also scales with 'Engineering', and can be used at battle start." />
+
+  <string id="tor_careerchoice_description.CustomizedWeaponsPassive1" text="{=str_ie_cus1}+10 personal Hitpoints." />
+  <string id="tor_careerchoice_description.CustomizedWeaponsPassive2" text="{=str_ie_cus2}+10% personal ranged 'Physical' damage." />
+  <string id="tor_careerchoice_description.CustomizedWeaponsPassive3" text="{=str_ie_cus3}+15% personal missile speed." />
+  <string id="tor_careerchoice_description.CustomizedWeaponsPassive4" text="{=str_ie_cus4}Gain 'Engineering' experience for each ranged kill, scaled by the victim's level." />
+  <string id="tor_careerchoice_description.CustomizedWeaponsKeystone" text="{=str_ie_cusks}Experimental Munition gains +2 shots and grants +50% reload speed." />
+
+  <string id="tor_careerchoice_description.ImperialSchoolOfEngineersPassive1" text="{=str_ie_sch1}+25% personal 'Fire' resistance." />
+  <string id="tor_careerchoice_description.ImperialSchoolOfEngineersPassive2" text="{=str_ie_sch2}+15 personal Hitpoints." />
+  <string id="tor_careerchoice_description.ImperialSchoolOfEngineersPassive3" text="{=str_ie_sch3}+6 ammunition per ammunition or buckshot pouch you have equipped, +3 per grenade pouch." />
+  <string id="tor_careerchoice_description.ImperialSchoolOfEngineersPassive4" text="{=str_ie_sch4}+25 daily experience for each 'Ranged' and 'Engineer' troop." />
+  <string id="tor_careerchoice_description.ImperialSchoolOfEngineersKeystone" text="{=str_ie_schks}Heavy Shot pierces targets. Gains immunity to knockdown from misfires." />
+
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive1" text="{=str_ie_gun1}+20% party spotting range on the campaign map." />
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive2" text="{=str_ie_gun2}+10% 'Physical' damage for 'Gunpowder' troops." />
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive3" text="{=str_ie_gun3}+10% accuracy for 'Gunpowder' troops." />
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolPassive4" text="{=str_ie_gun4}+6 ammunition per ammunition pouch for 'Gunpowder' troops in your party." />
+  <string id="tor_careerchoice_description.ImperialGunnerySchoolKeystone" text="{=str_ie_gunks}Scatter Shot fires 9 pellets. Munition shots give gunners in 10m +30% reload for 10s." />
+
+  <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive1" text="{=str_ie_can1}+20% personal reload speed." />
+  <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive2" text="{=str_ie_can2}+25% party carrying capacity." />
+  <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive3" text="{=str_ie_can3}You may deploy 2 additional Great Cannons without having them in your inventory. +2 artillery limit." />
+  <string id="tor_careerchoice_description.CannonsOfTheEmpirePassive4" text="{=str_ie_can4}+10% 'Physical' and 'Fire' resistance for 'Gunpowder' troops." />
+  <string id="tor_careerchoice_description.CannonsOfTheEmpireKeystone" text="{=str_ie_canks}Explosive Shot: +1m radius. Doubles 'Gunpowder' and 'Engineering' scaling." />
+
+  <string id="tor_careerchoice_description.LeonardosLegacyPassive1" text="{=str_ie_leo1}+5 Companion limit." />
+  <string id="tor_careerchoice_description.LeonardosLegacyPassive2" text="{=str_ie_leo2}+20% 'Fire' resistance for you and all troops." />
+  <string id="tor_careerchoice_description.LeonardosLegacyPassive3" text="{=str_ie_leo3}+25% personal 'Fire' damage." />
+  <string id="tor_careerchoice_description.LeonardosLegacyPassive4" text="{=str_ie_leo4}Experimental Munition also applies to all Companions wielding a firearm." />
+  <string id="tor_careerchoice_description.LeonardosLegacyKeystone" text="{=str_ie_leoks}Munition shots give gunners in 10m +30% reload, +15% damage for 10s." />
+
+  <string id="tor_careerchoice_description.WhirlingCavalcadeOfDeathPassive1" text="{=str_ie_cav1}Single-shot guns fire 2 projectiles at 75% damage, excluding blunderbusses." />
+  <string id="tor_careerchoice_description.WhirlingCavalcadeOfDeathPassive2" text="{=str_ie_cav2}+15% 'Physical' damage for 'Gunpowder' troops." />
+  <string id="tor_careerchoice_description.WhirlingCavalcadeOfDeathPassive3" text="{=str_ie_cav3}+10% 'Physical' resistance for 'Gunpowder' troops." />
+  <string id="tor_careerchoice_description.WhirlingCavalcadeOfDeathPassive4" text="{=str_ie_cav4}+10% personal 'Physical' resistance." />
+  <string id="tor_careerchoice_description.WhirlingCavalcadeOfDeathKeystone" text="{=str_ie_cavks}Increases the effectiveness of Experimental Munition. +50% misfire chance, +severity." />
+</strings>

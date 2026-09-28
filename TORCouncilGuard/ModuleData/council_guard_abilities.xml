@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbilityTemplates>
+    <AbilityTemplate StringID="JudgementOfAsuryan"
+                     Name="{=council_guard_judgement_of_asuryan_label_str}Judgement of Asuryan"
+                     SpriteName="swordsofrhuin_icon"
+                     CoolDown="30"
+                     WindsOfMagicCost="0"
+                     BaseMisCastChance="0"
+                     Duration="20"
+                     Radius="3"
+                     AbilityType="CareerAbility"
+                     AbilityEffectType="Augment"
+                     BaseMovementSpeed="0"
+                     TickInterval="-1"
+                     TriggerType="TickOnce"
+                     HasLight="false"
+                     LightIntensity="0"
+                     LightRadius="0"
+                     LightFlickeringMagnitude="0"
+                     LightFlickeringInterval="0"
+                     ShadowCastEnabled="true"
+                     ParticleEffectPrefab=""
+                     ParticleEffectSizeModifier="0"
+                     SoundEffectToPlay=""
+                     ShouldSoundLoopOverDuration="false"
+                     CastType="Instant"
+                     CastTime="0.5"
+                     AnimationActionName=""
+                     Offset="0.5"
+                     AbilityTargetType="Self"
+                     TargetCapturingRadius="4"
+                     MaxDistance="25"
+                     CrosshairType="Self"
+                     SpellTier="2"
+                     TooltipDescription="{=council_guard_judgement_of_asuryan_tooltip_str}Ignite your weapon with the flame of Asuryan, gaining 'Fire' damage and swing speed.">
+        <LightColorRGB x="255" y="255" z="255" w="-1">
+            <AsVec2><x>255</x><y>255</y><z>255</z></AsVec2>
+        </LightColorRGB>
+    </AbilityTemplate>
+</AbilityTemplates>

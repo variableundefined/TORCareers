@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemTraits>
+  <ItemTrait ItemTraitStringId="ie_munition" ItemTraitName="Experimental Munition" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Loaded with experimental munitions</ItemTraitDescription>
+    <WeaponParticlePreset ParticlePrefab="psys_flaming_weapon" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+  <ItemTrait ItemTraitStringId="ie_munition_penetrating" ItemTraitName="Imperial School of Engineers" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Shots penetrate targets</ItemTraitDescription>
+    <StatsTuple StatType="MultiPenetration" Value="1" />
+  </ItemTrait>
+  <ItemTrait ItemTraitStringId="ie_twin_shot" ItemTraitName="Whirling Cavalcade of Death" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Fires 2 projectiles</ItemTraitDescription>
+    <StatsTuple StatType="ScatterShot" Value="2" />
+  </ItemTrait>
+  <ItemTrait ItemTraitStringId="ie_ammo_heavy" ItemTraitName="Heavy Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+100% 'Physical' damage, ignores 50% of armour</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="1.00" />
+    <StatsTuple StatType="ArmorPenetration" Value="50" />
+  </ItemTrait>
+  <ItemTrait ItemTraitStringId="ie_munition_cavalcade" ItemTraitName="Whirling Cavalcade of Death" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+25% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.25" />
+  </ItemTrait>
+  <ItemTrait ItemTraitStringId="ie_munition_cavalcade_heavy" ItemTraitName="Whirling Cavalcade of Death" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+50% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.50" />
+  </ItemTrait>
+</ItemTraits>

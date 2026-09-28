@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>TORImperialEngineer</AssemblyName>
+    <RootNamespace>TORImperialEngineer</RootNamespace>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="SandBox" HintPath="$(SandBoxBinDir)SandBox.dll" Private="false" />
+  </ItemGroup>
+
+</Project>

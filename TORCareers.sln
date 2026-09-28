@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TORMercenaryCareerOverhaul", "TORMercenaryCareerOverhaul", "{13F88A04-D3CD-4639-B82B-3B2698D77F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TORMercenaryCareerOverhaul", "TORMercenaryCareerOverhaul\src\TORMercenaryCareerOverhaul.csproj", "{C2CDCA82-AA62-4605-8BDC-8C437BB8841B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TORCouncilGuard", "TORCouncilGuard", "{8D1ABD31-F81B-41EA-B1AB-0B447CCFB990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TORCouncilGuard", "TORCouncilGuard\src\TORCouncilGuard.csproj", "{A6565F85-0EBC-4144-A83C-80278FF9E17B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TORImperialEngineer", "TORImperialEngineer", "{A990C240-3B89-45FF-9BB7-C4FA483ADF6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TORImperialEngineer", "TORImperialEngineer\src\TORImperialEngineer.csproj", "{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2CDCA82-AA62-4605-8BDC-8C437BB8841B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CDCA82-AA62-4605-8BDC-8C437BB8841B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CDCA82-AA62-4605-8BDC-8C437BB8841B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CDCA82-AA62-4605-8BDC-8C437BB8841B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6565F85-0EBC-4144-A83C-80278FF9E17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6565F85-0EBC-4144-A83C-80278FF9E17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6565F85-0EBC-4144-A83C-80278FF9E17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6565F85-0EBC-4144-A83C-80278FF9E17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2CDCA82-AA62-4605-8BDC-8C437BB8841B} = {13F88A04-D3CD-4639-B82B-3B2698D77F95}
+		{A6565F85-0EBC-4144-A83C-80278FF9E17B} = {8D1ABD31-F81B-41EA-B1AB-0B447CCFB990}
+		{56DCAB08-2306-4D6F-ACA2-C4FA247EE43F} = {A990C240-3B89-45FF-9BB7-C4FA483ADF6D}
+	EndGlobalSection
+EndGlobal
