@@ -3,7 +3,6 @@ using HarmonyLib;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
-using TOR_Core.HarmonyPatches;
 
 namespace TORImperialEngineer.Abilities
 {
@@ -35,21 +34,10 @@ namespace TORImperialEngineer.Abilities
             }
         }
 
-        private static void Adjust(Agent shooterAgent, ref float damageBonus)
+        private static void Adjust(ref float damageBonus)
         {
             if (_override.HasValue)
-            {
                 damageBonus = _override.Value;
-                return;
-            }
-
-            if (!MissionPatches.UseWeaponDamageForCustomMissile || shooterAgent == null) return;
-
-            var gun = shooterAgent.WieldedWeapon;
-            if (!TwinShot.Fires(shooterAgent, gun)) return;
-
-            var ammo = Ammo(gun.AmmoWeapon);
-            damageBonus = Bonus(Gun(gun) + ammo, TwinShot.DamageFactor, ammo);
         }
 
         [HarmonyPatch(typeof(Mission), "AddMissileAux")]
@@ -57,7 +45,7 @@ namespace TORImperialEngineer.Abilities
         {
             [HarmonyPrefix]
             [HarmonyPriority(Priority.Low)]
-            private static void Prefix(Agent shooterAgent, ref float damageBonus) => Adjust(shooterAgent, ref damageBonus);
+            private static void Prefix(ref float damageBonus) => Adjust(ref damageBonus);
         }
 
         [HarmonyPatch(typeof(Mission), "AddMissileSingleUsageAux")]
@@ -65,7 +53,7 @@ namespace TORImperialEngineer.Abilities
         {
             [HarmonyPrefix]
             [HarmonyPriority(Priority.Low)]
-            private static void Prefix(Agent shooterAgent, ref float damageBonus) => Adjust(shooterAgent, ref damageBonus);
+            private static void Prefix(ref float damageBonus) => Adjust(ref damageBonus);
         }
     }
 }

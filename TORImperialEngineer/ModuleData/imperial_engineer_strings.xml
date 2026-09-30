@@ -85,7 +85,7 @@
 
   <string id="tor_careerchoice_description.LeonardosLegacyPassive1" text="{=str_ie_leo1}+5 Companion limit." />
   <string id="tor_careerchoice_description.LeonardosLegacyPassive2" text="{=str_ie_leo2}+20% 'Fire' resistance for you and all troops." />
-  <string id="tor_careerchoice_description.LeonardosLegacyPassive3" text="{=str_ie_leo3}+25% personal 'Fire' damage." />
+  <string id="tor_careerchoice_description.LeonardosLegacyPassive3" text="{=str_ie_leo3}+25% personal 'Physical' ranged damage." />
   <string id="tor_careerchoice_description.LeonardosLegacyPassive4" text="{=str_ie_leo4}Experimental Munition also applies to all Companions wielding a firearm." />
   <string id="tor_careerchoice_description.LeonardosLegacyKeystone" text="{=str_ie_leoks}Munition shots give gunners in 10m +30% reload, +15% damage for 10s." />
 

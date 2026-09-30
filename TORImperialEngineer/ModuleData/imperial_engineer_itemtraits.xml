@@ -14,13 +14,6 @@
     <ItemTraitDescription>Shots penetrate targets</ItemTraitDescription>
     <StatsTuple StatType="MultiPenetration" Value="1" />
   </ItemTrait>
-  <ItemTrait ItemTraitStringId="ie_twin_shot" ItemTraitName="Whirling Cavalcade of Death" IsCraftable="false" IconName="winds_icon_45">
-    <ValidItemType>Invalid</ValidItemType>
-    <IngredientItem>Invalid</IngredientItem>
-    <IngredientAmount>-1</IngredientAmount>
-    <ItemTraitDescription>Fires 2 projectiles</ItemTraitDescription>
-    <StatsTuple StatType="ScatterShot" Value="2" />
-  </ItemTrait>
   <ItemTrait ItemTraitStringId="ie_ammo_heavy" ItemTraitName="Heavy Shot" IsCraftable="false" IconName="winds_icon_45">
     <ValidItemType>Invalid</ValidItemType>
     <IngredientItem>Invalid</IngredientItem>

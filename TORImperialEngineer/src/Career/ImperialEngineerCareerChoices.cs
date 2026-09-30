@@ -106,7 +106,7 @@ namespace TORImperialEngineer.Career
 
             Passive(G.Leonardo, 1, new PassiveEffect(5f, PassiveEffectType.CompanionLimit));
             Passive(G.Leonardo, 2, PartyResist(DamageType.Fire, 20f));
-            Passive(G.Leonardo, 3, SelfDamage(DamageType.Fire, 25f, AttackTypeMask.All));
+            Passive(G.Leonardo, 3, SelfDamage(DamageType.Physical, 25f, AttackTypeMask.Ranged));
             Passive(G.Leonardo, 4, Pending());
 
             Passive(G.Cavalcade, 1, Pending());

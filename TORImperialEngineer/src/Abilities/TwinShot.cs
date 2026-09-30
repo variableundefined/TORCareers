@@ -1,9 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TOR_Core.Extensions;
-using TOR_Core.Items;
-using TORImperialEngineer.Bootstrap;
 using TORImperialEngineer.Career;
 using G = TORImperialEngineer.Career.ImperialEngineerChoiceGroups;
 
@@ -11,46 +12,51 @@ namespace TORImperialEngineer.Abilities
 {
     internal static class TwinShot
     {
-        private const string TraitId = "ie_twin_shot";
-        private const float BattleLong = 100000f;
         internal const float DamageFactor = 0.75f;
+        internal const float VerticalGap = 0.004f;
 
         private static bool Active =>
             ImperialEngineerCareer.IsPlayer && Hero.MainHero.HasCareerChoice(G.Cavalcade + "Passive1");
 
         internal static bool Fires(Agent agent, MissionWeapon weapon) =>
-            agent != null && agent.IsMainAgent && Active && Ammo.Selected != AmmoType.Scatter
-            && Firearms.IsSingleShotGun(weapon) && !Firearms.FiresScatter(weapon);
+            agent != null && agent.IsMainAgent && Active
+            && Firearms.IsSingleShotGun(weapon) && !Firearms.FiresScatter(weapon)
+            && !Firearms.IsGrenadeItem(weapon.AmmoWeapon.Item);
 
-        internal static void Suspend(Agent agent)
+        internal static IEnumerable<Mat3> Barrels(Mat3 orientation)
         {
-            var component = agent?.GetComponent<ItemTraitAgentComponent>();
-            if (component == null) return;
-            try
-            {
-                Reflection.RemoveWeaponTraits(component, new[] { TraitId });
-            }
-            catch (System.Exception e)
-            {
-                Log.Error("Could not suspend twin shot: " + e.Message);
-            }
+            var upper = orientation;
+            upper.RotateAboutSide(VerticalGap);
+            var lower = orientation;
+            lower.RotateAboutSide(-VerticalGap);
+            return new[] { upper, lower };
         }
 
-        internal static void Arm(Agent agent)
+        internal static void Fire(Agent shooter, MissionWeapon weapon, Vec3 position, Mat3 orientation, Vec3 velocity)
         {
-            if (!Active || agent == null || Ammo.Selected == AmmoType.Scatter) return;
-            Suspend(agent);
+            var fired = Mission.Current.MissilesList.LastOrDefault(m => m.ShooterAgent == shooter);
+            if (fired != null)
+                Mission.Current.RemoveMissileAsClient(fired.Index);
 
-            var component = agent.GetComponent<ItemTraitAgentComponent>();
-            var trait = Munition.Find(TraitId);
-            if (component == null || trait == null) return;
+            var ammo = MissileDamage.Ammo(weapon.AmmoWeapon);
+            Spawn(shooter, weapon.AmmoWeapon, position, orientation, velocity.Length,
+                MissileDamage.Bonus(MissileDamage.Gun(weapon) + ammo, DamageFactor, ammo));
+        }
 
-            for (var i = EquipmentIndex.WeaponItemBeginSlot; i < EquipmentIndex.NumAllWeaponSlots; i++)
+        internal static List<Mission.Missile> Spawn(Agent shooter, MissionWeapon ammo, Vec3 position, Mat3 orientation, float speed, float bonus)
+        {
+            var missiles = new List<Mission.Missile>();
+            if (ammo.IsEmpty) return missiles;
+
+            foreach (var barrel in Barrels(orientation))
             {
-                var weapon = agent.Equipment[i];
-                if (Firearms.IsSingleShotGun(weapon))
-                    component.AddTraitToWeapon(weapon, trait, BattleLong);
+                var missile = MissileDamage.With(bonus, () =>
+                    Mission.Current.AddCustomMissileWithWeaponDamage(shooter, ammo, position, barrel.f, barrel, speed, speed, false));
+                if (missile == null) continue;
+                TOR_Core.BattleMechanics.Firearms.FirearmsMissionLogic.ApplyWeaponTraitParticles(missile, shooter);
+                missiles.Add(missile);
             }
+            return missiles;
         }
     }
 }

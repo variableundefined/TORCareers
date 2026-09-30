@@ -24,7 +24,6 @@ namespace TORCouncilGuard.CampaignMechanics
         {
         }
 
-        // Fires after TOR's finalize, which has already fallen back to Mercenary and the Eonir spawn.
         private static void OnCharacterCreationIsOver()
         {
             try

@@ -36,17 +36,17 @@ namespace TORImperialEngineer.Abilities
 
         private enum Kind { FlashInThePan, Hangfire, Fouled, BurstBarrel, ChainFire }
 
-        private readonly Action<Agent, MissionWeapon, List<Mission.Missile>, AmmoType> _onLoadedMissiles;
+        private readonly Action<Agent, MissionWeapon, List<Mission.Missile>, AmmoType, bool> _onLoadedMissiles;
 
-        internal Misfires(Action<Agent, MissionWeapon, List<Mission.Missile>, AmmoType> onLoadedMissiles)
+        internal Misfires(Action<Agent, MissionWeapon, List<Mission.Missile>, AmmoType, bool> onLoadedMissiles)
         {
             _onLoadedMissiles = onLoadedMissiles;
         }
 
-        private readonly List<(Agent Shooter, MissionWeapon Weapon, MissionWeapon Ammo, AmmoType Loaded, float Speed, float Delay)> _hangfires =
-            new List<(Agent, MissionWeapon, MissionWeapon, AmmoType, float, float)>();
+        private readonly List<(Agent Shooter, MissionWeapon Weapon, MissionWeapon Ammo, AmmoType Loaded, bool Twin, float Speed, float Delay)> _hangfires =
+            new List<(Agent, MissionWeapon, MissionWeapon, AmmoType, bool, float, float)>();
 
-        internal bool Trigger(Agent shooter, EquipmentIndex weaponIndex, Vec3 position, Mat3 orientation, Vec3 velocity)
+        internal bool Trigger(Agent shooter, EquipmentIndex weaponIndex, Vec3 position, Mat3 orientation, Vec3 velocity, bool twin)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace TORImperialEngineer.Abilities
                     case Kind.Hangfire:
                         var weapon = shooter.Equipment[weaponIndex];
                         RemoveFiredMissile(shooter);
-                        _hangfires.Add((shooter, weapon, weapon.AmmoWeapon, Ammo.Selected, velocity.Length, HangfireDelay));
+                        _hangfires.Add((shooter, weapon, weapon.AmmoWeapon, Ammo.Selected, twin, velocity.Length, HangfireDelay));
                         break;
                     case Kind.Fouled:
                         shooter.ApplyStatusEffect(FouledEffect, shooter, FouledDuration, append: false);
@@ -102,7 +102,7 @@ namespace TORImperialEngineer.Abilities
                 try
                 {
                     if (pending.Shooter.IsActive() && !pending.Ammo.IsEmpty)
-                        Hangfire(pending.Shooter, pending.Weapon, pending.Ammo, pending.Loaded, pending.Speed);
+                        Hangfire(pending.Shooter, pending.Weapon, pending.Ammo, pending.Loaded, pending.Twin, pending.Speed);
                 }
                 catch (Exception e)
                 {
@@ -140,7 +140,7 @@ namespace TORImperialEngineer.Abilities
                 Mission.Current.RemoveMissileAsClient(missile.Index);
         }
 
-        private void Hangfire(Agent shooter, MissionWeapon weapon, MissionWeapon ammo, AmmoType loaded, float speed)
+        private void Hangfire(Agent shooter, MissionWeapon weapon, MissionWeapon ammo, AmmoType loaded, bool twin, float speed)
         {
             var orientation = shooter.LookRotation;
             var position = shooter.GetEyeGlobalPosition() + orientation.f * MuzzleOffset;
@@ -148,13 +148,21 @@ namespace TORImperialEngineer.Abilities
 
             if (loaded == AmmoType.Scatter && !Firearms.FiresScatter(weapon))
             {
-                ScatterShot.Fire(shooter, weapon, position, orientation, orientation.f * speed, replaceFired: false);
+                ScatterShot.Fire(shooter, weapon, position, orientation, orientation.f * speed, replaceFired: false, twin: twin);
+                return;
+            }
+
+            if (twin)
+            {
+                var ammoDamage = MissileDamage.Ammo(ammo);
+                var bonus = MissileDamage.Bonus(MissileDamage.Gun(weapon) + ammoDamage, TwinShot.DamageFactor, ammoDamage);
+                _onLoadedMissiles?.Invoke(shooter, weapon, TwinShot.Spawn(shooter, ammo, position, orientation, speed, bonus), loaded, true);
                 return;
             }
 
             var missile = MissileDamage.With(MissileDamage.Gun(weapon), () =>
                 Mission.Current.AddCustomMissileWithWeaponDamage(shooter, ammo, position, orientation.f, orientation, speed, speed, false));
-            _onLoadedMissiles?.Invoke(shooter, weapon, new List<Mission.Missile> { missile }, loaded);
+            _onLoadedMissiles?.Invoke(shooter, weapon, new List<Mission.Missile> { missile }, loaded, false);
         }
 
         internal static void MuzzleEffects(Vec3 position, Mat3 orientation)
@@ -189,7 +197,7 @@ namespace TORImperialEngineer.Abilities
                 break;
             }
 
-            _onLoadedMissiles?.Invoke(shooter, weapon, missiles, Ammo.Selected);
+            _onLoadedMissiles?.Invoke(shooter, weapon, missiles, Ammo.Selected, false);
         }
 
         private static void DryFire(Agent shooter, Vec3 position)

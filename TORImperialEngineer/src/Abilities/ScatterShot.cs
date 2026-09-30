@@ -23,7 +23,7 @@ namespace TORImperialEngineer.Abilities
         private const float Spread = 0.05f;
         private const float PackItInFactor = 1.5f;
 
-        internal static void Fire(Agent shooter, MissionWeapon weapon, Vec3 position, Mat3 orientation, Vec3 velocity, bool replaceFired = true)
+        internal static void Fire(Agent shooter, MissionWeapon weapon, Vec3 position, Mat3 orientation, Vec3 velocity, bool replaceFired = true, bool twin = false)
         {
             var ball = MBObjectManager.Instance.GetObject<ItemObject>(MusketBallId);
             var usage = weapon.CurrentUsageItem;
@@ -50,14 +50,18 @@ namespace TORImperialEngineer.Abilities
             var pellet = new MissionWeapon(ball, null, null);
             var ballDamage = MissileDamage.Ammo(pellet);
             var factor = repeater ? RepeaterPelletDamageFactor : PelletDamageFactor;
+            if (twin) factor *= TwinShot.DamageFactor;
             var bonus = MissileDamage.Bonus(MissileDamage.Gun(weapon) + ballDamage, factor, ballDamage);
 
             var speed = velocity.Length;
-            for (var i = 0; i < pellets; i++)
+            foreach (var barrel in twin ? TwinShot.Barrels(orientation) : new[] { orientation })
             {
-                var deviation = TORCommon.GetRandomOrientation(orientation, Spread);
-                MissileDamage.With(bonus, () =>
-                    Mission.Current.AddCustomMissileWithWeaponDamage(shooter, pellet, position, deviation.f, deviation, speed, speed, false));
+                for (var i = 0; i < pellets; i++)
+                {
+                    var deviation = TORCommon.GetRandomOrientation(barrel, Spread);
+                    MissileDamage.With(bonus, () =>
+                        Mission.Current.AddCustomMissileWithWeaponDamage(shooter, pellet, position, deviation.f, deviation, speed, speed, false));
+                }
             }
         }
     }

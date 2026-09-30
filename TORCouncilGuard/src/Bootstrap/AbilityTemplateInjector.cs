@@ -28,7 +28,6 @@ namespace TORCouncilGuard.Bootstrap
             }
         }
 
-        // TOR_Core loads its own templates in its OnSubModuleLoad, which runs before ours.
         internal static void Inject()
         {
             InjectAbilities();

@@ -38,9 +38,6 @@ namespace TORImperialEngineer.Abilities
                 default: Selected = AmmoType.Heavy; break;
             }
 
-            if (Selected == AmmoType.Scatter) TwinShot.Suspend(caster);
-            else TwinShot.Arm(caster);
-
             foreach (var agent in Mission.Current.Agents)
             {
                 if (agent == null || !agent.IsActive() || Munition.Remaining(agent) <= 0) continue;

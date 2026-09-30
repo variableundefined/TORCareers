@@ -58,25 +58,26 @@ namespace TORImperialEngineer.Abilities
             if (!IsLoader(shooterAgent)) return;
 
             var weapon = shooterAgent.Equipment[weaponIndex];
-            if (TwinShot.Fires(shooterAgent, weapon))
-                Misfires.MuzzleEffects(position, orientation);
+            var twin = TwinShot.Fires(shooterAgent, weapon);
 
             if (_spent.ContainsKey(shooterAgent) && Munition.Remaining(shooterAgent) <= 0)
             {
                 Munition.Strip(shooterAgent);
                 _spent.Remove(shooterAgent);
+            }
+
+            if (Munition.Remaining(shooterAgent) <= 0 || Firearms.IsFiringGrenade(shooterAgent))
+            {
+                if (twin) TwinShot.Fire(shooterAgent, weapon, position, orientation, velocity);
                 return;
             }
 
-            if (Munition.Remaining(shooterAgent) <= 0) return;
-            if (Firearms.IsFiringGrenade(shooterAgent)) return;
-
             var chance = Munition.MisfireChance(Hero.MainHero);
             var suppressed = MBRandom.RandomFloat < chance
-                && _misfires.Trigger(shooterAgent, weaponIndex, position, orientation, velocity);
+                && _misfires.Trigger(shooterAgent, weaponIndex, position, orientation, velocity, twin);
 
             if (!suppressed)
-                FireLoadedShot(shooterAgent, weapon, position, orientation, velocity);
+                FireLoadedShot(shooterAgent, weapon, position, orientation, velocity, twin);
 
             ExperimentalMunitionScript.Pulse(shooterAgent);
 
@@ -119,14 +120,14 @@ namespace TORImperialEngineer.Abilities
             ForgetOldShots();
         }
 
-        private void FireLoadedShot(Agent shooter, MissionWeapon weapon, Vec3 position, Mat3 orientation, Vec3 velocity)
+        private void FireLoadedShot(Agent shooter, MissionWeapon weapon, Vec3 position, Mat3 orientation, Vec3 velocity, bool twin)
         {
             var now = Mission.CurrentTime;
             var scatterAmmo = Firearms.FiresScatter(weapon);
 
             if (Ammo.Selected == AmmoType.Scatter && !scatterAmmo)
             {
-                ScatterShot.Fire(shooter, weapon, position, orientation, velocity);
+                ScatterShot.Fire(shooter, weapon, position, orientation, velocity, twin: twin);
                 _loadedGroups[shooter] = new LoadedShot { Shooter = shooter, FiredAt = now };
                 return;
             }
@@ -135,7 +136,10 @@ namespace TORImperialEngineer.Abilities
             if (Ammo.Selected == AmmoType.Explosive && !scatterAmmo)
                 explosion = ExplosionDamage(weapon);
 
-            if (scatterAmmo || TwinShot.Fires(shooter, weapon))
+            if (twin)
+                TwinShot.Fire(shooter, weapon, position, orientation, velocity);
+
+            if (scatterAmmo || twin)
             {
                 _loadedGroups[shooter] = new LoadedShot { Shooter = shooter, FiredAt = now, Explosion = explosion };
                 return;
@@ -152,10 +156,15 @@ namespace TORImperialEngineer.Abilities
             return MissileDamage.Shot(weapon) * factor;
         }
 
-        private void RegisterLoadedMissiles(Agent shooter, MissionWeapon weapon, List<Mission.Missile> missiles, AmmoType loaded)
+        private void RegisterLoadedMissiles(Agent shooter, MissionWeapon weapon, List<Mission.Missile> missiles, AmmoType loaded, bool grouped)
         {
             if (loaded != AmmoType.Explosive || Firearms.FiresScatter(weapon)) return;
             var explosion = ExplosionDamage(weapon);
+            if (grouped)
+            {
+                _loadedGroups[shooter] = new LoadedShot { Shooter = shooter, FiredAt = Mission.CurrentTime, Explosion = explosion };
+                return;
+            }
             foreach (var missile in missiles)
                 if (missile != null)
                     _loadedMissiles[missile.Index] = new LoadedShot { Shooter = shooter, FiredAt = Mission.CurrentTime, Explosion = explosion };
@@ -228,7 +237,6 @@ namespace TORImperialEngineer.Abilities
 
             if (Hero.MainHero.HasCareerChoice(G.Cannons + "Passive1"))
                 CareerHelper.AddDefaultPermanentMissionEffect(agent, PersonalReloadEffect);
-            TwinShot.Arm(agent);
             _awaitingPermanentEffects = null;
         }
 

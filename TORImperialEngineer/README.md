@@ -1,4 +1,7 @@
 # Imperial Engineer Career
+My attempt to design a gunpowder oriented, mainly ranged career for the Empire.
+
+Kinda like gunpowder waywatcher
 
 - **Available For:** Empire
 - **Summary:**
@@ -10,7 +13,7 @@
 - Can't learn magic.
 - Career Ability can backfire and cause damage.
 
-*Engineers are learned and prestigious men in the Empire whose inventions convenience the lives of many. But more often than not, they turn their attention to ceaseless warfares that plague the Empire, their innovative but unreliable inventions turning the tide of war against humanity's many foes. Though not as profitable or safe as maintaining machines for mines, there is plenty of work, joy and danger for someone who seeks to push the boundary of human sciences.*
+Career Text: *Engineers are learned and prestigious men in the Empire whose inventions convenience the lives of many. But more often than not, they turn their attention to ceaseless warfares that plague the Empire, their innovative but unreliable inventions turning the tide of war against humanity's many foes. Though not as profitable or safe as maintaining machines for mines, there is plenty of work, joy and danger for someone who seeks to push the boundary of human sciences.*
 
 *Your aptitude for Engineering meant you advanced rapidly within the Imperial Engineers School, networking with a mixture of alchemists, engineers, and rogue engineers alike. You have decided to take one of your prototypes and test it on the Empire's foe to gain some field experience. Unfortunately, a mix-up meant you went out with someone else's surplus rifle instead.*
 
@@ -31,7 +34,7 @@ Cooldown: 15s. Shots stay loaded until fired or the battle ends. Recharges once 
 
 Damage to Charge: 800. Up to 120 per hit.
 
-**Ammunition -** Imperial Engineer gains 3 Special Munitions (Current version is reused Sigmar Prayer Icons) that they can switch between. This is loaded by using their CA and they can switch mid load:
+**Ammunition -** Imperial Engineer gains 3 Special Munitions (Current version is reused Sigmar Prayer Icons. Sprites to be made later by me.) that they can switch between. This is loaded by using their CA and they can switch mid load:
 
 - **Heavy Shot:** +100% 'Physical' damage, ignores 50% of armor.
 - **Scatter Shot:** Fires 6 musket ball pellets in a spread (5 on repeaters). Each pellet deals 50% of a normal shot's damage (40% on repeaters). Goes to 9 / 7 w/ upgrade. 'Pack It In' increases pellets by 50%. Blunderbusses keep their own scatter.
@@ -107,7 +110,7 @@ Turns a tier 3+ troop into an Iron Company Guard for 5 Prestige and 500 gold. (4
 
 - +5 Companion limit.
 - +20% 'Fire' resistance for you and all troops.
-- +25% personal 'Fire' damage.
+- +25% personal 'Physical' ranged damage.
 - Experimental Munition also applies to all Companions wielding a firearm.
 - Each munition shot gives 'Gunpowder' troops in 10m +30% reload, +15% damage for 10s.
 

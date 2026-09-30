@@ -47,7 +47,6 @@ namespace TORCouncilGuard.Bootstrap
         private const string MagicalResistanceEffect = "cg_blades_magical_resistance";
         private const float PermanentDuration = 99999f;
 
-        // TOR builds the StatusEffectComponent and CareerAbility in OnAgentCreated, so both exist by now.
         public override void OnAgentBuild(Agent agent, Banner banner)
         {
             var hero = Hero.MainHero;
@@ -77,7 +76,7 @@ namespace TORCouncilGuard.Bootstrap
         public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon,
                                         in Blow blow, in AttackCollisionData attackCollisionData)
         {
-            if (affectorAgent == null || affectedAgent == null || blow.IsMissile) return;
+            if (affectorAgent == null || !affectorAgent.IsMainAgent || affectedAgent == null || blow.IsMissile) return;
             if (!affectedAgent.IsHuman || !affectedAgent.IsEnemyOf(affectorAgent)) return;
 
             var weapon = affectorWeapon.CurrentUsageItem;
@@ -89,8 +88,6 @@ namespace TORCouncilGuard.Bootstrap
 
             var hero = Hero.MainHero;
             if (hero == null) return;
-
-            if (!affectorAgent.IsMainAgent) return;
 
             var flaming = HasTrait(affectorWeapon, affectorAgent, JudgementOfAsuryanScript.PersonalFlame);
 
