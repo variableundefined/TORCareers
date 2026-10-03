@@ -4,3 +4,7 @@ obj/
 *.user
 *.suo
 *.log
+
+**/art/reference/
+
+tools/
