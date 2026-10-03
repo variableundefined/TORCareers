@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<StatusEffects>
+
+<StatusEffectTemplate
+		id="wwo_burn4"
+		particle_id="torch_fire_sparks"
+		particle_intensity="Medium"
+		base_effect_value="4"
+		type="DamageOverTime"
+		damage_type="Fire"/>
+
+	<StatusEffectTemplate
+		id="wwo_burn5"
+		particle_id="torch_fire_sparks"
+		particle_intensity="Medium"
+		base_effect_value="5"
+		type="DamageOverTime"
+		damage_type="Fire"/>
+
+<StatusEffectTemplate
+		id="wwo_poison4"
+		particle_id="hagbane_debuff"
+		particle_intensity="Medium"
+		do_not_attach_to_agent_skeleton="true"
+		base_effect_value="4"
+		type="DamageOverTime"
+		damage_type="Physical"/>
+
+	<StatusEffectTemplate
+		id="wwo_slow40"
+		particle_id=""
+		particle_intensity="Medium"
+		base_effect_value="-0.4"
+		type="MovementManipulation"
+		damage_type="Frost"/>
+
+	<StatusEffectTemplate
+		id="wwo_slow50"
+		particle_id=""
+		particle_intensity="Medium"
+		base_effect_value="-0.5"
+		type="MovementManipulation"
+		damage_type="Frost"/>
+
+	<StatusEffectTemplate
+		id="wwo_magic_vulnerability"
+		particle_id="curse_of_years"
+		particle_intensity="Medium"
+		base_effect_value="-0.34"
+		type="Resistance"
+		damage_type="Magical"/>
+
+	<StatusEffectTemplate
+		id="wwo_poison5"
+		particle_id="hagbane_debuff"
+		particle_intensity="Medium"
+		do_not_attach_to_agent_skeleton="true"
+		base_effect_value="5"
+		type="DamageOverTime"
+		damage_type="Physical"/>
+
+	<StatusEffectTemplate
+		id="wwo_slow30"
+		particle_id=""
+		particle_intensity="Medium"
+		base_effect_value="-0.3"
+		type="MovementManipulation"
+		damage_type="Frost"/>
+
+	<StatusEffectTemplate
+		id="wwo_poison6"
+		particle_id="hagbane_debuff"
+		particle_intensity="Medium"
+		do_not_attach_to_agent_skeleton="true"
+		base_effect_value="6"
+		type="DamageOverTime"
+		damage_type="Physical"/>
+
+</StatusEffects>

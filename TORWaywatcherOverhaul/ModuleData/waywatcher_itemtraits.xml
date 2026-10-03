@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ItemTraits>
+
+  <ItemTrait ItemTraitStringId="wwo_shard_damage" ItemTraitName="Swiftshiver Shards" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Shards deal 50% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="-0.50" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_trueflight_50" ItemTraitName="Trueflight Arrow" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+50% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.50" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_trueflight_25" ItemTraitName="Trueflight Arrow" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+25% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.25" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_shield_pierce" ItemTraitName="Trueflight Arrow" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Arrows pierce shields</ItemTraitDescription>
+    <StatsTuple StatType="ShieldPenetration" Value="1" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_target_pierce" ItemTraitName="Lethal Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Arrows pierce through targets</ItemTraitDescription>
+    <StatsTuple StatType="MultiPenetration" Value="1" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_strip_physical" ItemTraitName="Enchanted Arrow" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Physical damage is converted</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="-1.00" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_starfire_fire" ItemTraitName="Starfire Shaft" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>All damage becomes Fire</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Fire" Percent="1.00" />
+    <WeaponParticlePreset ParticlePrefab="psys_flaming_weapon" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_moonfire_magic" ItemTraitName="Moonfire Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>All damage becomes Magic</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Magical" Percent="1.00" />
+    <WeaponParticlePreset ParticlePrefab="magic_trait" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_hagbane_fx" ItemTraitName="Hagbane Tips" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Poisoned arrows</ItemTraitDescription>
+    <WeaponParticlePreset ParticlePrefab="hagbane_trait" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_bodkin_fx" ItemTraitName="Arcane Bodkin" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Armour-piercing arrows</ItemTraitDescription>
+    <WeaponParticlePreset ParticlePrefab="magic_trait" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_lethal_glow" ItemTraitName="Lethal Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Your arrows are imbued with deadly precision</ItemTraitDescription>
+    <WeaponParticlePreset ParticlePrefab="hagbane_trait" IsUniqueSingleCopy="false" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_bodkin_ap_50" ItemTraitName="Arcane Bodkin" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Ignores 50% of armour</ItemTraitDescription>
+    <StatsTuple StatType="ArmorPenetration" Value="50" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_bodkin_ap_75" ItemTraitName="Arcane Bodkin" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Ignores 75% of armour</ItemTraitDescription>
+    <StatsTuple StatType="ArmorPenetration" Value="75" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_bodkin_damage_25" ItemTraitName="Arcane Bodkin" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+25% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.25" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_bodkin_damage_50" ItemTraitName="Arcane Bodkin" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+50% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="0.50" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_starfire_bonus_30" ItemTraitName="Starfire Shaft" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+30% Fire damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Fire" Percent="0.30" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_starfire_bonus_10" ItemTraitName="Starfire Shaft" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+10% Fire damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Fire" Percent="0.10" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_starfire_bonus_20" ItemTraitName="Starfire Shaft" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+20% Fire damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Fire" Percent="0.20" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_moonfire_bonus_25" ItemTraitName="Moonfire Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+25% Magic damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Magical" Percent="0.25" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_moonfire_bonus_40" ItemTraitName="Moonfire Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+40% Magic damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Magical" Percent="0.40" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_moonfire_bonus_50" ItemTraitName="Moonfire Shot" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>+50% Magic damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Magical" Percent="0.50" />
+  </ItemTrait>
+
+</ItemTraits>
