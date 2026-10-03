@@ -32,7 +32,7 @@
                      MaxDistance="0"
                      CrosshairType="Self"
                      SpellTier="0"
-                     TooltipDescription="{=wwo_swiftshiver_tooltip}2 shards, 50% each. T2: 4. T3: 6. Lethal Shot: 2x shards, wider cone, never pierces.">
+                     TooltipDescription="{=wwo_swiftshiver_tooltip}2 shards, 60% each. T2: 4, 45%. T3: 6, 40%. Lethal Shot: 2x shards, wider cone, never pierces.">
         <LightColorRGB x="52" y="235" z="88" w="-1">
             <AsVec2><x>52</x><y>235</y><z>88</z></AsVec2>
         </LightColorRGB>

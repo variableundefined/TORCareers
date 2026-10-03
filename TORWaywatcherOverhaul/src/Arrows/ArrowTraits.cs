@@ -20,7 +20,7 @@ namespace TORWaywatcherOverhaul.Arrows
             switch (arrow)
             {
                 case ArrowType.SwiftshiverShards:
-                    traits.Add("wwo_shard_damage");
+                    traits.Add("wwo_shard_damage_" + EnchantedArrow.ShardDamagePercent(tier));
                     break;
                 case ArrowType.TrueflightArrow:
                     var damage = EnchantedArrow.TrueflightDamagePercent(tier);

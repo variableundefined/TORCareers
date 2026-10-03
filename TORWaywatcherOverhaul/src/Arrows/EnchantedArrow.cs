@@ -61,6 +61,7 @@ namespace TORWaywatcherOverhaul.Arrows
 
         internal static int Shards(int tier) => tier >= 3 ? 6 : tier == 2 ? 4 : 2;
 
+        internal static int ShardDamagePercent(int tier) => tier >= 3 ? 40 : tier == 2 ? 45 : 60;
 
         internal static float TrueflightSpeed(int tier) => tier >= 3 ? 1f : tier == 2 ? 0.5f : 0.25f;
 

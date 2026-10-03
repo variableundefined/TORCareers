@@ -2,12 +2,28 @@
 
 <ItemTraits>
 
-  <ItemTrait ItemTraitStringId="wwo_shard_damage" ItemTraitName="Swiftshiver Shards" IsCraftable="false" IconName="winds_icon_45">
+  <ItemTrait ItemTraitStringId="wwo_shard_damage_60" ItemTraitName="Swiftshiver Shards" IsCraftable="false" IconName="winds_icon_45">
     <ValidItemType>Invalid</ValidItemType>
     <IngredientItem>Invalid</IngredientItem>
     <IngredientAmount>-1</IngredientAmount>
-    <ItemTraitDescription>Shards deal 50% damage</ItemTraitDescription>
-    <AdditionalDamageTuple DamageType="Physical" Percent="-0.50" />
+    <ItemTraitDescription>Shards deal 60% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="-0.40" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_shard_damage_45" ItemTraitName="Swiftshiver Shards" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Shards deal 45% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="-0.55" />
+  </ItemTrait>
+
+  <ItemTrait ItemTraitStringId="wwo_shard_damage_40" ItemTraitName="Swiftshiver Shards" IsCraftable="false" IconName="winds_icon_45">
+    <ValidItemType>Invalid</ValidItemType>
+    <IngredientItem>Invalid</IngredientItem>
+    <IngredientAmount>-1</IngredientAmount>
+    <ItemTraitDescription>Shards deal 40% damage</ItemTraitDescription>
+    <AdditionalDamageTuple DamageType="Physical" Percent="-0.60" />
   </ItemTrait>
 
   <ItemTrait ItemTraitStringId="wwo_trueflight_50" ItemTraitName="Trueflight Arrow" IsCraftable="false" IconName="winds_icon_45">

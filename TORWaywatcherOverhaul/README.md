@@ -28,7 +28,7 @@ Arrows are classified into 'Piercing' or 'Bursting' arrows based on their intera
 | Arrow Type | T1 | T2 | T3 | Lethal Shot |
 |---|---|---|---|---|
 | **'Piercing' Arrow** | | | | |
-| Swiftshiver Shards | 2 shards, 50% damage each, narrow cone | 4 shards | 6 shards | 2x shards, wider cone. No pierces |
+| Swiftshiver Shards | 2 shards, 60% damage each, narrow cone | 4 shards, 45% damage each | 6 shards, 40% damage each | 2x shards, wider cone. No pierces |
 | Trueflight Arrow | 100% damage, +25% missile speed, pierces shields | 125% damage, +50% missile speed | 150% damage, +100% missile speed | 2x stacked arrows. From T2 Onward: pierce targets |
 | Arcane Bodkin | 100% damage, ignores 50% armour, stopped by shields | 125% damage, ignores 75% armour | 150% damage, ignores 75% armour | 2x stacked arrows. From T2 Onward: pierce targets |
 | **'Bursting' Arrow** | | | | |
