@@ -26,4 +26,14 @@
 		type="Resistance"
 		damage_type="Magical">
 	</StatusEffectTemplate>
+	<StatusEffectTemplate
+		id="cg_judgement_cleave"
+		particle_id=""
+		do_not_attach_to_agent_skeleton="true"
+		base_effect_value="0"
+		applies_for_attack_type="Melee"
+		type="TemporaryAttributeOnly"
+		damage_type="Physical">
+		<temporary_attribute>Slice</temporary_attribute>
+	</StatusEffectTemplate>
 </StatusEffects>

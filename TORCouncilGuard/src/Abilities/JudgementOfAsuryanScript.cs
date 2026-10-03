@@ -22,7 +22,7 @@ namespace TORCouncilGuard.Abilities
     {
         internal const string PersonalFlame = "cg_flame_personal";
         internal const string SharedFlame = "cg_flame_shared";
-        internal const string CleaveFlame = "cg_flame_cleave";
+        internal const string CleaveEffect = "cg_judgement_cleave";
         internal const string ExplosionTrait = "cg_flame_explosion";
         internal const string SwingSpeedEffect = "cg_judgement_swing_speed";
         internal const string BurnEffect = "cg_asuryan_burn";
@@ -61,6 +61,9 @@ namespace TORCouncilGuard.Abilities
 
             Ignite(caster, PersonalTraits(hero, fire), duration);
             Hasten(caster, swingSpeed, duration);
+
+            if (hero.HasCareerChoice("GuardianOfTorLithanelKeystone"))
+                caster.ApplyStatusEffect(CleaveEffect, caster, duration, false, true);
 
             if (!share) return;
 
@@ -102,9 +105,6 @@ namespace TORCouncilGuard.Abilities
                 FlameTrait(PersonalFlame, fire),
             };
 
-            if (hero.HasCareerChoice("GuardianOfTorLithanelKeystone"))
-                traits.Add(StatTrait(CleaveFlame, ItemTraitStatType.Cleave, 1f));
-
             if (hero.HasCareerChoice("TempleOfAsuryanKeystone"))
             {
                 var explosion = ItemTrait.All.FirstOrDefault(x => x.ItemTraitStringId == ExplosionTrait);
@@ -129,13 +129,6 @@ namespace TORCouncilGuard.Abilities
             trait.ImbuedStatusEffectId = "none";
             trait.ImbuedEffectChance = 0f;
             trait.WeaponParticlePreset = new WeaponParticlePreset { ParticlePrefab = ParticlePrefab };
-            return trait;
-        }
-
-        private static ItemTrait StatTrait(string id, ItemTraitStatType type, float value)
-        {
-            var trait = NewTrait(id);
-            trait.StatsTuple = new StatsTuple { StatType = type, Value = value };
             return trait;
         }
 

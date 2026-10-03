@@ -125,5 +125,4 @@ Archives of the Empire, Vol.1
 
 ## Other Notes
 
-- Currently 'Cleaves' from CA doesn't work in vanilla TOR - also affects Knightly Strike. Seems like dynamic trait isn't read?
 - Originally I had "Prefect" as the Rank 2, but the Queen's Champion is itself, a Prefect according to lore. So I swapped for "Senator" which is an interesting choice for Rank 2 - Into Queen's Champion or the like.
