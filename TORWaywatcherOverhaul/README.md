@@ -33,7 +33,7 @@ Arrows are classified into 'Piercing' or 'Bursting' arrows based on their intera
 | Arcane Bodkin | 100% damage, ignores 50% armour, stopped by shields | 125% damage, ignores 75% armour | 150% damage, ignores 75% armour | 2x stacked arrows. From T2 Onward: pierce targets |
 | **'Bursting' Arrow** | | | | |
 | Starfire Shaft | 110% 'Fire' damage, burns the target (4/s, 6s) | 120% 'Fire', burns 8s | 130% 'Fire', burns 10s, Fire vulnerability | Bursts in 1m (1.5m at T2, 2m at T3), spreading the arrow's full upgraded effect |
-| Moonfire Shot | 125% 'Magic' damage, 0.5m shockwave (15 'Magic'), knockdown | 140% 'Magic' | 150% 'Magic', 1m shockwave, Magic vulnerability | +1m shockwave (+1.5m at T2, +2m at T3) |
+| Moonfire Shot | 125% 'Magic' damage, 1m shockwave (25 'Magic'), knockdown | 140% 'Magic' | 150% 'Magic', 1.5m shockwave, Magic vulnerability | +1m shockwave (+1.5m at T2, +2m at T3) |
 | Hagbane Tips | 100% damage, poisons the target (4/s, 6s), -30% movement | 5/s for 7s, -40% movement | 5/s for 8s, -50% movement | Bursts in 1m (1.5m at T2, 2m at T3), spreading the arrow's full upgraded effect |
 
 - Outside Lethal Shot, Starfire Shaft and Hagbane Tips only affect the target hit when it is not using Lethal Shot. They are meant to be situational tool, but can be useful vs certain targets like ethereal or trolls.
@@ -41,7 +41,7 @@ Arrows are classified into 'Piercing' or 'Bursting' arrows based on their intera
 - Fire / Magic vulnerability: Gives -34% 'Fire' / 'Magic' resistance.
 
 ## Keystones
-No passives were changed from TOR. I only modified the Keystones effect.
+I only modified the Keystones effect, plus two passives that now buff your Waywatcher / Ghost Strider companions (the wanderers you can recruit).
 
 | Tier | Keystone | Text |
 |---|---|---|
@@ -52,6 +52,13 @@ No passives were changed from TOR. I only modified the Keystones effect.
 | 2 (Clan Tier 2) | Starfire Essence | 'Bursting' arrows deal 25% more area damage. |
 | 2 (Clan Tier 2) | Hawkeyed | Shards: 2x Lethal Shot charge. Trueflight: +50% at range. Bodkin: +50% vs armour. |
 | 3 (Clan Tier 4) | Eye of the Hunter | T3 Enchanted Arrows. Lethal Shot: +0.5m 'Bursting' radius. |
+
+| Tier | Passive | Text |
+|---|---|---|
+| 2 (Clan Tier 2) | Starfire Essence, 4th passive | Waywatcher and Ghost Strider companions share your Enchanted Arrows (no Lethal Shot). |
+| 3 (Clan Tier 4) | Eye of the Hunter, 1st passive (replaces +3 ammo) | Lethal Shot also empowers your Waywatcher and Ghost Strider companions. |
+
+- Companions get your currently loaded arrow at your tier. Hawkeyed bonuses and Lethal Shot charge stay yours only.
 
 ## Power Curve / Design 
 At Tier 1, I expect Waywatcher to feel significantly stronger and better with something to do, since they can access Swiftshiver Shards for headshot from a good angle and Trueflight / Arcane Bodkin for their staple arrows. 

@@ -14,6 +14,13 @@ namespace TORWaywatcherOverhaul.Career
             Reflection.SetAbilityScriptType(career, typeof(WaywatcherLethalShotScript));
         }
 
+        internal static void ClearReplacedPassives()
+        {
+            var choice = TORCareerChoices.GetChoice("EyeOfTheHunterPassive1")
+                ?? throw new System.InvalidOperationException("EyeOfTheHunterPassive1 not found.");
+            Reflection.ClearPassive(choice);
+        }
+
         internal static void UpdateLethalShotTooltip()
         {
             if (Reflection.AbilityTemplates().TryGetValue("LethalShot", out var template))

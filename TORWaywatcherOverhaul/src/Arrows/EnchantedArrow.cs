@@ -76,7 +76,7 @@ namespace TORWaywatcherOverhaul.Arrows
         internal static int MoonfireMagicBonusPercent(int tier) => tier >= 3 ? 50 : tier == 2 ? 40 : 25;
 
         internal static float Radius(ArrowType arrow, int tier) =>
-            arrow == ArrowType.MoonfireShot ? (tier >= 3 ? 1f : 0.5f) : 0f;
+            arrow == ArrowType.MoonfireShot ? (tier >= 3 ? 1.5f : 1f) : 0f;
 
         internal static float LethalRadiusBonus(int tier) => tier >= 3 ? 2f : tier == 2 ? 1.5f : 1f;
     }

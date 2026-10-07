@@ -18,6 +18,8 @@ namespace TORWaywatcherOverhaul.Career
             ("HailOfArrowsKeystone", "{=wwo_HailOfArrowsKeystone}T2 Enchanted Arrows. Lethal Shot: +0.5m 'Bursting' radius, Trueflight and Bodkin pierce."),
             ("StarfireEssenceKeystone", "{=wwo_StarfireEssenceKeystone}'Bursting' arrows deal 25% more area damage."),
             ("HawkeyedKeystone", "{=wwo_HawkeyedKeystone}Shards: 2x Lethal Shot charge. Trueflight: +50% at range. Bodkin: +50% vs armour."),
+            ("StarfireEssencePassive4", "{=wwo_StarfireEssencePassive4}Waywatcher and Ghost Strider companions share your Enchanted Arrows (no Lethal Shot)."),
+            ("EyeOfTheHunterPassive1", "{=wwo_EyeOfTheHunterPassive1}Lethal Shot also empowers your Waywatcher and Ghost Strider companions."),
             ("EyeOfTheHunterKeystone", "{=wwo_EyeOfTheHunterKeystone}T3 Enchanted Arrows. Lethal Shot: +0.5m 'Bursting' radius.")
         };
 

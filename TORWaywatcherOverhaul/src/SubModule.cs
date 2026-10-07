@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using System.Reflection;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
@@ -13,6 +16,10 @@ namespace TORWaywatcherOverhaul
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
+            var harmony = new Harmony("TORWaywatcherOverhaul");
+            foreach (var type in Assembly.GetExecutingAssembly().GetTypes().Where(t => t.GetCustomAttributes(typeof(HarmonyPatch), true).Any()))
+                Feature(type.Name, () => harmony.CreateClassProcessor(type).Patch());
+
             Feature("Enchanted Arrow templates", TemplateInjector.Inject);
             Feature("Lethal Shot tooltip", WaywatcherCareerSetup.UpdateLethalShotTooltip);
         }
@@ -24,6 +31,7 @@ namespace TORWaywatcherOverhaul
 
             Feature("Lethal Shot script", WaywatcherCareerSetup.ReplaceLethalShot);
             Feature("Waywatcher career texts", WaywatcherTexts.Apply);
+            Feature("Waywatcher companion passives", WaywatcherCareerSetup.ClearReplacedPassives);
         }
 
         public override void OnMissionBehaviorInitialize(Mission mission)

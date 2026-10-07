@@ -39,6 +39,13 @@ namespace TORWaywatcherOverhaul.Bootstrap
             property.SetValue(career, scriptType);
         }
 
+        internal static void ClearPassive(CareerChoiceObject choice)
+        {
+            var property = typeof(CareerChoiceObject).GetProperty(nameof(CareerChoiceObject.Passive), Instance)
+                ?? throw new MissingMemberException("CareerChoiceObject.Passive not found. TOR_Core layout changed.");
+            property.SetValue(choice, null);
+        }
+
         internal static List<Tuple<MissionWeapon, ItemTrait, float>> DynamicTraits(ItemTraitAgentComponent component) =>
             Field(typeof(ItemTraitAgentComponent), "_dynamicTraits", Instance).GetValue(component) as List<Tuple<MissionWeapon, ItemTrait, float>>
             ?? throw new InvalidCastException("ItemTraitAgentComponent._dynamicTraits is not the expected list.");

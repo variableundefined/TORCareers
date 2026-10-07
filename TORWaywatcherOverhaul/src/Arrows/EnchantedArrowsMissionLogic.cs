@@ -25,12 +25,21 @@ namespace TORWaywatcherOverhaul.Arrows
         private const float TrueflightRangeStart = 20f;
         private const float TrueflightBonusPerMetre = 0.01f;
         private const float TrueflightMaxBonus = 0.5f;
+        private const float CompanionLethalDuration = 20f;
+        private const float SweepInterval = 0.5f;
 
         private readonly Dictionary<int, (Agent Shooter, ArrowShot Shot)> _burstShots = new Dictionary<int, (Agent, ArrowShot)>();
         private readonly Dictionary<int, float> _trueflightShots = new Dictionary<int, float>();
         private readonly Dictionary<int, float> _bodkinShots = new Dictionary<int, float>();
         private readonly Dictionary<int, float> _shardShots = new Dictionary<int, float>();
+        private readonly HashSet<Agent> _band = new HashSet<Agent>();
+        private readonly Dictionary<Agent, string> _bandTraits = new Dictionary<Agent, string>();
+        private readonly Dictionary<Agent, (int Arrows, float Until)> _bandLethal = new Dictionary<Agent, (int, float)>();
         private bool _selectorsAdded;
+        private bool _playerWasLethal;
+        private bool _traitsDirty = true;
+        private int _seenQuiverVersion = -1;
+        private float _sweep;
         private string _appliedTraits;
         private bool? _isArena;
 
@@ -50,24 +59,51 @@ namespace TORWaywatcherOverhaul.Arrows
         public override void OnAgentBuild(Agent agent, Banner banner)
         {
             base.OnAgentBuild(agent, banner);
+            if (IsBandMember(agent))
+            {
+                _band.Add(agent);
+                _bandTraits.Remove(agent);
+                _traitsDirty = true;
+            }
             if (!IsPlayerWaywatcher(agent)) return;
             if (!_selectorsAdded)
                 _selectorsAdded = Safe("arrow selectors", () => ArrowSelectors.Add(agent));
             _appliedTraits = null;
+            _traitsDirty = true;
         }
 
         public override void OnMissionTick(float dt)
         {
             base.OnMissionTick(dt);
+
+            if (Quiver.Version != _seenQuiverVersion)
+            {
+                _seenQuiverVersion = Quiver.Version;
+                ShareLethalShot();
+                _traitsDirty = true;
+            }
+
+            _sweep -= dt;
+            if (_sweep <= 0f)
+            {
+                _sweep = SweepInterval;
+                ForgetOldShots();
+                ExpireBandLethal();
+                _traitsDirty = true;
+            }
+
+            if (!_traitsDirty) return;
+            _traitsDirty = false;
             SyncTraits();
-            ForgetOldShots();
+            SyncBandTraits();
         }
 
         public override void OnAgentShootMissile(Agent shooterAgent, EquipmentIndex weaponIndex, Vec3 position,
             Vec3 velocity, Mat3 orientation, bool hasRigidBody, int forcedMissileIndex)
         {
             base.OnAgentShootMissile(shooterAgent, weaponIndex, position, velocity, orientation, hasRigidBody, forcedMissileIndex);
-            if (!IsPlayerWaywatcher(shooterAgent) || weaponIndex == EquipmentIndex.None) return;
+            var isPlayer = IsPlayerWaywatcher(shooterAgent);
+            if ((!isPlayer && !_band.Contains(shooterAgent)) || weaponIndex == EquipmentIndex.None) return;
             if (!ArrowTraits.IsBow(shooterAgent.Equipment[weaponIndex])) return;
 
             var hero = Hero.MainHero;
@@ -76,7 +112,7 @@ namespace TORWaywatcherOverhaul.Arrows
             {
                 Arrow = arrow,
                 Tier = EnchantedArrow.Tier(hero),
-                Lethal = Quiver.IsLethal,
+                Lethal = isPlayer ? Quiver.IsLethal : IsBandLethal(shooterAgent),
                 Essence = hero.HasCareerChoice(EnchantedArrow.StarfireEssence),
                 FiredAt = Mission.CurrentTime
             };
@@ -96,7 +132,13 @@ namespace TORWaywatcherOverhaul.Arrows
                 return true;
             });
 
-            if (shot.Lethal) Quiver.ConsumeLethalArrow();
+            if (!shot.Lethal) return;
+            if (isPlayer) Quiver.ConsumeLethalArrow();
+            else if (_bandLethal.TryGetValue(shooterAgent, out var lethal))
+            {
+                _bandLethal[shooterAgent] = (lethal.Arrows - 1, lethal.Until);
+                if (lethal.Arrows - 1 <= 0) _traitsDirty = true;
+            }
         }
 
         public override void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)
@@ -238,7 +280,53 @@ namespace TORWaywatcherOverhaul.Arrows
 
             if (Safe("arrow traits", () => ArrowTraits.Apply(agent, traits)))
                 _appliedTraits = signature;
+            else
+                _traitsDirty = true;
         }
+
+        private void ShareLethalShot()
+        {
+            var lethal = Quiver.IsLethal;
+            if (lethal && !_playerWasLethal && _band.Count > 0 && Companions.SharesLethalShot(Hero.MainHero))
+            {
+                var until = Mission.CurrentTime + CompanionLethalDuration;
+                foreach (var agent in _band)
+                    if (agent.IsActive()) _bandLethal[agent] = (Quiver.LethalArrows, until);
+            }
+            _playerWasLethal = lethal;
+        }
+
+        private void ExpireBandLethal()
+        {
+            if (_bandLethal.Count == 0) return;
+            var now = Mission.CurrentTime;
+            foreach (var agent in _bandLethal.Where(x => x.Value.Arrows <= 0 || x.Value.Until <= now || !x.Key.IsActive()).Select(x => x.Key).ToList())
+                _bandLethal.Remove(agent);
+        }
+
+        private bool IsBandLethal(Agent agent) =>
+            _bandLethal.TryGetValue(agent, out var lethal) && lethal.Arrows > 0 && lethal.Until > Mission.CurrentTime;
+
+        private void SyncBandTraits()
+        {
+            if (_band.Count == 0) return;
+            var hero = Hero.MainHero;
+            var tier = EnchantedArrow.Tier(hero);
+            foreach (var agent in _band)
+            {
+                if (!agent.IsActive()) continue;
+                var traits = ArrowTraits.For(Quiver.Loaded, tier, IsBandLethal(agent), hero);
+                var signature = Bows(agent) + "|" + string.Join(",", traits);
+                if (_bandTraits.TryGetValue(agent, out var applied) && applied == signature) continue;
+                if (Safe("companion arrow traits", () => ArrowTraits.Apply(agent, traits)))
+                    _bandTraits[agent] = signature;
+            }
+        }
+
+        private bool IsBandMember(Agent agent) =>
+            agent != null && Campaign.Current != null && Hero.MainHero != null
+            && Hero.MainHero.HasCareer(TORCareers.Waywatcher) && !IsArena
+            && Companions.IsWaywatcherCompanion(agent) && Companions.SharesArrows(Hero.MainHero);
 
         private static string Bows(Agent agent)
         {

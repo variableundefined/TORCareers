@@ -16,9 +16,12 @@ namespace TORWaywatcherOverhaul.Arrows
 
         internal static bool IsLethal => LethalArrows > 0;
 
+        internal static int Version { get; private set; }
+
         internal static void Load(ArrowType arrow)
         {
             Loaded = arrow;
+            Version++;
             var text = new TextObject("{=wwo_arrow_loaded}{ARROW} loaded.");
             text.SetTextVariable("ARROW", Name(arrow));
             InformationManager.DisplayMessage(new InformationMessage(text.ToString()));
@@ -33,14 +36,25 @@ namespace TORWaywatcherOverhaul.Arrows
             return arrows;
         }
 
-        internal static void StartLethalShot(int arrows) => LethalArrows = arrows;
+        internal static void StartLethalShot(int arrows)
+        {
+            LethalArrows = arrows;
+            Version++;
+        }
 
         internal static void ConsumeLethalArrow()
         {
-            if (LethalArrows > 0) LethalArrows--;
+            if (LethalArrows <= 0) return;
+            LethalArrows--;
+            if (LethalArrows == 0) Version++;
         }
 
-        internal static void EndLethalShot() => LethalArrows = 0;
+        internal static void EndLethalShot()
+        {
+            if (LethalArrows == 0) return;
+            LethalArrows = 0;
+            Version++;
+        }
 
         internal static TextObject Name(ArrowType arrow)
         {

@@ -20,7 +20,7 @@ namespace TORWaywatcherOverhaul.Arrows
     internal static class ArrowImpact
     {
         private const float EssenceDamageFactor = 1.25f;
-        private const int MoonfireDamage = 15;
+        private const int MoonfireDamage = 25;
         private const float TargetOnlyEffectRadius = 0.5f;
         private const float MinVisualScale = 0.2f;
         private const float MaxVisualScale = 2.5f;
