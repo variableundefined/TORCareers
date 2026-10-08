@@ -16,7 +16,8 @@ namespace TORMercenaryCareerOverhaul
         internal static readonly string RootDescription =
             "Never retreat! Never surrender! Inspire troops in an area. Allies within become 'Unbreakable' and "
             + "'Unstoppable' for " + Trim(Data.Duration) + "s. Gains " + Trim(Data.RadiusPerLeadership) + "m radius and "
-            + Trim(Data.DurationPerLeadership) + "s duration per point of Leadership. (" + Data.CoolDown + "s cooldown.)";
+            + Trim(Data.DurationPerLeadership) + "s duration per point of Leadership. Always affects yourself. "
+            + Percent(Data.NonCasterDuration) + " duration if you are not a spellcaster. (" + Data.CoolDown + "s cooldown.)";
 
         private static readonly Dictionary<string, string> Descriptions =
             new Dictionary<string, string>(StringComparer.Ordinal)
@@ -43,7 +44,12 @@ namespace TORMercenaryCareerOverhaul
                 "+100% 'Faction Resource' from battles. Gain another 100% if Leadership reaches 300.",
 
             [Data.CommanderKeystone] =
-                "The base radius of Let Them Have It! is doubled.",
+                "Let Them Have It!: +" + Trim(Data.CasterRadius) + "m radius for spellcasters, "
+                + Percent(Data.CommanderBonus) + " (additive) to each bonus otherwise.",
+
+            [Data.PaymasterKeystone] =
+                "Let Them Have It! effects doubled. Non-spellcasters also gain "
+                + Percent(Data.MagicResistance) + " spell resistance.",
 
             [TavernHiring.Card] =
                 "Mercenaries in town taverns appear in greater numbers and cost 25% less.",

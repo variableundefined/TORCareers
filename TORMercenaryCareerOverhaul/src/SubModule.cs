@@ -28,6 +28,7 @@ namespace TORMercenaryCareerOverhaul
                 Apply(harmony, nameof(SurvivalistHunt), SurvivalistHunt.Apply);
                 Apply(harmony, nameof(MercenaryRecruitButton), MercenaryRecruitButton.Apply);
                 Apply(harmony, nameof(MercenaryUnitProperties), MercenaryUnitProperties.Apply);
+                Apply(harmony, nameof(LetThemHaveItSelf), LetThemHaveItSelf.Apply);
             }
             catch (Exception ex)
             {

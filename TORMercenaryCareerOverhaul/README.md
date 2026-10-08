@@ -10,7 +10,7 @@ This career overhaul is not fully designed to work for Sylvania, Mousillon or Br
 
 ### Career Ability 
 Career Ability: Let Them Have It!
-Never retreat! Never surrender! Inspire troops in an area. Allies within become 'Unbreakable' and 'Unstoppable' for 30s. Gains 0.05m Radius and 0.05s per point of Leadership.
+Never retreat! Never surrender! Inspire troops in an area. Allies within become 'Unbreakable' and 'Unstoppable' for 30s. Always applies to yourself. Gains 0.05m Radius and 0.05s per point of Leadership. +20% Duration if you're not a Spellcaster.
 * Aimed up to 30m away. Base radius of 6m, 60s Cooldown.
 
 ### Specialization - Mercenary Contact:
@@ -85,7 +85,7 @@ Sergeant (clan level 2)
    * Mercenaries in taverns appear in greater numbers and cost 25% less.
       * Swapped from the Companion upgrade button, which I never liked and you are better off long term fielding "real" companions.
       - 50% more tavern mercenaries. The town's tavern mercenary and your contact offers are both 25% cheaper.
-   * The effects of Let Them Have It! are doubled.
+   * The effects of Let Them Have It! are doubled. If you're not a Spellcaster, it also grants +30% Magic Resistance.
 
 
 Commander (clan level 4)
@@ -102,8 +102,9 @@ Commander (clan level 4)
    * +10% 'Physical' damage of 'Melee' troops.
    * Hits below 15 damage no longer stagger you.
    * +15 Hitpoints for Companions.
-   * The base radius of Let Them Have It! is doubled.
-      - Doubles the 6m base only. Leadership is added on top: 12m + 0.05m per point.
+   * Let Them Have It! gains +6m Radius if you're a Spellcaster. Otherwise, each of its bonuses gains +10%.
+      - +6m is flat and does not double. I decided against any WOM regen as it would eclipse Magister if that happened.
+      - The +10% is added after The Paymaster's doubling (15% -> 25%, or 30% -> 40% with The Paymaster).
 
 ## Design Notes & Such 
 Bullet Points! 
