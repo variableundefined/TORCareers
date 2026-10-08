@@ -22,6 +22,7 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
         private const int CommanderTier = 3;
         private const float ContractPremium = 3f;
         private const float PaymasterDiscount = 0.25f;
+        private const int RestockDays = 2;
 
         private static readonly int[] TierWeight = { 55, 30, 15 };
         private static readonly int[] VeteranTierWeight = { 30, 40, 30 };
@@ -151,13 +152,13 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
             var settlement = Settlement.CurrentSettlement;
             if (settlement == null || !settlement.IsTown) return null;
 
-            var day = (int)CampaignTime.Now.ToDays;
-            var prefix = settlement.StringId + "|" + day + "|";
+            var period = (int)CampaignTime.Now.ToDays / RestockDays;
+            var prefix = settlement.StringId + "|" + period + "|";
 
             var stored = _offers.FirstOrDefault(o => o.StartsWith(prefix, StringComparison.Ordinal));
             if (stored == null)
             {
-                stored = Roll(settlement, day, prefix);
+                stored = Roll(prefix);
                 if (stored == null) return null;
                 _offers.RemoveAll(o => o.StartsWith(settlement.StringId + "|", StringComparison.Ordinal));
                 _offers.Add(stored);
@@ -166,7 +167,7 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
             return Parse(stored);
         }
 
-        private string Roll(Settlement settlement, int day, string prefix)
+        private string Roll(string prefix)
         {
             if (_signed.Count == 0) return null;
 
@@ -229,8 +230,7 @@ namespace TORMercenaryCareerOverhaul.CampaignMechanics
         private void Consume(Offer offer, int taken)
         {
             _offers.Remove(offer.Key);
-            var left = offer.Count - taken;
-            if (left <= 0) return;
+            var left = Math.Max(0, offer.Count - taken);
 
             var parts = offer.Key.Split('|');
             _offers.Add(parts[0] + "|" + parts[1] + "|" + parts[2] + "|" + parts[3] + "|" + left);
