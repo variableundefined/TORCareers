@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggeredEffectTemplates>
+    <TriggeredEffectTemplate StringID="sm_loec_knockdown" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="TOR_Core.BattleMechanics.TriggeredEffect.Scripts.KnockDownScript" />
+    <TriggeredEffectTemplate StringID="sm_loec_haste" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="6" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_loec_speed</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_phoenix_strike" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="50" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_phoenix_line" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="35" Radius="6" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_phoenix_bleed" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="6" HasShockWave="false" TargetType="Enemy"
+                             ImbuedStatusEffectDuration="6" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_phoenix_bleed</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_phoenix_dismount" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="1" Radius="6" HasShockWave="true" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_phoenix_companion" BurstParticleEffectPrefab="psys_fireball_explosion_1" SoundEffectId="fireball_explosion" SoundEffectLength="2.5"
+                             DamageType="Physical" DamageAmount="80" Radius="1" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_falling_water" BurstParticleEffectPrefab="blue_particle_explosion" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="60" Radius="4" HasShockWave="false" TargetType="Enemy" DamageVariance="0.05"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_sun_aura" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="10" HasShockWave="false" TargetType="Friendly"
+                             ImbuedStatusEffectDuration="20" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_sun_dmg</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_sun_physres</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_sun_hoeth" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="10" HasShockWave="false" TargetType="Friendly"
+                             ImbuedStatusEffectDuration="20" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>kow_ulric_unstop</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_sun_ward</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_rain" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_rain_res</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_rain_mov</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_hawk" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_hawk_swing</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_frost" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_frost_dmg</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+</TriggeredEffectTemplates>

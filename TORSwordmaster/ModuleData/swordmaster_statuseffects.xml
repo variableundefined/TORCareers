@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StatusEffects>
+	<StatusEffectTemplate id="sm_wots_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_wots_swing" particle_id="courage_of_aenarion" particle_intensity="Low" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_wots_cleave" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0" applies_for_attack_type="Melee" type="TemporaryAttributeOnly" damage_type="Physical">
+		<temporary_attribute>Slice</temporary_attribute>
+	</StatusEffectTemplate>
+	<StatusEffectTemplate id="sm_wots_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_wots_rangeres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.50" applies_for_attack_type="Ranged" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_wots_speed" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" type="MovementManipulation" />
+	<StatusEffectTemplate id="sm_ally_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_ally_swing" particle_id="courage_of_aenarion" particle_intensity="Low" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_storm_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.03" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_storm_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.02" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_final_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="1.5" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_heirloom_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.02" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_companion_ward" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="All" />
+	<StatusEffectTemplate id="sm_loec_speed" particle_id="mistform_smoke" particle_intensity="High" do_not_attach_to_agent_skeleton="true" base_effect_value="0.75" type="MovementManipulation" />
+	<StatusEffectTemplate id="sm_phoenix_bleed" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="5" type="DamageOverTime" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_sun_dmg" particle_id="general_light_buff" do_not_attach_to_agent_skeleton="true" base_effect_value="0.20" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_sun_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_sun_ward" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="All" />
+	<StatusEffectTemplate id="sm_mt_rain_res" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.25" applies_for_attack_type="Ranged" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_rain_mov" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" type="MovementManipulation" />
+	<StatusEffectTemplate id="sm_mt_hawk_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_frost_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="DamageAmplification" damage_type="Physical" />
+</StatusEffects>

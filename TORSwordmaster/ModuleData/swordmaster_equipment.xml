@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EquipmentRosters>
+  <EquipmentRoster id="tor_cc_eo_swordmaster_3" culture="Culture.eonir">
+    <EquipmentSet>
+      <Equipment slot="Item0" id="Item.western_2hsword_t3" />
+      <Equipment slot="Head" id="Item.tor_he_head_helm_spearmen_001" />
+      <Equipment slot="Body" id="Item.tor_he_body_armour_spearmen_001" />
+      <Equipment slot="Gloves" id="Item.tor_he_arm_bracers_infantry_001" />
+      <Equipment slot="Leg" id="Item.tor_we_leg_boots_militia_003" />
+    </EquipmentSet>
+    <EquipmentSet civilian="true">
+      <Equipment slot="Item0" id="Item.western_2hsword_t3" />
+      <Equipment slot="Head" id="Item.tor_he_head_helm_spearmen_001" />
+      <Equipment slot="Body" id="Item.tor_he_body_armour_spearmen_001" />
+      <Equipment slot="Gloves" id="Item.tor_he_arm_bracers_infantry_001" />
+      <Equipment slot="Leg" id="Item.tor_we_leg_boots_militia_003" />
+    </EquipmentSet>
+  </EquipmentRoster>
+</EquipmentRosters>
