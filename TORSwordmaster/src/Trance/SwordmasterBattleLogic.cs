@@ -48,13 +48,14 @@ namespace TORSwordmaster.Trance
                 {
                     if (IsSwordmaster()) SetUpPlayer(agent);
                 }
+                else if (agent.GetOriginMobileParty() == MobileParty.MainParty || hero?.PartyBelongedTo == MobileParty.MainParty)
+                {
+                    if (hero != null && hero.HasAttribute(SwordmasterCareerChoices.CompanionAttribute)) SetUpCompanion(agent);
+                    MartialTraining.ApplyInBattle(agent);
+                }
                 else if (hero != null && hero.HasAttribute(SwordmasterCareerChoices.CompanionAttribute))
                 {
                     SetUpCompanion(agent);
-                }
-                else if (hero == null && agent.GetOriginMobileParty() == MobileParty.MainParty)
-                {
-                    MartialTraining.ApplyInBattle(agent);
                 }
             }
             catch (Exception e)

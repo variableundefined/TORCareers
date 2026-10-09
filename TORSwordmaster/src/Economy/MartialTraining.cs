@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ImageIdentifiers;
 using TaleWorlds.Localization;
@@ -65,6 +66,8 @@ namespace TORSwordmaster.Economy
 
         private MartialTraining() : base(null) { }
 
+        public override string CareerButtonIcon => "favor_icon_45";
+
         private static List<Path> Current(CharacterObject character) =>
             CareerButtonHelper.GetCurrentActiveItems(character, Paths, p => p.Id);
 
@@ -83,7 +86,7 @@ namespace TORSwordmaster.Economy
                 .Where(IsUnlocked)
                 .Select(p =>
                 {
-                    var eligible = characterObject.Tier >= p.Tier;
+                    var eligible = characterObject.IsHero || characterObject.Tier >= p.Tier;
                     var hint = eligible ? p.Description : p.Description + " (requires tier " + p.Tier + " troops)";
                     return new InquiryElement(p, p.Name, (ImageIdentifier)null, canPay && eligible, hint);
                 })
@@ -113,7 +116,10 @@ namespace TORSwordmaster.Economy
         public override bool ShouldButtonBeVisible(CharacterObject characterObject, bool isPrisoner = false)
         {
             if (GetActivePartyState().PartyScreenMode != PartyScreenMode.Normal) return false;
-            return characterObject != null && !isPrisoner && !characterObject.IsHero && !characterObject.IsRanged;
+            if (characterObject == null || isPrisoner) return false;
+            if (characterObject.IsHero)
+                return characterObject.HeroObject != Hero.MainHero && characterObject.HeroObject.PartyBelongedTo == MobileParty.MainParty;
+            return !characterObject.IsRanged;
         }
 
         public override bool ShouldButtonBeActive(CharacterObject characterObject, out TextObject displayText, bool isPrisoner = false)
