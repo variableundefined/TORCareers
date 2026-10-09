@@ -7,13 +7,11 @@ using TaleWorlds.MountAndBlade;
 using TOR_Core.AbilitySystem;
 using TOR_Core.CharacterDevelopment;
 using TOR_Core.CharacterDevelopment.CareerSystem;
-using TOR_Core.CharacterDevelopment.CareerSystem.CareerButton;
 using TOR_Core.Extensions;
 using TORSwordmaster.Abilities;
 using TORSwordmaster.Bootstrap;
 using TORSwordmaster.Economy;
 using TORSwordmaster.Career;
-using TORSwordmaster.Companions;
 using G = TORSwordmaster.Career.SwordmasterChoiceGroups;
 
 namespace TORSwordmaster.Trance

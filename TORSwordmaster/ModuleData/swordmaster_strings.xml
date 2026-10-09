@@ -8,8 +8,8 @@
   <string id="tor_career_rank3_name.Swordmaster" text="{=str_tor_career_rank3_name_Swordmaster}Bladelord" />
 
   <string id="tor_careerunlock_level_1.Swordmaster" text="{=str_tor_careerunlock_level_1_swordmaster}" />
-  <string id="tor_careerunlock_level_2.Swordmaster" text="{=str_tor_careerunlock_level_2_swordmaster}Required clan renown: 2" />
-  <string id="tor_careerunlock_level_3.Swordmaster" text="{=str_tor_careerunlock_level_3_swordmaster}Required clan renown: 4" />
+  <string id="tor_careerunlock_level_2.Swordmaster" text="{=str_tor_careerunlock_level_2_swordmaster}Required clan renown: 2. Unlocks T2 Training." />
+  <string id="tor_careerunlock_level_3.Swordmaster" text="{=str_tor_careerunlock_level_3_swordmaster}Required clan renown: 4. Unlocks T3 Training." />
 
   <string id="tor_hirelingactivity0.Swordmaster" text="{=str_tor_hirelingactivity0_Swordmaster}Practice the Way of the Sword" />
   <string id="tor_hirelingactivity1.Swordmaster" text="{=str_tor_hirelingactivity1_Swordmaster}Perform the sword-dance until exhausted" />
@@ -43,7 +43,7 @@
   <string id="tor_careerchoice_description.SmHeirloomOfAenarionPassive2" text="{=str_sm_heir2}Flight of the Phoenix also dismounts riders it hits." />
   <string id="tor_careerchoice_description.SmHeirloomOfAenarionPassive3" text="{=str_sm_heir3}2% physical resistance, +5 personal hit points for each enchanted item on you." />
   <string id="tor_careerchoice_description.SmHeirloomOfAenarionPassive4" text="{=str_sm_heir4}+10% personal 'Physical' melee damage." />
-  <string id="tor_careerchoice_description.SmHeirloomOfAenarionKeystone" text="{=str_sm_heir_ks}Ability damage +0.03% per 'Leadership'. Flight of the Phoenix makes everything it hits bleed for 5 damage per second for 6s." />
+  <string id="tor_careerchoice_description.SmHeirloomOfAenarionKeystone" text="{=str_sm_heir_ks}Ability damage +0.03%/'Leadership'. Phoenix hits bleed for 5/s over 6s." />
 
   <string id="tor_careerchoice_description.SmThirtyFormsPassive1" text="{=str_sm_forms1}+20 One-Handed / Two-Handed skill for all troops" />
   <string id="tor_careerchoice_description.SmThirtyFormsPassive2" text="{=str_sm_forms2}+25 daily experience for all 'Melee' troops" />
@@ -55,7 +55,7 @@
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive2" text="{=str_sm_storm2}+20% personal physical ranged resistance while not using a shield" />
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive3" text="{=str_sm_storm3}Hits below 20 damage no longer stagger you." />
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive4" text="{=str_sm_storm4}Perfect Parry, Chamber Block and Deflection grant 50% more charge." />
-  <string id="tor_careerchoice_description.SmPathOfTheStormKeystone" text="{=str_sm_storm_ks}Way of the Sword: +50% ranged 'Physical' resistance. Each missile that hits you costs 3% charge." />
+  <string id="tor_careerchoice_description.SmPathOfTheStormKeystone" text="{=str_sm_storm_ks}Way of the Sword: +50% ranged 'Physical' res. Missile hits cost 3% charge." />
 
   <string id="tor_careerchoice_description.SmSwordOfHoethPassive1" text="{=str_sm_hoeth1}+5 Companion Limit." />
   <string id="tor_careerchoice_description.SmSwordOfHoethPassive2" text="{=str_sm_hoeth2}+10% 'Physical Resistance' for 'Melee' troops" />
@@ -64,7 +64,7 @@
   <string id="tor_careerchoice_description.SmSwordOfHoethKeystone" text="{=str_sm_hoeth_ks}Path of the Sun from you or a companion also grants 'Unstoppable' and +10% Ward Save." />
 
   <string id="tor_careerchoice_description.SmBladelordPassive1" text="{=str_sm_blade1}+30 personal Hitpoints." />
-  <string id="tor_careerchoice_description.SmBladelordPassive2" text="{=str_sm_blade2}+10% personal armour penetration for melee attacks." />
+  <string id="tor_careerchoice_description.SmBladelordPassive2" text="{=str_sm_blade2}+10% personal 'Physical' resistance." />
   <string id="tor_careerchoice_description.SmBladelordPassive3" text="{=str_sm_blade3}+15% Physical damage for 'Melee' troops." />
   <string id="tor_careerchoice_description.SmBladelordPassive4" text="{=str_sm_blade4}Path of Falling Water deals +0.2% damage per point in your highest melee skill." />
   <string id="tor_careerchoice_description.SmBladelordKeystone" text="{=str_sm_blade_ks}Unlocks the Master's Strike technique." />

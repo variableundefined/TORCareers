@@ -18,8 +18,21 @@
 	<StatusEffectTemplate id="sm_sun_dmg" particle_id="general_light_buff" do_not_attach_to_agent_skeleton="true" base_effect_value="0.20" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_sun_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_sun_ward" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="All" />
-	<StatusEffectTemplate id="sm_mt_rain_res" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.25" applies_for_attack_type="Ranged" type="Resistance" damage_type="Physical" />
-	<StatusEffectTemplate id="sm_mt_rain_mov" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" type="MovementManipulation" />
-	<StatusEffectTemplate id="sm_mt_hawk_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
-	<StatusEffectTemplate id="sm_mt_frost_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_path_of_the_rain_res" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.25" applies_for_attack_type="Ranged" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_path_of_the_rain_mov" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" type="MovementManipulation" />
+	<StatusEffectTemplate id="sm_mt_path_of_the_hawk_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_path_of_frost_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="DamageAmplification" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_path_of_the_mountain_res" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="Melee" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_ward_of_hoeth_magical" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.30" applies_for_attack_type="All" type="Resistance" damage_type="Magical" />
+	<StatusEffectTemplate id="sm_mt_ward_of_hoeth_fire" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.30" applies_for_attack_type="All" type="Resistance" damage_type="Fire" />
+	<StatusEffectTemplate id="sm_mt_ward_of_hoeth_lightning" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.30" applies_for_attack_type="All" type="Resistance" damage_type="Lightning" />
+	<StatusEffectTemplate id="sm_mt_martial_prowess_cleave" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0" applies_for_attack_type="Melee" type="TemporaryAttributeOnly" damage_type="Physical">
+		<temporary_attribute>Slice</temporary_attribute>
+	</StatusEffectTemplate>
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_physical" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_magical" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Magical" />
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_fire" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Fire" />
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_holy" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Holy" />
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_lightning" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Lightning" />
+	<StatusEffectTemplate id="sm_mt_grace_of_asuryan_frost" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="Resistance" damage_type="Frost" />
 </StatusEffects>

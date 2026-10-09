@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TOR_Core.AbilitySystem;
 using TOR_Core.AbilitySystem.Scripts;
-using TORSwordmaster.Bootstrap;
 using TORSwordmaster.Trance;
 using G = TORSwordmaster.Career.SwordmasterChoiceGroups;
 

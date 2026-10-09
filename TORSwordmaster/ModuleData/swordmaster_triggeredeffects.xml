@@ -46,20 +46,52 @@
         <ImbuedStatusEffect>kow_ulric_unstop</ImbuedStatusEffect>
         <ImbuedStatusEffect>sm_sun_ward</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
-    <TriggeredEffectTemplate StringID="sm_mt_rain" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+    <TriggeredEffectTemplate StringID="sm_mt_path_of_the_rain" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
                              ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
-        <ImbuedStatusEffect>sm_mt_rain_res</ImbuedStatusEffect>
-        <ImbuedStatusEffect>sm_mt_rain_mov</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_path_of_the_rain_res</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_path_of_the_rain_mov</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
-    <TriggeredEffectTemplate StringID="sm_mt_hawk" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+    <TriggeredEffectTemplate StringID="sm_mt_path_of_the_hawk" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
                              ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
-        <ImbuedStatusEffect>sm_mt_hawk_swing</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_path_of_the_hawk_swing</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
-    <TriggeredEffectTemplate StringID="sm_mt_frost" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+    <TriggeredEffectTemplate StringID="sm_mt_path_of_frost" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
                              ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
-        <ImbuedStatusEffect>sm_mt_frost_dmg</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_path_of_frost_dmg</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_path_of_the_mountain" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_path_of_the_mountain_res</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_ward_of_hoeth" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_ward_of_hoeth_magical</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_ward_of_hoeth_fire</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_ward_of_hoeth_lightning</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_martial_prowess" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_martial_prowess_cleave</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_unyielding_form" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>kow_ulric_unstop</ImbuedStatusEffect>
+    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_mt_grace_of_asuryan" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
+                             ImbuedStatusEffectDuration="99999" DamageVariance="0" ScriptNameToTrigger="none">
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_physical</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_magical</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_fire</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_holy</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_lightning</ImbuedStatusEffect>
+        <ImbuedStatusEffect>sm_mt_grace_of_asuryan_frost</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
 </TriggeredEffectTemplates>

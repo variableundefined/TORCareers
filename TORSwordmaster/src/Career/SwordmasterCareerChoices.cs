@@ -78,7 +78,9 @@ namespace TORSwordmaster.Career
 
         protected override void InitializePassives()
         {
-            C(RootId).Initialize(CareerID, string.Empty, string.Empty, true, ChoiceType.Passive, null, null);
+            C(RootId).Initialize(CareerID, string.Empty, string.Empty, true, ChoiceType.Passive, null,
+                new PassiveEffect(-25f, PassiveEffectType.TroopWages, true,
+                    c => c != null && !c.IsHero && MartialTraining.Has(c, MartialTraining.Discipline)));
 
             var d = G.SwordDancing;
             Passive(d, 1, new PassiveEffect(20f, PassiveEffectType.Health));
@@ -117,7 +119,7 @@ namespace TORSwordmaster.Career
 
             var b = G.Bladelord;
             Passive(b, 1, new PassiveEffect(30f, PassiveEffectType.Health));
-            Passive(b, 2, new PassiveEffect(-10f, PassiveEffectType.ArmorPenetration, true));
+            Passive(b, 2, SelfResist(DamageType.Physical, 10f));
             Passive(b, 3, new PassiveEffect(PassiveEffectType.TroopDamage,
                 new DamageProportionTuple(DamageType.Physical, 15f), AttackTypeMask.Melee,
                 (a, v, m) => m == AttackTypeMask.Melee && IsMeleeTroop(a)));

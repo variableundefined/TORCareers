@@ -32,11 +32,26 @@ Enter a trance in which you and your blade move as one. Gain +15% Physical Melee
 
 **Career Button:** Martial Training
 
-Train a 'Melee' unit for 125 Favor, giving them a small but significant permanent buff. Following training paths available:
+Train a 'Melee' unit for 25 Favor, giving them a small but significant permanent buff. One training per unit. Following training paths available:
+
+Any tier:
 
 - Path of the Rain: 25% Physical Ranged Resistance, 10% Movement Speed
 - Path of the Hawk: 10% Swing Speed
 - Path of Frost: 15% Physical Damage
+- Path of the Mountain: 15% Physical Melee Resistance
+
+T2 (unlocked at Blademaster, tier 2 or above troops only):
+
+- Discipline of the Tower: 25% Wage reduction
+- Ward of Hoeth: 30% Magical, Fire and Lightning Resistance
+
+T3 (unlocked at Bladelord, tier 3 or above troops only):
+
+- Martial Prowess: Gains 'Cleave' on Attack
+- Unyielding Form: Unstoppable
+- Grace of Asuryan: 15% Resistance to every damage type
+- Flame of Asuryan: +20% 'Fire' damage
 
 Uses the Knight of the Old World seal pattern (permanent troop attributes through the career button helper).
 
@@ -58,7 +73,7 @@ Uses the Knight of the Old World seal pattern (permanent troop attributes throug
 - Flight of the Phoenix also dismounts riders it hits.
 - 2% physical resistance, +5 personal hit points for each enchanted item on you.
 - +10% personal 'Physical' melee damage.
-- Ability damage +0.03% per 'Leadership'. Flight of the Phoenix makes everything it hits bleed for 5 damage per second for 6s.
+- Ability damage +0.03%/'Leadership'. Phoenix hits bleed for 5/s over 6s.
 
 **Thirty Forms:**
 
@@ -74,7 +89,7 @@ Uses the Knight of the Old World seal pattern (permanent troop attributes throug
 - +20% personal physical ranged resistance while not using a shield
 - Hits below 20 damage no longer stagger you.
 - Perfect Parry, Chamber Block and Deflection grant 50% more charge.
-- Way of the Sword: +50% ranged 'Physical' resistance. Each missile that hits you costs 3% charge.
+- Way of the Sword: +50% ranged 'Physical' res. Missile hits cost 3% charge.
 
 ### Bladelord (Clan Tier 4)
 
@@ -89,7 +104,7 @@ Uses the Knight of the Old World seal pattern (permanent troop attributes throug
 **Bladelord:**
 
 - +30 personal Hitpoints.
-- +10% personal armour penetration for melee attacks.
+- +10% personal 'Physical' resistance.
 - +15% Physical damage for 'Melee' troops.
 - Path of Falling Water deals +0.2% damage per point in your highest melee skill.
 - Unlocks the Master's Strike technique.
