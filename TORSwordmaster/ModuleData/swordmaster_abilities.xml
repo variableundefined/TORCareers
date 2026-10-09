@@ -32,7 +32,7 @@
                      MaxDistance="1"
                      CrosshairType="Self"
                      SpellTier="2"
-                     TooltipDescription="{=sm_way_of_the_sword_tooltip_str}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in Two-Handed adds 0.03% Physical Melee Damage.">
+                     TooltipDescription="{=sm_way_of_the_sword_tooltip_str}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in your highest melee skill adds 0.03% Physical Melee Damage.">
         <LightColorRGB x="255" y="255" z="255" w="-1">
             <AsVec2><x>255</x><y>255</y><z>255</z></AsVec2>
         </LightColorRGB>
@@ -70,7 +70,7 @@
                      MinDistance="3"
                      MaxDistance="15"
                      SpellTier="1"
-                     TooltipDescription="{=sm_flight_of_the_phoenix_tooltip_str}Costs 10% charge. Sends a short-range blade of wind that strikes the first enemy for 50 physical damage, ignoring armor, and carries on to deal 35 physical damage in a 6m line behind them.">
+                     TooltipDescription="{=sm_flight_of_the_phoenix_tooltip_str}Costs 10% charge. Short-range projectile, stops on the first enemy, ignoring armor, dealing physical damage. Shield piercing. 50 damage to the first enemy, then 35 damage in a 6m line behind them. Damage +0.2% per point in your highest melee skill.">
         <LightColorRGB x="255" y="170" z="0" w="-1">
             <AsVec2><x>255</x><y>170</y></AsVec2>
         </LightColorRGB>
@@ -186,6 +186,44 @@
                      CrosshairType="Self"
                      SpellTier="3"
                      TooltipDescription="{=sm_path_of_falling_water_tooltip_str}Costs 50% charge. AOE attack. 60 Physical damage in 4m radius, only works on foot.">
+        <LightColorRGB x="255" y="255" z="255" w="-1">
+            <AsVec2><x>255</x><y>255</y><z>255</z></AsVec2>
+        </LightColorRGB>
+    </AbilityTemplate>
+
+    <AbilityTemplate StringID="MastersStrike"
+                     Name="{=sm_masters_strike_label_str}Master's Strike"
+                     SpriteName="sm_way_of_the_sword_icon"
+                     CoolDown="30"
+                     WindsOfMagicCost="0"
+                     BaseMisCastChance="0"
+                     Duration="1"
+                     Radius="1"
+                     AbilityType="Prayer"
+                     AbilityEffectType="Augment"
+                     BaseMovementSpeed="0"
+                     TickInterval="-1"
+                     TriggerType="TickOnce"
+                     HasLight="false"
+                     LightIntensity="0"
+                     LightRadius="0"
+                     LightFlickeringMagnitude="0"
+                     LightFlickeringInterval="0"
+                     ShadowCastEnabled="true"
+                     ParticleEffectPrefab=""
+                     ParticleEffectSizeModifier="0"
+                     SoundEffectToPlay=""
+                     ShouldSoundLoopOverDuration="false"
+                     CastType="Instant"
+                     CastTime="0"
+                     AnimationActionName=""
+                     Offset="0.5"
+                     AbilityTargetType="Self"
+                     TargetCapturingRadius="1"
+                     MaxDistance="1"
+                     CrosshairType="Self"
+                     SpellTier="4"
+                     TooltipDescription="{=sm_masters_strike_tooltip_str}Costs 50% charge. Your next two strikes deal +100% 'Magical' damage, are unparryable and have 100% armor penetration.">
         <LightColorRGB x="255" y="255" z="255" w="-1">
             <AsVec2><x>255</x><y>255</y><z>255</z></AsVec2>
         </LightColorRGB>

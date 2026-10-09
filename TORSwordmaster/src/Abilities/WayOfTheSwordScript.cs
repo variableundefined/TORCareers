@@ -27,10 +27,10 @@ namespace TORSwordmaster.Abilities
         private const float AllyRadius = 5f;
         private const float RitualPhysicalResist = 0.10f;
         private const float StormRangedResist = 0.50f;
-        private const float CooldownResetInterval = 60f;
+        private const float CleanseInterval = 30f;
 
         internal static WayOfTheSwordScript Active { get; set; }
-        internal static float LastCooldownReset { get; set; } = float.MinValue;
+        internal static float LastCleanse { get; set; } = float.MinValue;
 
         private bool _started;
         private float _refresh;
@@ -90,11 +90,12 @@ namespace TORSwordmaster.Abilities
             Active = this;
             Focus.Fill(ability);
 
-            if (G.Has(G.Passive(G.Ritual, 1)))
+            var now = Mission.Current.CurrentTime;
+            if (G.Has(G.Passive(G.Ritual, 1)) && now - LastCleanse >= CleanseInterval)
+            {
+                LastCleanse = now;
                 Effects.Cleanse(caster);
-
-            if (G.Has(G.Keystone(G.Ritual)))
-                ResetTechniqueCooldowns(caster);
+            }
 
             Buff(caster);
             return true;
@@ -107,7 +108,6 @@ namespace TORSwordmaster.Abilities
 
             if (Active == this) Active = null;
             Stop();
-            FinalStroke.Arm(caster);
         }
 
         private static void Buff(Agent caster)
@@ -142,20 +142,6 @@ namespace TORSwordmaster.Abilities
                 Effects.Apply(ally, AllyDamageEffect, damage, BuffDuration, caster);
                 Effects.Apply(ally, AllySwingEffect, swing, BuffDuration, caster);
             }
-        }
-
-        private static void ResetTechniqueCooldowns(Agent caster)
-        {
-            var now = Mission.Current.CurrentTime;
-            if (now - LastCooldownReset < CooldownResetInterval) return;
-            LastCooldownReset = now;
-
-            var component = caster.GetComponent<AbilityComponent>();
-            if (component == null) return;
-
-            foreach (var technique in component.KnownAbilitySystem)
-                if (technique is Technique)
-                    Reflection.CooldownEndTime.SetValue(technique, 0f);
         }
     }
 }

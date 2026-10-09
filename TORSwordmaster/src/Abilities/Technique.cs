@@ -5,6 +5,7 @@ using TaleWorlds.MountAndBlade;
 using TOR_Core.AbilitySystem;
 using TORSwordmaster.Bootstrap;
 using TORSwordmaster.Trance;
+using G = TORSwordmaster.Career.SwordmasterChoiceGroups;
 
 namespace TORSwordmaster.Abilities
 {
@@ -14,6 +15,9 @@ namespace TORSwordmaster.Abilities
         internal const string Loec = "ShadowsOfLoec";
         internal const string Sun = "PathOfTheSun";
         internal const string FallingWater = "PathOfFallingWater";
+        internal const string Master = "MastersStrike";
+
+        private const float RitualCooldownFactor = 0.8f;
 
         internal static readonly Dictionary<string, float> Costs = new Dictionary<string, float>
         {
@@ -21,6 +25,7 @@ namespace TORSwordmaster.Abilities
             { Loec, 100f },
             { Sun, 400f },
             { FallingWater, 500f },
+            { Master, 500f },
         };
 
         private readonly float _cost;
@@ -34,6 +39,12 @@ namespace TORSwordmaster.Abilities
         {
             if (base.IsDisabled(casterAgent, out disabledReason)) return true;
             if (casterAgent == null || !casterAgent.IsMainAgent) return false;
+
+            if (StringID == Master && !G.Has(G.Keystone(G.Bladelord)))
+            {
+                disabledReason = new TextObject("{=sm_requires_bladelord}Needs the Bladelord keystone!");
+                return true;
+            }
 
             if ((StringID == Loec || StringID == FallingWater) && casterAgent.HasMount)
             {
@@ -64,6 +75,13 @@ namespace TORSwordmaster.Abilities
                 .ToDictionary(a => a, a => Reflection.CooldownEndTime.GetValue(a));
 
             base.ActivateAbility(casterAgent);
+
+            if (G.Has(G.Keystone(G.Ritual)))
+            {
+                var now = Mission.Current.CurrentTime;
+                var end = (float)Reflection.CooldownEndTime.GetValue(this);
+                Reflection.CooldownEndTime.SetValue(this, now + (end - now) * RitualCooldownFactor);
+            }
 
             if (others != null)
                 foreach (var pair in others)

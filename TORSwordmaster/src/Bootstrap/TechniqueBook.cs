@@ -21,7 +21,7 @@ namespace TORSwordmaster.Bootstrap
 
         private static readonly string[] Techniques =
         {
-            Technique.Phoenix, Technique.Loec, Technique.Sun, Technique.FallingWater,
+            Technique.Phoenix, Technique.Loec, Technique.Sun, Technique.FallingWater, Technique.Master,
         };
 
         internal static void Apply(Harmony harmony)

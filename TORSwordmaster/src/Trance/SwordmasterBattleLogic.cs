@@ -68,9 +68,9 @@ namespace TORSwordmaster.Trance
         private static void SetUpPlayer(Agent agent)
         {
             WayOfTheSwordScript.Active = null;
-            WayOfTheSwordScript.LastCooldownReset = float.MinValue;
-            StormStacks.Reset();
-            FinalStroke.Reset();
+            WayOfTheSwordScript.LastCleanse = float.MinValue;
+            Riposte.Reset();
+            MastersStrike.Reset();
 
             TechniqueUnlocks.Grant(Hero.MainHero);
             InstallTechniques(agent);
@@ -155,11 +155,6 @@ namespace TORSwordmaster.Trance
                 ability.OnCastComplete += cast => TechniqueEffects.OnFallingWaterCast(agent);
         }
 
-        public override void OnMissionTick(float dt)
-        {
-            if (Agent.Main != null && IsSwordmaster()) StormStacks.Tick(Agent.Main);
-        }
-
         public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon,
                                         in Blow blow, in AttackCollisionData attackCollisionData)
         {
@@ -179,6 +174,9 @@ namespace TORSwordmaster.Trance
 
             if (attackCollisionData.CollisionResult != CombatCollisionResult.StrikeAgent || blow.InflictedDamage <= 0) return;
             if (!IsMeleeWeapon(affectorWeapon)) return;
+
+            Riposte.OnStrike(affectorAgent);
+            MastersStrike.OnStrike(affectorAgent, affectedAgent, blow);
 
             var ability = Focus.Of(affectorAgent);
             if (ability == null) return;
@@ -201,16 +199,12 @@ namespace TORSwordmaster.Trance
             if (attacker == null || victim == null || collisionData.IsMissile || !attacker.IsEnemyOf(victim)) return;
             if (!IsSwordmaster()) return;
 
-            if (attacker.IsMainAgent)
-            {
-                FinalStroke.OnStrike(attacker);
-                return;
-            }
-
             if (!victim.IsMainAgent) return;
 
             var ability = Focus.Of(victim);
             if (ability == null) return;
+
+            if (IsBlockResult(collisionData.CollisionResult)) Riposte.Arm(victim);
 
             if (collisionData.AttackBlockedWithShield)
             {
@@ -225,7 +219,6 @@ namespace TORSwordmaster.Trance
                     break;
                 case CombatCollisionResult.Parried:
                     Focus.Add(ability, Focus.ParryGain(Focus.Parried));
-                    StormStacks.OnPerfectParry(victim);
                     break;
                 case CombatCollisionResult.ChamberBlocked:
                     Focus.Add(ability, Focus.ParryGain(Focus.Chamber));
@@ -235,11 +228,16 @@ namespace TORSwordmaster.Trance
 
         public override void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)
         {
-            if (victim == null || !victim.IsMainAgent || attacker == null || !attacker.IsEnemyOf(victim)) return;
-            if (!collisionData.MissileBlockedWithWeapon || !IsSwordmaster()) return;
+            if (isCanceled || victim == null || !victim.IsMainAgent || attacker == null || !attacker.IsEnemyOf(victim)) return;
+            if (!IsSwordmaster()) return;
 
             var ability = Focus.Of(victim);
-            if (ability != null) Focus.Add(ability, Focus.ParryGain(Focus.Deflected));
+            if (ability == null) return;
+
+            if (collisionData.MissileBlockedWithWeapon)
+                Focus.Add(ability, Focus.ParryGain(Focus.Deflected));
+            else if (!collisionData.AttackBlockedWithShield && G.Has(G.Keystone(G.Storm)) && WayOfTheSwordScript.IsActiveFor(victim))
+                Focus.Add(ability, -Focus.MissileHitCost);
         }
 
         public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)

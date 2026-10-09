@@ -87,7 +87,7 @@ namespace TORSwordmaster.Career
             Passive(d, 4, Custom(SwordmasterBattleLogic.FaithPerVictimLevel));
 
             var h = G.Heirloom;
-            Passive(h, 1, new PassiveEffect(20f, PassiveEffectType.ArmorPenetration, true));
+            Passive(h, 1, new PassiveEffect(-20f, PassiveEffectType.ArmorPenetration, true));
             Passive(h, 2, Custom(15f));
             Passive(h, 3, Custom(SwordmasterBattleLogic.HealthPerEnchantedItem));
             Passive(h, 4, SelfDamage(DamageType.Physical, 10f));
@@ -99,7 +99,7 @@ namespace TORSwordmaster.Career
             Passive(t, 4, TroopCharacter(-20f, PassiveEffectType.TroopWages, true));
 
             var s = G.Storm;
-            Passive(s, 1, Custom(StormStacks.SwingPerStack * 100f));
+            Passive(s, 1, Custom(50f));
             Passive(s, 2, SelfResist(DamageType.Physical, 20f, AttackTypeMask.Ranged,
                 (a, v, m) => m == AttackTypeMask.Ranged && !Focus.UsesShield(v)));
             Passive(s, 3, new PassiveEffect(20f, PassiveEffectType.ShruggedOff));
@@ -117,7 +117,7 @@ namespace TORSwordmaster.Career
 
             var b = G.Bladelord;
             Passive(b, 1, new PassiveEffect(30f, PassiveEffectType.Health));
-            Passive(b, 2, new PassiveEffect(10f, PassiveEffectType.ArmorPenetration, true));
+            Passive(b, 2, new PassiveEffect(-10f, PassiveEffectType.ArmorPenetration, true));
             Passive(b, 3, new PassiveEffect(PassiveEffectType.TroopDamage,
                 new DamageProportionTuple(DamageType.Physical, 15f), AttackTypeMask.Melee,
                 (a, v, m) => m == AttackTypeMask.Melee && IsMeleeTroop(a)));

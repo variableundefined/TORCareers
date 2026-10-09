@@ -24,6 +24,7 @@ namespace TORSwordmaster.Trance
         internal const float Chamber = 300f;
         internal const float StartingCharge = 500f;
         internal const float BlockCooldown = 1f;
+        internal const float MissileHitCost = 30f;
         private const float StormBonus = 1.5f;
 
         private const float Drain = 25f;
@@ -59,11 +60,15 @@ namespace TORSwordmaster.Trance
             var hero = Hero.MainHero;
             if (hero == null) return BaseBonus;
 
-            var bonus = BaseBonus + BonusPerSkillPoint * hero.GetSkillValue(DefaultSkills.TwoHanded);
+            var bonus = BaseBonus + BonusPerSkillPoint * HighestMeleeSkill(hero);
             if (G.Has(G.Keystone(G.Heirloom)))
                 bonus += BonusPerSkillPoint * hero.GetSkillValue(DefaultSkills.Leadership);
             return bonus;
         }
+
+        internal static int HighestMeleeSkill(Hero hero) =>
+            hero == null ? 0 : Math.Max(hero.GetSkillValue(DefaultSkills.OneHanded),
+                Math.Max(hero.GetSkillValue(DefaultSkills.TwoHanded), hero.GetSkillValue(DefaultSkills.Polearm)));
 
         internal static float SwingBonus()
         {

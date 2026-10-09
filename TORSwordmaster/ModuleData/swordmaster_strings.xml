@@ -21,6 +21,7 @@
   <string id="sm_shadows_of_loec_label_str" text="Shadows of Loec" />
   <string id="sm_path_of_the_sun_label_str" text="Path of the Sun" />
   <string id="sm_path_of_falling_water_label_str" text="Path of Falling Water" />
+  <string id="sm_masters_strike_label_str" text="Master's Strike" />
 
   <string id="tor_career_choicegroup_name.SmSwordDancing" text="{=str_sm_group_sword_dancing}Sword-Dancing" />
   <string id="tor_career_choicegroup_name.SmHeirloomOfAenarion" text="{=str_sm_group_heirloom}Heirloom of Aenarion" />
@@ -30,7 +31,7 @@
   <string id="tor_career_choicegroup_name.SmBladelord" text="{=str_sm_group_bladelord}Bladelord" />
   <string id="tor_career_choicegroup_name.SmRitualOfCleansing" text="{=str_sm_group_ritual}Ritual of Cleansing" />
 
-  <string id="tor_careerchoice_description.SwordmasterRoot" text="{=str_sm_root}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in Two-Handed adds 0.03% Physical Melee Damage." />
+  <string id="tor_careerchoice_description.SwordmasterRoot" text="{=str_sm_root}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in your highest melee skill adds 0.03% Physical Melee Damage." />
 
   <string id="tor_careerchoice_description.SmSwordDancingPassive1" text="{=str_sm_dance1}+20 personal Hitpoints" />
   <string id="tor_careerchoice_description.SmSwordDancingPassive2" text="{=str_sm_dance2}+10% personal swing speed." />
@@ -50,11 +51,11 @@
   <string id="tor_careerchoice_description.SmThirtyFormsPassive4" text="{=str_sm_forms4}-20% wages for all 'Melee' troops." />
   <string id="tor_careerchoice_description.SmThirtyFormsKeystone" text="{=str_sm_forms_ks}Ability swing speed scales with 'Faith' (+0.03%/pt) and applies to allies within 5m." />
 
-  <string id="tor_careerchoice_description.SmPathOfTheStormPassive1" text="{=str_sm_storm1}Perfect parries: +3% swing speed, +2% physical resistance (10s, stacks 5 times)." />
+  <string id="tor_careerchoice_description.SmPathOfTheStormPassive1" text="{=str_sm_storm1}After a block or parry, gains +50% damage on your next strike." />
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive2" text="{=str_sm_storm2}+20% personal physical ranged resistance while not using a shield" />
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive3" text="{=str_sm_storm3}Hits below 20 damage no longer stagger you." />
   <string id="tor_careerchoice_description.SmPathOfTheStormPassive4" text="{=str_sm_storm4}Perfect Parry, Chamber Block and Deflection grant 50% more charge." />
-  <string id="tor_careerchoice_description.SmPathOfTheStormKeystone" text="{=str_sm_storm_ks}Way of the Sword: +50% ranged 'Physical' resistance. Parry stacks last the trance." />
+  <string id="tor_careerchoice_description.SmPathOfTheStormKeystone" text="{=str_sm_storm_ks}Way of the Sword: +50% ranged 'Physical' resistance. Each missile that hits you costs 3% charge." />
 
   <string id="tor_careerchoice_description.SmSwordOfHoethPassive1" text="{=str_sm_hoeth1}+5 Companion Limit." />
   <string id="tor_careerchoice_description.SmSwordOfHoethPassive2" text="{=str_sm_hoeth2}+10% 'Physical Resistance' for 'Melee' troops" />
@@ -65,12 +66,12 @@
   <string id="tor_careerchoice_description.SmBladelordPassive1" text="{=str_sm_blade1}+30 personal Hitpoints." />
   <string id="tor_careerchoice_description.SmBladelordPassive2" text="{=str_sm_blade2}+10% personal armour penetration for melee attacks." />
   <string id="tor_careerchoice_description.SmBladelordPassive3" text="{=str_sm_blade3}+15% Physical damage for 'Melee' troops." />
-  <string id="tor_careerchoice_description.SmBladelordPassive4" text="{=str_sm_blade4}Path of Falling Water deals +0.2% damage per point in 'Two-Handed'." />
-  <string id="tor_careerchoice_description.SmBladelordKeystone" text="{=str_sm_blade_ks}When Way of the Sword ends, your next 2 strikes are unblockable and deal +150% damage." />
+  <string id="tor_careerchoice_description.SmBladelordPassive4" text="{=str_sm_blade4}Path of Falling Water deals +0.2% damage per point in your highest melee skill." />
+  <string id="tor_careerchoice_description.SmBladelordKeystone" text="{=str_sm_blade_ks}Unlocks the Master's Strike technique." />
 
-  <string id="tor_careerchoice_description.SmRitualOfCleansingPassive1" text="{=str_sm_ritual1}Entering Way of the Sword removes harmful effects from you." />
+  <string id="tor_careerchoice_description.SmRitualOfCleansingPassive1" text="{=str_sm_ritual1}Entering Way of the Sword removes harmful effects from you, once per 30s." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive2" text="{=str_sm_ritual2}+20% personal 'Magical' resistance." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive3" text="{=str_sm_ritual3}Begin battles with 50% Way of the Sword charge." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive4" text="{=str_sm_ritual4}+10% personal physical resistance while Way of the Sword is active." />
-  <string id="tor_careerchoice_description.SmRitualOfCleansingKeystone" text="{=str_sm_ritual_ks}Ability resets technique cooldowns, once per 60s. Shadows of Loec also cleanses you." />
+  <string id="tor_careerchoice_description.SmRitualOfCleansingKeystone" text="{=str_sm_ritual_ks}-20% technique cooldowns. Shadows of Loec also cleanses you." />
 </strings>

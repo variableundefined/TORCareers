@@ -8,6 +8,12 @@
                              ImbuedStatusEffectDuration="6" DamageVariance="0" ScriptNameToTrigger="none">
         <ImbuedStatusEffect>sm_loec_speed</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_master_physical" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="1" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
+    <TriggeredEffectTemplate StringID="sm_master_magical" BurstParticleEffectPrefab="purple_particle_explosion" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Magical" DamageAmount="1" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
     <TriggeredEffectTemplate StringID="sm_phoenix_strike" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="50" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
                              ScriptNameToTrigger="none" />
