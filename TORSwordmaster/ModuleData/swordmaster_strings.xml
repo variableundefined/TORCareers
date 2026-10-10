@@ -31,7 +31,7 @@
   <string id="tor_career_choicegroup_name.SmBladelord" text="{=str_sm_group_bladelord}Bladelord" />
   <string id="tor_career_choicegroup_name.SmRitualOfCleansing" text="{=str_sm_group_ritual}Ritual of Cleansing" />
 
-  <string id="tor_careerchoice_description.SwordmasterRoot" text="{=str_sm_root}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in your highest melee skill adds 0.03% Physical Melee Damage." />
+  <string id="tor_careerchoice_description.SwordmasterRoot" text="{=str_sm_root}Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the ability ends when it runs out. Gain charge from melee damage, blocks, perfect parries, chambers and missile deflections. Each point in your highest melee skill adds 0.03% Physical Melee Damage." />
 
   <string id="tor_careerchoice_description.SmSwordDancingPassive1" text="{=str_sm_dance1}+20 personal Hitpoints" />
   <string id="tor_careerchoice_description.SmSwordDancingPassive2" text="{=str_sm_dance2}+10% personal swing speed." />
