@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StatusEffects>
 	<StatusEffectTemplate id="sm_wots_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
-	<StatusEffectTemplate id="sm_wots_swing" particle_id="courage_of_aenarion" particle_intensity="Low" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_wots_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_wots_cleave" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0" applies_for_attack_type="Melee" type="TemporaryAttributeOnly" damage_type="Physical">
 		<temporary_attribute>Slice</temporary_attribute>
 	</StatusEffectTemplate>
@@ -9,7 +9,7 @@
 	<StatusEffectTemplate id="sm_wots_rangeres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.50" applies_for_attack_type="Ranged" type="Resistance" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_wots_speed" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" type="MovementManipulation" />
 	<StatusEffectTemplate id="sm_ally_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
-	<StatusEffectTemplate id="sm_ally_swing" particle_id="courage_of_aenarion" particle_intensity="Low" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
+	<StatusEffectTemplate id="sm_ally_swing" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.15" applies_for_attack_type="All" type="AttackSpeedManipulation" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_riposte_dmg" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.5" applies_for_attack_type="Melee" type="DamageAmplification" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_heirloom_physres" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.02" applies_for_attack_type="All" type="Resistance" damage_type="Physical" />
 	<StatusEffectTemplate id="sm_companion_ward" particle_id="" do_not_attach_to_agent_skeleton="true" base_effect_value="0.10" applies_for_attack_type="All" type="Resistance" damage_type="All" />

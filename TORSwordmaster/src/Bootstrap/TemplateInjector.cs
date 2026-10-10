@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using TaleWorlds.ModuleManager;
 using TOR_Core.AbilitySystem;
 using TOR_Core.BattleMechanics.StatusEffect;
 using TOR_Core.BattleMechanics.TriggeredEffect;
+using TOR_Core.Items;
 
 namespace TORSwordmaster.Bootstrap
 {
@@ -34,6 +36,10 @@ namespace TORSwordmaster.Bootstrap
                 Reflection.StatusEffectTemplates(), t => t.StringID);
             Add(Load<TriggeredEffectTemplate>("swordmaster_triggeredeffects.xml", "TriggeredEffectTemplates"),
                 Reflection.TriggeredEffectTemplates(), t => t.StringID);
+
+            var traits = Load<ItemTrait>("swordmaster_itemtraits.xml", "ItemTraits");
+            if (traits != null)
+                ItemTrait.All.AddRange(traits.Where(t => ItemTraitManager.Instance.GetItemTraitByStringId(t.ItemTraitStringId) == null).ToList());
         }
 
         private static void Add<T>(List<T> parsed, Dictionary<string, T> target, System.Func<T, string> id)

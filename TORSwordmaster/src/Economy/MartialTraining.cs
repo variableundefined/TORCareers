@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
@@ -7,11 +6,9 @@ using TaleWorlds.Core;
 using TaleWorlds.Core.ImageIdentifiers;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
-using TOR_Core.BattleMechanics.DamageSystem;
 using TOR_Core.CharacterDevelopment.CareerSystem;
 using TOR_Core.CharacterDevelopment.CareerSystem.CareerButton;
 using TOR_Core.Extensions;
-using TOR_Core.Extensions.ExtendedInfoSystem;
 using TOR_Core.Items;
 using static Helpers.PartyScreenHelper;
 
@@ -25,7 +22,6 @@ namespace TORSwordmaster.Economy
         internal const string Flame = "SmFlameOfAsuryan";
 
         private const string FlameTrait = "sm_flame_of_asuryan";
-        private const float FlameFireDamage = 0.20f;
         private const float Permanent = 99999f;
 
         internal sealed class Path
@@ -98,8 +94,7 @@ namespace TORSwordmaster.Economy
                 elements.Add(CareerButtonHelper.CreateRemoveOption(string.Join(", ", current.Select(p => p.Name))));
 
             var title = TORTextHelper.GetText("sm_martial_training_title", "Martial Training");
-            var description = new TextObject("{=sm_martial_training_description}Train this unit for {COST} Favor (Scaled by Tier of the training).");
-            description.SetTextVariable("COST", FavorPerTier);
+            var description = new TextObject("{=sm_martial_training_description}Train this unit.");
 
             MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
                 title, description.ToString(), elements, true, 1, 1,
@@ -134,8 +129,7 @@ namespace TORSwordmaster.Economy
                 return true;
             }
 
-            displayText = new TextObject("{=sm_martial_training_accept}Train this unit for {COST} Favor per tier of the path.");
-            displayText.SetTextVariable("COST", FavorPerTier);
+            displayText = new TextObject("{=sm_martial_training_accept}Train this unit.");
             return Hero.MainHero.GetCultureSpecificCustomResourceValue() >= FavorPerTier;
         }
 
@@ -157,29 +151,8 @@ namespace TORSwordmaster.Economy
         private static void ApplyFlame(Agent agent)
         {
             var component = agent.GetComponent<ItemTraitAgentComponent>();
-            var trait = GetFlameTrait();
+            var trait = ItemTraitManager.Instance.GetItemTraitByStringId(FlameTrait);
             if (component != null && trait != null) component.AddTraitToWieldedWeapon(trait, Permanent);
-        }
-
-        private static ItemTrait GetFlameTrait()
-        {
-            var traits = ItemTrait.All;
-            var trait = traits.FirstOrDefault(t => t.ItemTraitStringId == FlameTrait);
-            if (trait != null) return trait;
-
-            var template = traits.FirstOrDefault(t => t.ItemTraitStringId == "flaming_weapon");
-            if (template == null) return null;
-
-            trait = (ItemTrait)Activator.CreateInstance(typeof(ItemTrait), true);
-            trait.ItemTraitStringId = FlameTrait;
-            trait.ItemTraitName = "Flame of Asuryan";
-            trait.ItemTraitDescription = "Adds extra 20% fire damage.";
-            trait.IconName = template.IconName;
-            trait.ImbuedStatusEffectId = "none";
-            trait.AdditionalDamageTuple = new DamageProportionTuple(DamageType.Fire, FlameFireDamage);
-            trait.WeaponParticlePreset = template.WeaponParticlePreset;
-            traits.Add(trait);
-            return trait;
         }
     }
 }
