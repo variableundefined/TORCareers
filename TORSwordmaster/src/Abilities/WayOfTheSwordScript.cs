@@ -29,12 +29,10 @@ namespace TORSwordmaster.Abilities
         private const float StormRangedResist = 0.50f;
         private const float CleanseInterval = 30f;
         private const string GlowTraitId = "sm_wots_glow";
-        private const float GlowDuration = 99999f;
 
         internal static WayOfTheSwordScript Active { get; set; }
         internal static float LastCleanse { get; set; } = float.MinValue;
 
-        private readonly HashSet<Agent> _glowing = new HashSet<Agent>();
         private bool _started;
         private float _refresh;
 
@@ -108,7 +106,7 @@ namespace TORSwordmaster.Abilities
         {
             foreach (var id in new[] { DamageEffect, SwingEffect, CleaveEffect, PhysicalResistEffect, RangedResistEffect, SpeedEffect })
                 Effects.Remove(caster, id);
-            UpdateGlow(new HashSet<Agent>());
+            caster.GetComponent<ItemTraitAgentComponent>()?.RemoveTraitFromWieldedWeapon(GlowTraitId);
 
             if (Active == this) Active = null;
             Stop();
@@ -133,13 +131,12 @@ namespace TORSwordmaster.Abilities
             if (G.Has(G.Keystone(G.Storm)))
                 Effects.Apply(caster, RangedResistEffect, StormRangedResist, BuffDuration, caster);
 
-            var glowing = new HashSet<Agent> { caster };
             if (G.Has(G.Keystone(G.ThirtyForms)))
-                BuffAllies(caster, damage, swing, glowing);
-            UpdateGlow(glowing);
+                BuffAllies(caster, damage, swing);
+            Glow(caster);
         }
 
-        private static void BuffAllies(Agent caster, float damage, float swing, HashSet<Agent> buffed)
+        private static void BuffAllies(Agent caster, float damage, float swing)
         {
             var allies = Mission.Current.GetNearbyAllyAgents(caster.Position.AsVec2, AllyRadius, caster.Team, new MBList<Agent>());
             foreach (var ally in (List<Agent>)(object)allies)
@@ -147,28 +144,21 @@ namespace TORSwordmaster.Abilities
                 if (ally == null || ally == caster || !ally.IsHuman || !ally.IsActive()) continue;
                 Effects.Apply(ally, AllyDamageEffect, damage, BuffDuration, caster);
                 Effects.Apply(ally, AllySwingEffect, swing, BuffDuration, caster);
-                buffed.Add(ally);
+                Glow(ally);
             }
         }
 
-        // Applies glow to anyone buffed and clears it from anyone not eligible, so that duration don't stack.
-        private void UpdateGlow(HashSet<Agent> targets)
+        // TOR only draws particles for traits added to a specific weapon, and re-adding a trait stacks its
+        // duration, so each refresh tops the glow up by one interval. It fades with the buffs once refreshes stop.
+        private static void Glow(Agent agent)
         {
-            foreach (var agent in _glowing.Except(targets))
-                agent.GetComponent<ItemTraitAgentComponent>()?.RemoveTraitFromWieldedWeapon(GlowTraitId);
+            var component = agent.GetComponent<ItemTraitAgentComponent>();
+            var weapon = agent.WieldedWeapon;
+            var trait = ItemTraitManager.Instance.GetItemTraitByStringId(GlowTraitId);
+            if (component == null || weapon.IsEmpty || trait == null) return;
 
-            var glow = ItemTraitManager.Instance.GetItemTraitByStringId(GlowTraitId);
-            foreach (var agent in targets.Except(_glowing))
-                agent.GetComponent<ItemTraitAgentComponent>()?.AddTraitToWieldedWeapon(glow, GlowDuration);
-
-            _glowing.Clear();
-            _glowing.UnionWith(targets);
-        }
-
-        protected override void OnBeforeRemoved(int removeReason)
-        {
-            UpdateGlow(new HashSet<Agent>());
-            base.OnBeforeRemoved(removeReason);
+            var glowing = component.GetDynamicTraitIds(weapon.Item).Contains(GlowTraitId);
+            component.AddTraitToWeapon(weapon, trait, glowing ? RefreshInterval : BuffDuration);
         }
     }
 }

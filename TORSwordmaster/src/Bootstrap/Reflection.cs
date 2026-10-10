@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using TaleWorlds.MountAndBlade;
 using TOR_Core.AbilitySystem;
 using TOR_Core.BattleMechanics.StatusEffect;
 using TOR_Core.BattleMechanics.TriggeredEffect;
@@ -56,6 +58,18 @@ namespace TORSwordmaster.Bootstrap
         {
             var buttons = Field<Dictionary<string, CareerButtonBehaviorBase>>(CareerButtons.Instance, typeof(CareerButtons), "_careerButtons");
             buttons[careerId] = button;
+        }
+
+        private static readonly Type AbilityHud = AccessTools.TypeByName("TOR_Core.AbilitySystem.AbilityHUDMissionView")
+            ?? throw new TypeLoadException("TOR_Core.AbilitySystem.AbilityHUDMissionView not found. TOR_Core layout changed.");
+
+        // TOR fills the ability wheel when the main agent is assigned, which happens before OnAgentBuild swaps in
+        // the techniques; the wheel then holds abilities no longer known and ignores every selection.
+        internal static void RefillAbilityWheel(Agent agent)
+        {
+            var hud = Mission.Current?.MissionBehaviors.FirstOrDefault(b => AbilityHud.IsInstanceOfType(b));
+            if (hud == null) return;
+            (Required(AbilityHud, "_abilityRadialSelection_VM").GetValue(hud) as AbilityRadialSelection_VM)?.FillAbilities(agent);
         }
 
         internal static void WireCastEvents(AbilityComponent component, Ability ability)

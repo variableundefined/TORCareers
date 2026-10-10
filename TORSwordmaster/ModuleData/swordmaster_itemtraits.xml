@@ -3,7 +3,7 @@
   <ItemTrait ItemTraitStringId="sm_wots_glow" ItemTraitName="Way of the Sword" IsCraftable="false" ImbuedStatusEffectId="none" ImbuedEffectChance="0" IconName="traits_magic_icon">
     <ValidItemType>Weapon</ValidItemType>
     <ItemTraitDescription>Your blade moves as one with you.</ItemTraitDescription>
-    <WeaponParticlePreset ParticlePrefab="psys_magic_weapon" IsUniqueSingleCopy="false" />
+    <WeaponParticlePreset ParticlePrefab="hagbane_trait" IsUniqueSingleCopy="false" />
   </ItemTrait>
   <ItemTrait ItemTraitStringId="sm_flame_of_asuryan" ItemTraitName="Flame of Asuryan" IsCraftable="false" ImbuedStatusEffectId="none" ImbuedEffectChance="0" IconName="traits_fire_icon">
     <ValidItemType>Weapon</ValidItemType>

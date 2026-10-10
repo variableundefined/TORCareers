@@ -115,6 +115,8 @@ namespace TORSwordmaster.Trance
                     known.Add(technique);
                 }
             }
+
+            Reflection.RefillAbilityWheel(agent);
         }
 
         private static void ApplyHeirloom(Agent agent)
