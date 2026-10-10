@@ -128,7 +128,7 @@ namespace TORSwordmaster.Career
             var r = G.Ritual;
             Passive(r, 1, Custom(1f));
             Passive(r, 2, SelfResist(DamageType.Magical, 20f));
-            Passive(r, 3, Custom(50f));
+            Passive(r, 3, Custom(20f));
             Passive(r, 4, Custom(10f));
         }
 

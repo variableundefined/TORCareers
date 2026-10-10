@@ -78,11 +78,8 @@ namespace TORSwordmaster.Trance
                 ApplyHeirloom(agent);
 
             var ability = Focus.Of(agent);
-            if (ability == null) return;
-            if (G.Has(G.Keystone(G.SwordDancing)))
+            if (ability != null && G.Has(G.Keystone(G.SwordDancing)))
                 Focus.Fill(ability);
-            else if (G.Has(G.Passive(G.Ritual, 3)))
-                Focus.Set(ability, Focus.StartingCharge);
         }
 
         private static void InstallTechniques(Agent agent)

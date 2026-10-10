@@ -114,7 +114,7 @@ Uses the Knight of the Old World seal pattern (permanent troop attributes throug
 
 - Entering Way of the Sword removes harmful effects from you, once per 30s.
 - +20% personal 'Magical' resistance.
-- Begin battles with 50% Way of the Sword charge.
+- Way of the Sword drains 20% slower.
 - +10% personal physical resistance while Way of the Sword is active.
 - -20% technique cooldowns. Shadows of Loec also cleanses you.
 

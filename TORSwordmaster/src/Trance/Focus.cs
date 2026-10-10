@@ -22,10 +22,10 @@ namespace TORSwordmaster.Trance
         internal const float Parried = 150f;
         internal const float Deflected = 300f;
         internal const float Chamber = 300f;
-        internal const float StartingCharge = 500f;
         internal const float BlockCooldown = 1f;
         internal const float MissileHitCost = 30f;
         private const float StormBonus = 1.5f;
+        private const float MeditationDrainFactor = 0.8f;
 
         private const float Drain = 25f;
 
@@ -50,7 +50,8 @@ namespace TORSwordmaster.Trance
         internal static float ParryGain(float amount) =>
             G.Has(G.Passive(G.Storm, 4)) ? amount * StormBonus : amount;
 
-        internal static float DrainPerSecond() => Drain;
+        internal static float DrainPerSecond() =>
+            G.Has(G.Passive(G.Ritual, 3)) ? Drain * MeditationDrainFactor : Drain;
 
         internal static float HitGain(float damage) =>
             Math.Max(MinHitGain, Math.Min(MaxHitGain, damage * PerDamage));

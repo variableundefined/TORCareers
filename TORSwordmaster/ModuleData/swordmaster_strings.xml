@@ -71,7 +71,7 @@
 
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive1" text="{=str_sm_ritual1}Entering Way of the Sword removes harmful effects from you, once per 30s." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive2" text="{=str_sm_ritual2}+20% personal 'Magical' resistance." />
-  <string id="tor_careerchoice_description.SmRitualOfCleansingPassive3" text="{=str_sm_ritual3}Begin battles with 50% Way of the Sword charge." />
+  <string id="tor_careerchoice_description.SmRitualOfCleansingPassive3" text="{=str_sm_ritual3}Way of the Sword drains 20% slower." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive4" text="{=str_sm_ritual4}+10% personal physical resistance while Way of the Sword is active." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingKeystone" text="{=str_sm_ritual_ks}-20% technique cooldowns. Shadows of Loec also cleanses you." />
 </strings>
