@@ -76,11 +76,13 @@ namespace TORSwordmaster.Trance
 
             if (G.Has(G.Passive(G.Heirloom, 3)))
                 ApplyHeirloom(agent);
-            if (G.Has(G.Passive(G.Ritual, 3)))
-            {
-                var ability = Focus.Of(agent);
-                if (ability != null) Focus.Set(ability, Focus.StartingCharge);
-            }
+
+            var ability = Focus.Of(agent);
+            if (ability == null) return;
+            if (G.Has(G.Keystone(G.SwordDancing)))
+                Focus.Fill(ability);
+            else if (G.Has(G.Passive(G.Ritual, 3)))
+                Focus.Set(ability, Focus.StartingCharge);
         }
 
         private static void InstallTechniques(Agent agent)
@@ -161,11 +163,8 @@ namespace TORSwordmaster.Trance
 
             if (blow.IsMissile)
             {
-                if (affectorWeapon.Item?.StringId != Technique.Phoenix) return;
-                if (affectorAgent.IsMainAgent && IsSwordmaster())
-                    TechniqueEffects.PhoenixHit(affectorAgent, affectedAgent, true);
-                else if (affectorAgent.GetHero()?.HasAttribute(SwordmasterCareerChoices.CompanionAttribute) == true)
-                    TechniqueEffects.PhoenixHit(affectorAgent, affectedAgent, false);
+                if (affectorWeapon.Item?.StringId == Technique.Phoenix && affectorAgent.IsMainAgent && IsSwordmaster())
+                    TechniqueEffects.PhoenixHit(affectorAgent, affectedAgent);
                 return;
             }
 

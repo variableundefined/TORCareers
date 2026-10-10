@@ -37,7 +37,7 @@
   <string id="tor_careerchoice_description.SmSwordDancingPassive2" text="{=str_sm_dance2}+10% personal swing speed." />
   <string id="tor_careerchoice_description.SmSwordDancingPassive3" text="{=str_sm_dance3}+15% personal 'Physical' melee damage." />
   <string id="tor_careerchoice_description.SmSwordDancingPassive4" text="{=str_sm_dance4}Gain 'Faith' skill per melee kill, scaled by the victim's level." />
-  <string id="tor_careerchoice_description.SmSwordDancingKeystone" text="{=str_sm_dance_ks}Way of the Sword grants 'Cleave'." />
+  <string id="tor_careerchoice_description.SmSwordDancingKeystone" text="{=str_sm_dance_ks}Way of the Sword grants 'Cleave' and starts ready in battle." />
 
   <string id="tor_careerchoice_description.SmHeirloomOfAenarionPassive1" text="{=str_sm_heir1}+20% personal 'Armour Penetration' for melee attacks." />
   <string id="tor_careerchoice_description.SmHeirloomOfAenarionPassive2" text="{=str_sm_heir2}Flight of the Phoenix also dismounts riders it hits." />

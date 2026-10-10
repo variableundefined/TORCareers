@@ -63,7 +63,7 @@ Uses the Knight of the Old World seal pattern (permanent troop attributes throug
 - +10% personal swing speed.
 - +15% personal 'Physical' melee damage.
 - Gain 'Faith' skill per melee kill, scaled by the victim's level.
-- Way of the Sword grants 'Cleave'.
+- Way of the Sword grants 'Cleave' and starts ready in battle.
 
 ### Blademaster (Clan Tier 2)
 
