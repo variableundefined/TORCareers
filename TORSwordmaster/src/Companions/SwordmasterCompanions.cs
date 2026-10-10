@@ -13,8 +13,8 @@ namespace TORSwordmaster.Companions
     internal static class SwordmasterCompanions
     {
         internal const string TemplateId = "tor_sm_swordmaster_companion";
-        internal const int GoldCost = 100000;
-        internal const int FavorCost = 1000;
+        internal const int GoldCost = 50000;
+        internal const int FavorCost = 500;
 
         private static readonly string[] Abilities =
         {

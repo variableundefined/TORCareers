@@ -23,6 +23,9 @@ namespace TORSwordmaster.Economy
         internal const int MeleeTroopDailyXp = 25;
         internal const int CompanionDailyXp = 100;
 
+        // Puts the Companion option ABOVE everything else since TOR's priority are all 200.
+        private const int EnvoyHubPriority = 201;
+
         private Hero _candidate;
         private bool _meetCandidate;
         private bool _openCandidateConversation;
@@ -112,7 +115,7 @@ namespace TORSwordmaster.Economy
         {
             starter.AddPlayerLine("sm_envoy_companion", "asur_envoy_main_hub", "sm_envoy_companion_offer",
                 "{=sm_envoy_companion_ask}I seek a companion trained in the way of the sword",
-                () => IsAsurEnvoy() && IsSwordmaster(), SetCostVariables, 150);
+                () => IsAsurEnvoy() && IsSwordmaster(), SetCostVariables, EnvoyHubPriority);
 
             starter.AddDialogLine("sm_envoy_companion_offer", "sm_envoy_companion_offer", "sm_envoy_companion_choice",
                 "{=sm_envoy_companion_offer}Very well. I know of a student of the sword whose training is nearly done. It will cost you {SM_COMPANION_FAVOR}{FAVOR_ICON} and {SM_COMPANION_GOLD}{GOLD_ICON}.",
@@ -120,10 +123,14 @@ namespace TORSwordmaster.Economy
 
             starter.AddPlayerLine("sm_envoy_companion_meet", "sm_envoy_companion_choice", "close_window",
                 "{=sm_envoy_companion_meet}Let me meet them.",
-                IsAsurEnvoy, () => _meetCandidate = true, 150);
+                () => IsAsurEnvoy() && SwordmasterCompanions.CanAfford(), () => _meetCandidate = true, 150);
 
             starter.AddPlayerLine("sm_envoy_companion_decline", "sm_envoy_companion_choice", "back_to_main_hub_asur",
-                "{=sm_envoy_not_now}Not now.", IsAsurEnvoy, null, 150);
+                "{=sm_envoy_not_now}Not now.", () => IsAsurEnvoy() && SwordmasterCompanions.CanAfford(), null, 150);
+
+            starter.AddPlayerLine("sm_envoy_companion_poor", "sm_envoy_companion_choice", "back_to_main_hub_asur",
+                "{=sm_envoy_cannot_afford_one}I do not have enough to hire one.",
+                () => IsAsurEnvoy() && !SwordmasterCompanions.CanAfford(), null, 150);
 
             starter.AddDialogLine("sm_candidate_start", "start", "sm_candidate_offer",
                 "{=sm_candidate_intro}You wished to see me?",
