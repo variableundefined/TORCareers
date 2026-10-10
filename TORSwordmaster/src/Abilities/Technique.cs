@@ -91,6 +91,7 @@ namespace TORSwordmaster.Abilities
             if (ability != null) Focus.Add(ability, -_cost);
 
             TechniqueEffects.OnPlayerCast(StringID, casterAgent);
+            if (casterAgent != null && casterAgent.IsMainAgent) Rewield.Arm();
         }
     }
 }

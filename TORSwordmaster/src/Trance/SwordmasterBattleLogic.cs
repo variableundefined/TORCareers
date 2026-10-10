@@ -70,6 +70,7 @@ namespace TORSwordmaster.Trance
             WayOfTheSwordScript.LastCleanse = float.MinValue;
             Riposte.Reset();
             MastersStrike.Reset();
+            Rewield.Reset();
 
             TechniqueUnlocks.Grant(Hero.MainHero);
             InstallTechniques(agent);
@@ -153,6 +154,12 @@ namespace TORSwordmaster.Trance
                 ability.OnCastComplete += cast => TechniqueEffects.OnLoecCast(agent);
             foreach (var ability in component.KnownAbilitySystem.Where(a => a.StringID == Technique.FallingWater))
                 ability.OnCastComplete += cast => TechniqueEffects.OnFallingWaterCast(agent);
+        }
+
+        public override void OnMissionTick(float dt)
+        {
+            var player = Agent.Main;
+            if (player != null && player.IsActive() && IsSwordmaster()) Rewield.Tick(player);
         }
 
         public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon,

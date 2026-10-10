@@ -141,7 +141,7 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 
 **Path of the Sun (Adept):**
 
-- Whips allies within 10m into a frenzy with your sword, granting them +20% Physical Damage and +10% Physical Resistance. 20s duration.
+- Whips allies within 10m into a frenzy with your sword, granting them +20% Physical Damage and +10% Physical Resistance. 40s duration.
 
 **Path of Falling Water (Grand):**
 

@@ -30,13 +30,13 @@
                              ScriptNameToTrigger="none" />
     <TriggeredEffectTemplate StringID="sm_sun_aura" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="10" HasShockWave="false" TargetType="Friendly"
-                             ImbuedStatusEffectDuration="20" DamageVariance="0" ScriptNameToTrigger="none">
+                             ImbuedStatusEffectDuration="40" DamageVariance="0" ScriptNameToTrigger="none">
         <ImbuedStatusEffect>sm_sun_dmg</ImbuedStatusEffect>
         <ImbuedStatusEffect>sm_sun_physres</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
     <TriggeredEffectTemplate StringID="sm_sun_hoeth" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="10" HasShockWave="false" TargetType="Friendly"
-                             ImbuedStatusEffectDuration="20" DamageVariance="0" ScriptNameToTrigger="none">
+                             ImbuedStatusEffectDuration="40" DamageVariance="0" ScriptNameToTrigger="none">
         <ImbuedStatusEffect>kow_ulric_unstop</ImbuedStatusEffect>
         <ImbuedStatusEffect>sm_sun_ward</ImbuedStatusEffect>
     </TriggeredEffectTemplate>
