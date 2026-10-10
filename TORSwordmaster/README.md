@@ -15,8 +15,9 @@ It should be pretty decently loreful with a bit of lore stretch. Not released ye
 
 **Career Ability:** Way of the Sword
 
-Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the trance ends when it runs out. Gain charge from melee damage (2% to 10% per hit, up to 12% per swing) and blocks (8%, shield blocks 5%, once per second), perfect parries (15%), chambers and missile deflections (30%). Requires a melee weapon. Each point in your highest melee skill adds 0.03% Physical Melee Damage.
+Enter a trance in which you and your blade move as one. Gain +15% Physical Melee Damage, +15% Swing Speed, +10% Movement Speed on foot and your Techniques, which spend charge. Charge drains 2.5% per second; the ability ends when it runs out. Gain charge from melee damage, blocks, perfect parries, chambers and missile deflections. Each point in your highest melee skill adds 0.03% Physical Melee Damage.
 
+- Requires a melee weapon.
 - Requires full charge to enter. Entering refills to 100%
 - The ability lasts until charge runs out, or you use Way of the Sword again at full charge.
 
