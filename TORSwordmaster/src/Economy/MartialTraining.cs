@@ -19,7 +19,7 @@ namespace TORSwordmaster.Economy
 {
     internal class MartialTraining : CareerButtonBehaviorBase
     {
-        internal const int FavorCost = 25;
+        internal const int FavorPerTier = 25;
 
         internal const string Discipline = "SmDisciplineOfTheTower";
         internal const string Flame = "SmFlameOfAsuryan";
@@ -35,6 +35,7 @@ namespace TORSwordmaster.Economy
             internal string Description { get; }
             internal string TriggeredEffect { get; }
             internal int Tier { get; }
+            internal int Cost => FavorPerTier * Tier;
 
             internal Path(string id, string name, string description, string triggeredEffect, int tier = 1)
             {
@@ -80,7 +81,7 @@ namespace TORSwordmaster.Economy
         public override void ButtonClickedEvent(CharacterObject characterObject, bool isPrisoner = false, bool shiftClick = false)
         {
             _character = characterObject;
-            var canPay = Hero.MainHero.GetCultureSpecificCustomResourceValue() >= FavorCost;
+            var favor = Hero.MainHero.GetCultureSpecificCustomResourceValue();
 
             var elements = Paths
                 .Where(IsUnlocked)
@@ -88,7 +89,7 @@ namespace TORSwordmaster.Economy
                 {
                     var eligible = characterObject.IsHero || characterObject.Tier >= p.Tier;
                     var hint = eligible ? p.Description : p.Description + " (requires tier " + p.Tier + " troops)";
-                    return new InquiryElement(p, p.Name, (ImageIdentifier)null, canPay && eligible, hint);
+                    return new InquiryElement(p, p.Name + " (" + p.Cost + " Favor)", (ImageIdentifier)null, favor >= p.Cost && eligible, hint);
                 })
                 .ToList();
 
@@ -97,8 +98,8 @@ namespace TORSwordmaster.Economy
                 elements.Add(CareerButtonHelper.CreateRemoveOption(string.Join(", ", current.Select(p => p.Name))));
 
             var title = TORTextHelper.GetText("sm_martial_training_title", "Martial Training");
-            var description = new TextObject("{=sm_martial_training_description}Train this unit for {COST} Favor.");
-            description.SetTextVariable("COST", FavorCost);
+            var description = new TextObject("{=sm_martial_training_description}Train this unit for {COST} Favor (Scaled by Tier of the training).");
+            description.SetTextVariable("COST", FavorPerTier);
 
             MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
                 title, description.ToString(), elements, true, 1, 1,
@@ -110,7 +111,7 @@ namespace TORSwordmaster.Economy
         private void OnSelected(List<InquiryElement> elements)
         {
             CareerButtonHelper.ProcessSelection(_character, elements, Current(_character), p => p.Id,
-                _ => Hero.MainHero.AddCultureSpecificCustomResource(-FavorCost));
+                p => Hero.MainHero.AddCultureSpecificCustomResource(-p.Cost));
         }
 
         public override bool ShouldButtonBeVisible(CharacterObject characterObject, bool isPrisoner = false)
@@ -133,9 +134,9 @@ namespace TORSwordmaster.Economy
                 return true;
             }
 
-            displayText = new TextObject("{=sm_martial_training_accept}Train this unit for {COST} Favor.");
-            displayText.SetTextVariable("COST", FavorCost);
-            return Hero.MainHero.GetCultureSpecificCustomResourceValue() >= FavorCost;
+            displayText = new TextObject("{=sm_martial_training_accept}Train this unit for {COST} Favor per tier of the path.");
+            displayText.SetTextVariable("COST", FavorPerTier);
+            return Hero.MainHero.GetCultureSpecificCustomResourceValue() >= FavorPerTier;
         }
 
         internal static void ApplyInBattle(Agent agent)

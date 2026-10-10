@@ -32,7 +32,7 @@ Enter a trance in which you and your blade move as one. Gain +15% Physical Melee
 
 **Career Button:** Martial Training
 
-Train a 'Melee' unit or a companion for 25 Favor, giving them a small but significant permanent buff. One training per unit. Companions can take any unlocked training regardless of tier. Following training paths available:
+Train a 'Melee' unit or a companion for 25 / 50 / 75 Favor (by the path's tier), giving them a small but significant permanent buff. One training per unit. Companions can take any unlocked training regardless of tier. Following training paths available:
 
 Any tier:
 
