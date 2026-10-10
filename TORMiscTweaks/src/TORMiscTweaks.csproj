@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>TORMiscTweaks</AssemblyName>
+    <RootNamespace>TORMiscTweaks</RootNamespace>
+    <Version>0.1.0</Version>
+    <ButterLibBinDir>$(BannerlordDir)Modules\Bannerlord.ButterLib\bin\Win64_Shipping_Client\</ButterLibBinDir>
+    <UIExtenderExBinDir>$(BannerlordDir)Modules\Bannerlord.UIExtenderEx\bin\Win64_Shipping_Client\</UIExtenderExBinDir>
+    <MCMBinDir>$(BannerlordDir)Modules\Bannerlord.MBOptionScreen\bin\Win64_Shipping_Client\</MCMBinDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="SandBox" HintPath="$(SandBoxBinDir)SandBox.dll" Private="false" />
+    <Reference Include="Bannerlord.ButterLib" HintPath="$(ButterLibBinDir)Bannerlord.ButterLib.dll" Private="false" />
+    <Reference Include="Bannerlord.UIExtenderEx" HintPath="$(UIExtenderExBinDir)Bannerlord.UIExtenderEx.dll" Private="false" />
+    <Reference Include="MCMv5" HintPath="$(MCMBinDir)MCMv5.dll" Private="false" />
+  </ItemGroup>
+
+</Project>
