@@ -74,4 +74,21 @@
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive3" text="{=str_sm_ritual3}Way of the Sword drains 20% slower." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingPassive4" text="{=str_sm_ritual4}+10% personal physical resistance while Way of the Sword is active." />
   <string id="tor_careerchoice_description.SmRitualOfCleansingKeystone" text="{=str_sm_ritual_ks}-20% technique cooldowns. Shadows of Loec also cleanses you." />
+
+  <string id="tor_introduction.tor_sm_swordmaster_companion" text="{=str_tor_introduction_tor_sm_swordmaster_companion}A master of the sword stands before you. What do you seek?" />
+  <string id="tor_hire_companion_tell_me_p.tor_sm_swordmaster_companion" text="{=str_tor_hire_companion_tell_me_p_tor_sm_swordmaster_companion}I am {PLAYER.NAME}. Tell me about yourself." />
+  <string id="tor_hire_companion_skip_p.tor_sm_swordmaster_companion" text="{=str_tor_hire_companion_skip_p_tor_sm_swordmaster_companion}They call me {PLAYER.NAME}. What is it you do here?" />
+  <string id="tor_prebackstory.tor_sm_swordmaster_companion" text="{=str_tor_prebackstory_tor_sm_swordmaster_companion}I'm a master of the Way of the Sword, passed down since the time of the War of the Beard." />
+  <string id="tor_backstory_a.tor_sm_swordmaster_companion" text="{=str_tor_backstory_a_tor_sm_swordmaster_companion}I have practiced my way for over fifty years, and my master a hundred. We channel High Magic into our blades and strike faster than eyes can see. I followed my Master out of the forest to seek swordsmanship, and have bested eight human swordmasters in single combat, including Meyer of Altdorf." />
+  <string id="tor_backstory_b.tor_sm_swordmaster_companion" text="{=str_tor_backstory_b_tor_sm_swordmaster_companion}I aspire to become one of the best Swordmasters in the land, to rival those of Ulthuan, to learn and unlearn a hundred techniques from a hundred schools and ten realms." />
+  <string id="tor_backstory_c.tor_sm_swordmaster_companion" text="{=str_tor_backstory_c_tor_sm_swordmaster_companion}I have practiced thirty forms of the sword, yet there is still much more to learn in the everlasting quest for improvement. I seek to travel with a renowned Captain to learn more, for my master does not intend to travel out of the forest for the next few years." />
+  <string id="tor_response_1.tor_sm_swordmaster_companion" text="{=str_tor_response_1_tor_sm_swordmaster_companion}If you join in my company, I guarantee you will have plenty of opportunities to practice." />
+  <string id="tor_response_2.tor_sm_swordmaster_companion" text="{=str_tor_response_2_tor_sm_swordmaster_companion}Perhaps you should practice for a few more decades before seeking adventure out in the world." />
+  <string id="tor_backstory_d.tor_sm_swordmaster_companion" text="{=str_tor_backstory_d_tor_sm_swordmaster_companion}I am a Swordmaster of Laurelorn. Your foes will not know what strikes them before they are parted from their life." />
+  <string id="tor_hire_companion_p.tor_sm_swordmaster_companion" text="{=str_tor_hire_companion_p_tor_sm_swordmaster_companion}A Swordmaster would prove useful amongst my ranks." />
+  <string id="tor_hire_companion_payment.tor_sm_swordmaster_companion" text="{=str_tor_hire_companion_payment_tor_sm_swordmaster_companion}I am bound by contract to my current master. I will need {GOLD_AMOUNT}{GOLD_ICON} to settle my contract and take my leave early." />
+  <string id="tor_hire_accept_p.tor_sm_swordmaster_companion" text="{=str_tor_hire_accept_p_tor_sm_swordmaster_companion}So be it… Take this {GOLD_AMOUNT} then." />
+  <string id="tor_hire_decline_p.tor_sm_swordmaster_companion" text="{=str_tor_hire_decline_p_tor_sm_swordmaster_companion}Apologies, I cannot afford that just yet." />
+  <string id="tor_companion_leave_p.tor_sm_swordmaster_companion" text="{=str_tor_companion_leave_p_tor_sm_swordmaster_companion}Forgive me, I must take my leave." />
+  <string id="tor_hire_companion_begone.tor_sm_swordmaster_companion" text="{=str_tor_hire_companion_begone_tor_sm_swordmaster_companion}Leave, before my sword parts your head from your neck." />
 </strings>

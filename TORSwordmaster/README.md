@@ -152,8 +152,8 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 - Your next two strikes deal +100% 'Magical' damage, are unparryable and have 100% armor penetration.
 
 ## Swordmaster Companions
-- Currently only recruitable by a Swordmaster (Might expand to Eonir, in general, as it is an interesting companion / class type fulfilling a pseudo priest role)
-- Cost 50k and 500 Favor
+- Found as a wanderer in Eonir towns.
+- Costs 10,000 or 15,000 gold to hire, depending on armour.
 - Starts in Rusty version of Queen's Champion gear
 - Skills: 140 Two-Handed, Athletics 110, One-Handed 60, Faith 60.
 - Companion version of Swordmaster abilities with a shared cooldown.

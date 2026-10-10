@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NPCCharacters>
-  <NPCCharacter id="tor_sm_swordmaster_companion" default_group="Infantry" level="16" name="{=str_tor_sm_swordmaster_companion}Swordmaster" occupation="Soldier" culture="Culture.eonir" skill_template="SkillSet.tor_sm_swordmaster_skills" race="elf" is_hidden_encyclopedia="true">
+  <NPCCharacter id="tor_sm_swordmaster_companion" default_group="Infantry" level="16" name="{=str_tor_sm_swordmaster_companion}{FIRSTNAME} the Swordmaster" occupation="Wanderer" is_template="true" is_hero="false" culture="Culture.eonir" skill_template="SkillSet.tor_sm_swordmaster_skills" race="elf" is_hidden_encyclopedia="true">
     <face>
       <face_key_template value="BodyProperty.male_wood_elf" />
       <hair_tags>
