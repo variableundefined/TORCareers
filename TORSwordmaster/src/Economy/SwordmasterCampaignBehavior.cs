@@ -153,8 +153,13 @@ namespace TORSwordmaster.Economy
                         explanation = new TextObject("{=sm_envoy_companion_limit}You have reached your companion limit.");
                         return false;
                     }
-                    explanation = new TextObject("{=sm_envoy_cannot_afford}You cannot afford this.");
-                    return SwordmasterCompanions.CanAfford();
+                    if (!SwordmasterCompanions.CanAfford())
+                    {
+                        explanation = new TextObject("{=sm_envoy_cannot_afford}You cannot afford this.");
+                        return false;
+                    }
+                    explanation = TextObject.GetEmpty();
+                    return true;
                 });
 
             starter.AddPlayerLine("sm_candidate_leave", "sm_candidate_choice", "close_window",
