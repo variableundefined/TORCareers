@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item id="FlightOfThePhoenix" name="{=str_sm_flight_of_the_phoenix}Flight of the Phoenix" mesh="torch_flame_base" flying_mesh="magical_projectile" holster_mesh="stone_holster" holster_mesh_with_weapon="stone_holster" holster_body_name="bo_axe_short" weight="0.5" appearance="1" Type="Bullets" culture="Culture.eonir" value="500" is_merchandise="false" body_name="bo_capsule_arrow" item_holsters="throwing_stone:throwing_stone_2" holster_position_shift="0,0,0">
+  <Item id="FlightOfThePhoenix" name="{=str_sm_flight_of_the_phoenix}Flight of the Phoenix" mesh="torch_flame_base" flying_mesh="tor_he_greatsword_blade_001" holster_mesh="stone_holster" holster_mesh_with_weapon="stone_holster" holster_body_name="bo_axe_short" weight="0.5" appearance="1" Type="Bullets" culture="Culture.eonir" value="500" is_merchandise="false" body_name="bo_capsule_arrow" item_holsters="throwing_stone:throwing_stone_2" holster_position_shift="0,0,0">
     <ItemComponent>
-      <Weapon weapon_class="Undefined" stack_amount="30" position="0,0,0" rotation="180,0,0" rotation_speed="0,0,0" sticking_position="0,-0.47,0" sticking_rotation="90,0,0" missile_speed="10" thrust_damage="1" thrust_speed="0" speed_rating="0" thrust_damage_type="Pierce" item_usage="" physics_material="missile" center_of_mass="0,0,-0.1">
-        <WeaponFlags AttachAmmoToVisual="true" Consumable="true" AmmoBreaksOnBounceBack="false" CanPenetrateShield="true" />
+      <Weapon weapon_class="Undefined" stack_amount="30" position="0,0,0" rotation="0,0,0" rotation_speed="0,0,0" sticking_position="0,-0.47,0" sticking_rotation="90,0,0" missile_speed="60" thrust_damage="125" thrust_speed="0" speed_rating="0" thrust_damage_type="Pierce" item_usage="" physics_material="missile" center_of_mass="0,0,-0.1">
+        <WeaponFlags AttachAmmoToVisual="true" Consumable="true" AmmoBreaksOnBounceBack="false" CanPenetrateShield="true" MultiplePenetration="true" />
       </Weapon>
     </ItemComponent>
-    <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    <Flags ForceAttachOffHandPrimaryItemBone="true" CannotBePickedUp="true" />
   </Item>
 </Items>

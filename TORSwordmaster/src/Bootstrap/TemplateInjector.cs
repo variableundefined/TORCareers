@@ -40,6 +40,9 @@ namespace TORSwordmaster.Bootstrap
             var traits = Load<ItemTrait>("swordmaster_itemtraits.xml", "ItemTraits");
             if (traits != null)
                 ItemTrait.All.AddRange(traits.Where(t => ItemTraitManager.Instance.GetItemTraitByStringId(t.ItemTraitStringId) == null).ToList());
+
+            var itemProperties = Path.Combine(ModuleHelper.GetModuleFullPath("TORSwordmaster"), "ModuleData", "swordmaster_extendeditemproperties.xml");
+            ExtendedItemObjectManager.LoadXML(itemProperties);
         }
 
         private static void Add<T>(List<T> parsed, Dictionary<string, T> target, System.Func<T, string> id)

@@ -44,20 +44,20 @@
                      CoolDown="15"
                      WindsOfMagicCost="0"
                      BaseMisCastChance="0"
-                     Duration="0.3"
+                     Duration="0.5"
                      Radius="0.4"
                      AbilityType="Prayer"
                      AbilityEffectType="Projectile"
-                     BaseMovementSpeed="50"
+                     BaseMovementSpeed="60"
                      TickInterval="1"
                      TriggerType="OnStop"
-                     HasLight="true"
+                     HasLight="false"
                      LightIntensity="50"
                      LightRadius="6"
                      LightFlickeringMagnitude="3"
                      LightFlickeringInterval="0.7"
                      ShadowCastEnabled="true"
-                     ParticleEffectPrefab="dart_particle"
+                     ParticleEffectPrefab=""
                      ParticleEffectSizeModifier="1"
                      SoundEffectToPlay=""
                      ShouldSoundLoopOverDuration="false"
@@ -68,9 +68,9 @@
                      CrosshairType="Missile"
                      AbilityTargetType="WorldPosition"
                      MinDistance="3"
-                     MaxDistance="15"
+                     MaxDistance="30"
                      SpellTier="1"
-                     TooltipDescription="{=sm_flight_of_the_phoenix_tooltip_str}Costs 10% charge. Short-range projectile, stops on the first enemy, ignoring armor, dealing physical damage. Shield piercing. 50 damage to the first enemy, then 35 damage in a 6m line behind them. Damage +0.2% per point in your highest melee skill.">
+                     TooltipDescription="{=sm_flight_of_the_phoenix_tooltip_str}Costs 10% charge. Hurls a conjured blade that pierces shields and every enemy in its path. It has 125 Pierce damage and 50% armour penetration. Range 30m.">
         <LightColorRGB x="255" y="170" z="0" w="-1">
             <AsVec2><x>255</x><y>170</y></AsVec2>
         </LightColorRGB>

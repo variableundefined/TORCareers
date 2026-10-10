@@ -14,12 +14,6 @@
     <TriggeredEffectTemplate StringID="sm_master_magical" BurstParticleEffectPrefab="purple_particle_explosion" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Magical" DamageAmount="1" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
                              ScriptNameToTrigger="none" />
-    <TriggeredEffectTemplate StringID="sm_phoenix_strike" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
-                             DamageType="Physical" DamageAmount="50" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
-                             ScriptNameToTrigger="none" />
-    <TriggeredEffectTemplate StringID="sm_phoenix_line" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
-                             DamageType="Physical" DamageAmount="35" Radius="6" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
-                             ScriptNameToTrigger="none" />
     <TriggeredEffectTemplate StringID="sm_phoenix_bleed" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="0" Radius="6" HasShockWave="false" TargetType="Enemy"
                              ImbuedStatusEffectDuration="6" DamageVariance="0" ScriptNameToTrigger="none">

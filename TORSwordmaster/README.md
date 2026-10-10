@@ -133,9 +133,7 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 
 **Flight of the Phoenix (Base):**
 
-- Short-range projectile, stops on the first enemy, ignoring armor, dealing physical damage. Shield piercing.
-- 50 damage to the first enemy, then 35 damage in a 6m line behind them.
-- Damage +0.2% per point in your highest melee skill.
+- Hurls a conjured blade that pierces shields and every enemy in its path. It has 125 Pierce damage and 50% armour penetration. Range 30m.
 
 **Shadows of Loec (Novice):**
 
