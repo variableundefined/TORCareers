@@ -44,12 +44,12 @@ namespace TORMiscTweaks.Eonir
                 return;
             }
 
-            starter.AddGameMenuOption("town", "tmt_witch_king_envoy",
+            starter.AddGameMenuOption("town_keep", "tmt_witch_king_envoy",
                 "{=tmt_witch_king_envoy}Trade prisoners with the Witch King Envoy",
-                CanTrade, Trade);
-            starter.AddGameMenuOption("town", "tmt_witch_king_envoy_sell_all",
+                CanTrade, Trade, false, 3);
+            starter.AddGameMenuOption("town_keep", "tmt_witch_king_envoy_sell_all",
                 "{=tmt_witch_king_envoy_sell_all}Sell all prisoners to the Witch King Envoy",
-                CanSellAll, SellAll);
+                CanSellAll, SellAll, false, 4);
         }
 
         private static EonirFavorEnvoyTownBehavior EnvoyBehavior =>
