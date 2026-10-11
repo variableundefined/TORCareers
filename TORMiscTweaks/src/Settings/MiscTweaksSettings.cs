@@ -18,5 +18,15 @@ namespace TORMiscTweaks.Settings
             HintText = "Improved Companion Search with bigger radius for TOR companions.")]
         [SettingPropertyGroup("Companion Search", GroupOrder = 0)]
         public bool CompanionSearchEnabled { get; set; } = true;
+
+        [SettingPropertyBool("Toggle Witch King Envoy menu in Town", IsToggle = true, Order = 0, RequireRestart = false,
+            HintText = "Adds an option to access the Witch King prisoner sell menu immediately from the town menu.")]
+        [SettingPropertyGroup("Eonir", GroupOrder = 1)]
+        public bool WitchKingEnvoyMenuEnabled { get; set; } = true;
+
+        [SettingPropertyBool("Sell all prisoners to Witch King Envoy", Order = 1, RequireRestart = false,
+            HintText = "Quick access for people who are already grinding.")]
+        [SettingPropertyGroup("Eonir", GroupOrder = 1)]
+        public bool WitchKingEnvoySellAllEnabled { get; set; } = true;
     }
 }

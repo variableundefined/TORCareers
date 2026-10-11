@@ -5,6 +5,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
+using TORMiscTweaks.Eonir;
 
 namespace TORMiscTweaks
 {
@@ -30,6 +31,8 @@ namespace TORMiscTweaks
             base.OnGameStart(game, gameStarterObject);
             if (!(game.GameType is Campaign)) return;
             if (!(gameStarterObject is CampaignGameStarter starter)) return;
+
+            Feature("Witch King Envoy menu", () => starter.AddBehavior(new WitchKingEnvoyMenu()));
         }
 
         private static void Feature(string name, Action patch)
