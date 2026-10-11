@@ -5,6 +5,7 @@ obj/
 *.suo
 *.log
 
-**/art/reference/
+**/art/
+**/FLAVOR_TEXT.md
 
 tools/

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SkillSets>
+	<SkillSet id="tor_sm_swordmaster_skills">
+		<skill id="TwoHanded" value="140" />
+		<skill id="Athletics" value="110" />
+		<skill id="OneHanded" value="60" />
+		<skill id="Faith" value="60" />
+	</SkillSet>
+</SkillSets>

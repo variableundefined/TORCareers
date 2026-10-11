@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<ArrayOfCharacterCreationOption xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CharacterCreationOption Id="option_3_eo_swordmaster" Culture="eonir" StageNumber="3" EquipmentSetId="tor_cc_eo_swordmaster_3">
+		<SkillsToIncrease>
+			<string>TwoHanded</string>
+			<string>TwoHanded</string>
+			<string>Athletics</string>
+			<string>Faith</string>
+		</SkillsToIncrease>
+		<AttributeToIncrease>Vigor</AttributeToIncrease>
+		<OptionText>{=tor_cc_option_3_eo_swordmaster_label_str}Initiate Swordmaster</OptionText>
+		<PositiveEffectText>{=tor_cc_option_3_eo_swordmaster_effect_str}Swordmaster Career</PositiveEffectText>
+		<OptionFlavourText>{=tor_cc_option_3_eo_swordmaster_text_str}Your martial talents have earned the attention of a Swordmaster, who took you in as one of their apprentices. Given an inexpensive greatsword, you set out to prove your skills and perfect your techniques in battle.</OptionFlavourText>
+	</CharacterCreationOption>
+</ArrayOfCharacterCreationOption>
