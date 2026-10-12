@@ -19,7 +19,11 @@ namespace TORSwordmaster.Abilities
         internal const string FallingWaterBurst = "sm_falling_water";
         internal const string SunAura = "sm_sun_aura";
         internal const string SunHoeth = "sm_sun_hoeth";
-        internal const string LoecKnockdown = "sm_loec_knockdown";
+        internal const string LoecVanish = "sm_loec_vanish";
+        internal const string LoecSpeed = "sm_loec_speed";
+
+        private const float LoecBaseDuration = 4f;
+        private const float LoecDurationPerAthletics = 0.02f;
         internal const string MasterPhysical = "sm_master_physical";
         internal const string MasterMagical = "sm_master_magical";
 
@@ -47,7 +51,10 @@ namespace TORSwordmaster.Abilities
 
         internal static void OnLoecCast(Agent caster)
         {
-            Trigger(LoecKnockdown, Technique.Loec, caster.Position, caster);
+            Trigger(LoecVanish, Technique.Loec, caster.Position, caster);
+
+            var athletics = caster.Character?.GetSkillValue(DefaultSkills.Athletics) ?? 0;
+            Effects.Apply(caster, LoecSpeed, LoecBaseDuration + LoecDurationPerAthletics * athletics, caster);
         }
 
         internal static void OnSunCast(Agent caster)

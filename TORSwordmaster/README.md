@@ -126,7 +126,7 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 |---|---|---|
 | Way of the Sword | Requires 100%, refills on entry | - |
 | Flight of the Phoenix | 10% | 15s |
-| Shadows of Loec | 10% | 15s |
+| Shadows of Loec | 10% | 20s |
 | Path of the Sun | 40% | 30s |
 | Path of Falling Water | 50% | 20s |
 | Master's Strike | 50% | 30s |
@@ -137,7 +137,7 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 
 **Shadows of Loec (Novice):**
 
-- Knocks down foes within 5m and gains +75% Movement Speed for 6s, only works on foot.
+- Gains +75% Movement Speed for 4s, +0.02s per point in 'Athletics', only works on foot.
 
 **Path of the Sun (Adept):**
 
@@ -162,7 +162,7 @@ Way of the Sword will be the magic "school" name, five techniques. They are Pray
 | Technique | Companion cooldown |
 |---|---|
 | Flight of the Phoenix | 15s |
-| Shadows of Loec | 15s |
+| Shadows of Loec | 20s |
 | Path of the Sun | 30s |
 | Path of Falling Water | 20s |
 

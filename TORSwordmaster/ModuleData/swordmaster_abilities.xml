@@ -79,7 +79,7 @@
     <AbilityTemplate StringID="ShadowsOfLoec"
                      Name="{=sm_shadows_of_loec_label_str}Shadows of Loec"
                      SpriteName="sm_shadows_of_loec_icon"
-                     CoolDown="15"
+                     CoolDown="20"
                      WindsOfMagicCost="0"
                      BaseMisCastChance="0"
                      Duration="1"
@@ -108,11 +108,10 @@
                      MaxDistance="1"
                      CrosshairType="Self"
                      SpellTier="1"
-                     TooltipDescription="{=sm_shadows_of_loec_tooltip_str}Costs 10% charge. Knocks down foes within 5m and gains +75% Movement Speed for 6s, only works on foot.">
+                     TooltipDescription="{=sm_shadows_of_loec_tooltip_str}Costs 10% charge. Gains +75% Movement Speed for 4s, +0.02s per point in 'Athletics', only works on foot.">
         <LightColorRGB x="255" y="255" z="255" w="-1">
             <AsVec2><x>255</x><y>255</y><z>255</z></AsVec2>
         </LightColorRGB>
-        <TriggeredEffect>sm_loec_haste</TriggeredEffect>
     </AbilityTemplate>
 
     <AbilityTemplate StringID="PathOfTheSun"

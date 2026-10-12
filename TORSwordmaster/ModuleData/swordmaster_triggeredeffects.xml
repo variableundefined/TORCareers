@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TriggeredEffectTemplates>
-    <TriggeredEffectTemplate StringID="sm_loec_knockdown" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
-                             DamageType="Physical" DamageAmount="0" Radius="5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
-                             ScriptNameToTrigger="TOR_Core.BattleMechanics.TriggeredEffect.Scripts.KnockDownScript" />
-    <TriggeredEffectTemplate StringID="sm_loec_haste" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
-                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self"
-                             ImbuedStatusEffectDuration="6" DamageVariance="0" ScriptNameToTrigger="none">
-        <ImbuedStatusEffect>sm_loec_speed</ImbuedStatusEffect>
-    </TriggeredEffectTemplate>
+    <TriggeredEffectTemplate StringID="sm_loec_vanish" BurstParticleEffectPrefab="wind_blast" SoundEffectId="none" SoundEffectLength="0"
+                             DamageType="Physical" DamageAmount="0" Radius="1" HasShockWave="false" TargetType="Self" DamageVariance="0"
+                             ScriptNameToTrigger="none" />
     <TriggeredEffectTemplate StringID="sm_master_physical" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="1" Radius="0.5" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
                              ScriptNameToTrigger="none" />
@@ -25,7 +20,7 @@
     <TriggeredEffectTemplate StringID="sm_phoenix_companion" BurstParticleEffectPrefab="psys_fireball_explosion_1" SoundEffectId="fireball_explosion" SoundEffectLength="2.5"
                              DamageType="Physical" DamageAmount="80" Radius="1" HasShockWave="false" TargetType="Enemy" DamageVariance="0"
                              ScriptNameToTrigger="none" />
-    <TriggeredEffectTemplate StringID="sm_falling_water" BurstParticleEffectPrefab="blue_particle_explosion" SoundEffectId="none" SoundEffectLength="0"
+    <TriggeredEffectTemplate StringID="sm_falling_water" BurstParticleEffectPrefab="treeman_smash" SoundEffectId="none" SoundEffectLength="0"
                              DamageType="Physical" DamageAmount="60" Radius="4" HasShockWave="false" TargetType="Enemy" DamageVariance="0.05"
                              ScriptNameToTrigger="none" />
     <TriggeredEffectTemplate StringID="sm_sun_aura" BurstParticleEffectPrefab="none" SoundEffectId="none" SoundEffectLength="0"
